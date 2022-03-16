@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.customer.valid.ValidCustomerVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            android:gravity="center"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_valid_customer_display_text_title)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/screen_valid_customer_display_text_title" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPlaceHolder"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_230sdp"
+            android:layout_marginTop="@dimen/pk_margin_xl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:srcCompat="@drawable/pk_ic_information_missing" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDescription"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium_large"
+            android:gravity="center"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_valid_customer_display_text_description))}"
+            app:layout_constraintBottom_toTopOf="@id/btnGoToDashboard"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/ivPlaceHolder"
+            app:layout_constraintVertical_bias="0.22"
+            tools:text="@string/screen_valid_customer_display_text_description" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGoToDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_small"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:layout_marginBottom="@dimen/pk_margin_large"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_order_success_button_go_to_dashboard)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1"
+            tools:text="@string/screen_card_order_success_button_go_to_dashboard" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

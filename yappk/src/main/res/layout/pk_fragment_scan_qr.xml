@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.qrcode.scanqr.ScanQrVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.dlazaro66.qrcodereaderview.QRCodeReaderView
+            android:id="@+id/qrCodeReaderView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivOverLay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_small"
+            android:onClick="@{viewModel::onClick}"
+            android:src="@drawable/pk_ic_close_white_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvScanToProceed"
+            style="@style/Yap.Pk.Widget.TextView.WhiteColor.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/_135sdp"
+            android:background="@drawable/pk_cornor_edges_black"
+            android:gravity="center"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_fragment_qr_code_text_scan_to_proceed)}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_fragment_qr_code_text_scan_to_proceed" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLibrary"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:onClick="@{viewModel::onClick}"
+            app:layout_constraintEnd_toEndOf="@id/tvScanToProceed"
+            app:layout_constraintTop_toBottomOf="@id/tvScanToProceed"
+            app:srcCompat="@drawable/pk_ic_image_library" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvImageLibrary"
+            style="@style/Yap.Pk.Widget.TextView.WhiteColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:gravity="center"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_fragment_qr_code_text_image_library)}"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/ivLibrary"
+            app:layout_constraintStart_toStartOf="@id/ivLibrary"
+            app:layout_constraintTop_toBottomOf="@id/ivLibrary"
+            tools:text="@string/screen_fragment_qr_code_text_image_library" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMyQrCode"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/margin_extra_large"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:onClick="@{viewModel::onClick}"
+            app:layout_constraintStart_toStartOf="@id/tvScanToProceed"
+            app:layout_constraintTop_toBottomOf="@id/tvScanToProceed"
+            app:srcCompat="@drawable/pk_ic_qr_code" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMyQrCode"
+            style="@style/Yap.Pk.Widget.TextView.WhiteColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:gravity="center"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_fragment_qr_code_text_my_qr_code)}"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/ivMyQrCode"
+            app:layout_constraintStart_toStartOf="@id/ivMyQrCode"
+            app:layout_constraintTop_toBottomOf="@id/ivMyQrCode"
+            tools:text="@string/screen_fragment_qr_code_text_my_qr_code" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dashboard_nav_home"
+        android:icon="@drawable/pk_ic_bottom_navigaion_home"
+        android:title="@string/screen_dashboard_bottom_bar_home_text" />
+    <item
+        android:id="@+id/dashboard_nav_store"
+        android:icon="@drawable/pk_ic_bottom_navigaion_store"
+        android:title="@string/screen_dashboard_bottom_bar_store_text" />
+    <item
+        android:id="@+id/yapIt"
+        android:enabled="false"
+        android:title="@string/screen_dashboard_bottom_bar_yap_it_text" />
+    <item
+        android:id="@+id/dashboard_nav_cards"
+        android:icon="@drawable/pk_ic_bottom_navigaion_cards"
+        android:title="@string/screen_dashboard_bottom_bar_cards_text" />
+    <item
+        android:id="@+id/dashboard_nav_more"
+        android:icon="@drawable/pk_ic_bottom_navigaion_more"
+        android:title="@string/screen_dashboard_bottom_bar_more_text" />
+
+</menu>

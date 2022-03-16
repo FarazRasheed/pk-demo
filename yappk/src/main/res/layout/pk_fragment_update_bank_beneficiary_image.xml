@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.bankbeneficiarydetail.updateprofileimage.UpdateBankBeneficiaryImageVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/pk_margin_extra_large"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/btnUsePhoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/pk_ic_profile" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginStart="@dimen/pk_margin_normal_large"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:onClick="@{viewModel::onClick}"
+            android:src="@drawable/pk_ic_close_white_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUsePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_use_photo)}"
+            app:layout_constraintBottom_toTopOf="@+id/btnRetake"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1"
+            tools:text="@string/screen_bank_transfer_beneficiary_detail_use_photo" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRetake"
+            style="@style/Yap.Pk.Widget.Button.TextButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/pk_margin_medium_small"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_retake)}"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/pk_text_size_h5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_bank_transfer_beneficiary_detail_retake" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signin_nav_graph"
+    app:startDestination="@id/loginPasscodeFragment">
+
+    <fragment
+        android:id="@+id/loginPasscodeFragment"
+        android:name="com.yap.yappk.pk.ui.auth.loginpasscode.LoginPasscodeFragment"
+        android:label="LoginPasscodeFragment"
+        tools:layout="@layout/fragment_login_passcode">
+        <action
+            android:id="@+id/action_loginPasscodeFragment_to_loginOTPVerificationFragment"
+            app:destination="@id/loginOTPVerificationFragment" />
+        <action
+            android:id="@+id/action_loginPasscodeFragment_to_biometricPermissionFragment"
+            app:destination="@id/biometricPermissionFragment" />
+        <action
+            android:id="@+id/action_loginPasscodeFragment_to_reachedQueueTopFragment"
+            app:destination="@id/reachedQueueTopFragment" />
+        <action
+            android:id="@+id/action_loginPasscodeFragment_to_forgot_passcode_nav_graph"
+            app:destination="@id/forgot_passcode_nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginOTPVerificationFragment"
+        android:name="com.yap.yappk.pk.ui.auth.otpverification.LoginOTPVerificationFragment"
+        android:label="LoginOTPVerificationFragment"
+        tools:layout="@layout/fragment_login_otp_verification">
+        <action
+            android:id="@+id/action_loginOTPVerificationFragment_to_biometricPermissionFragment"
+            app:destination="@id/biometricPermissionFragment" />
+        <action
+            android:id="@+id/action_loginOTPVerificationFragment_to_reachedQueueTopFragment"
+            app:destination="@id/reachedQueueTopFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometricPermissionFragment"
+        android:name="com.yap.yappk.pk.ui.auth.biometric.BiometricPermissionFragment"
+        android:label="BiometricPermissionFragment"
+        tools:layout="@layout/fragment_permission_settings">
+        <action
+            android:id="@+id/action_biometricPermissionFragment_self"
+            app:destination="@id/biometricPermissionFragment" />
+        <action
+            android:id="@+id/action_biometricPermissionFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.webview.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/pk_fragment_webview" />
+
+    <fragment
+        android:id="@+id/reachedQueueTopFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.topqueue.ReachedQueueTopFragment"
+        android:label="ReachedQueueTopFragment"
+        tools:layout="@layout/fragment_reached_queue_top" />
+    <include app:graph="@navigation/pk_forgot_passcode_nav_graph" />
+    <include app:graph="@navigation/pk_card_pin_nav_graph" />
+
+</navigation>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_detail_nav_graph"
+    app:startDestination="@id/primaryCardDetailFragment">
+
+    <fragment
+        android:id="@+id/primaryCardDetailFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.carddetail.primarycarddetaildashboard.PrimaryCardDetailDashboardFragment"
+        android:label="CardDetailFragment"
+        tools:layout="@layout/fragment_card_detail" >
+        <action
+            android:id="@+id/action_primaryCardDetailFragment_to_cardLimitFragment"
+            app:destination="@id/cardLimitFragment" />
+        <action
+            android:id="@+id/action_primaryCardDetailFragment_to_pk_change_card_pin_nav_graph"
+            app:destination="@id/pk_change_card_pin_nav_graph" />
+        <action
+            android:id="@+id/action_primaryCardDetailFragment_to_nameYouCardFragment"
+            app:destination="@id/nameYouCardFragment" />
+        <action
+            android:id="@+id/action_primaryCardDetailFragment_to_pk_forgot_card_pin_nav_graph"
+            app:destination="@id/pk_forgot_card_pin_nav_graph" />
+        <action
+            android:id="@+id/action_primaryCardDetailFragment_to_reportCardFragment"
+            app:destination="@id/reportCardFragment" />
+        <action
+            android:id="@+id/action_primaryCardDetailFragment_to_cardTransactionFilterFragment"
+            app:destination="@id/cardTransactionFilterFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/cardLimitFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.carddetail.cardlimit.CardLimitFragment"
+        android:label="CardLimitFragment"
+        tools:layout="@layout/fragment_card_limit" />
+
+    <include app:graph="@navigation/pk_change_card_pin_nav_graph" />
+    <fragment
+        android:id="@+id/nameYouCardFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.carddetail.primarycarddetaildashboard.cardname.NameYouCardFragment"
+        android:label="NameYouCardFragment"
+        tools:layout="@layout/pk_fragment_name_your_card"/>
+    <include app:graph="@navigation/pk_forgot_card_pin_nav_graph" />
+    <fragment
+        android:id="@+id/reportCardFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.carddetail.primarycarddetaildashboard.report.ReportCardFragment"
+        android:label="ReportCardFragment"
+        tools:layout="@layout/pk_fragment_report_card"/>
+    <fragment
+        android:id="@+id/cardTransactionFilterFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.carddetail.primarycarddetaildashboard.cardtransactionfilter.CardTransactionFilterFragment"
+        android:label="CardTransactionFilterFragment"
+        tools:layout="@layout/fragment_card_transaction_filter"/>
+
+</navigation>

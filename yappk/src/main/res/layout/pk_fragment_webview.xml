@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.webview.WebViewVM" />
+
+    </data>
+
+    <com.yap.uikit.widget.multiStateView.MultiStateLayout
+        android:id="@+id/multiStateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:uikit_msv_animateViewChanges="false"
+        app:uikit_msv_emptyView="@layout/pk_layout_empty_view_no_results"
+        app:uikit_msv_errorView="@layout/pk_layout_error_view"
+        app:uikit_msv_loadingView="@layout/pk_layout_loading_view"
+        app:uikit_msv_viewState="content">
+
+        <com.yap.uikit.widget.webview.AdvancedWebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.yap.uikit.widget.multiStateView.MultiStateLayout>
+</layout>

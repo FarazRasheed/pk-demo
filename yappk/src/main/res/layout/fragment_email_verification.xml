@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.email.EmailVerificationVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rootContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvHeadingName"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+                android:layout_marginTop="@dimen/pk_margin_small"
+                android:layout_marginBottom="@dimen/pk_margin_heading_to_field"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_email_verification_screen_title_text)}"
+                android:textSize="@dimen/pk_text_size_h3"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_email_verification_screen_title_text" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etEmail"
+                style="@style/Yap.Pk.Widget.TextInputLayout.OutLined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+                android:layout_marginTop="@dimen/pk_margin_xl"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_email_verification_screen_email_address)}"
+                app:endIconDrawable="@{viewModel.viewState.isValid ? @drawable/pk_ic_tick : null}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeadingName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_email_verification_screen_email_address)}"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress"
+                    android:onTextChanged="@{viewModel::onEmailTextChanged}"
+                    android:singleLine="true"
+                    android:text="@={viewModel.viewState.email}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvGuide"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginEnd="@dimen/pk_margin_medium"
+                android:layout_marginBottom="@dimen/pk_margin_medium"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_email_verification_screen_guide)}"
+                app:layout_constraintBottom_toTopOf="@+id/btnNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEmail"
+                app:layout_constraintVertical_bias="1"
+                tools:text="@string/screen_email_verification_screen_guide" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:enabled="@{viewModel.viewState.isValid , default = false}"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.common_button_next)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.98"
+                tools:text="@string/common_button_next" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.cardorder.cardbenefits.CardSchemeBenefitsVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCover"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_320sdp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/mastercard_cover" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginStart="@dimen/pk_margin_large"
+            android:layout_marginTop="@dimen/pk_margin_medium_large"
+            android:onClick="@{viewModel::onClick}"
+            android:src="@drawable/pk_ic_close_white_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivCover">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:titleCollapseMode="fade">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCardScheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/pk_margin_medium_large"
+                        app:layout_collapseMode="pin"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivCardLogo"
+                            android:layout_width="@dimen/_55sdp"
+                            android:layout_height="@dimen/_55sdp"
+                            android:layout_marginStart="@dimen/pk_margin_medium"
+                            android:layout_marginTop="@dimen/pk_margin_medium_large"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@drawable/mastercard_logo" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvCardName"
+                            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/pk_margin_normal"
+                            android:layout_marginEnd="@dimen/pk_margin_small"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/ivCardLogo"
+                            app:layout_constraintTop_toTopOf="@id/ivCardLogo"
+                            tools:text="Card balance" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvCardDescription"
+                            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/pk_margin_normal"
+                            android:layout_marginEnd="@dimen/pk_margin_small"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/ivCardLogo"
+                            app:layout_constraintTop_toBottomOf="@id/tvCardName"
+                            tools:text="Card balance" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <com.yap.uikit.widget.multiStateView.MultiStateLayout
+                android:id="@+id/multiStateView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:animateLayoutChanges="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:uikit_msv_animateViewChanges="false"
+                app:uikit_msv_emptyView="@layout/pk_layout_empty_view_no_transaction"
+                app:uikit_msv_errorView="@layout/pk_layout_error_view"
+                app:uikit_msv_viewState="content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBenefits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_200sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/pk_layout_scheme_benefit_item" />
+            </com.yap.uikit.widget.multiStateView.MultiStateLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_normal_large"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.common_button_select)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1"
+            tools:text="@string/common_button_select" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

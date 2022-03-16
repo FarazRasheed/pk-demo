@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.addbeneficiary.accountdetails.BeneficiaryAccountDetailsVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/pk_margin_medium"
+            android:paddingEnd="@dimen/pk_margin_medium">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLabel"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_marginTop="@dimen/pk_margin_extra_large2"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_beneficiary_account_details_display_text_title)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_beneficiary_account_details_display_text_title" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAccountTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:background="@drawable/pk_bg_card_white_round"
+                android:paddingTop="@dimen/pk_margin_normal"
+                android:paddingBottom="@dimen/pk_margin_extra_large"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabel">
+
+                <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+                    android:id="@+id/ivBankLogo"
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvBankName"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+                    android:layout_marginTop="@dimen/pk_margin_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivBankLogo"
+                    tools:text="@string/screen_fetch_beneficiary_display_text_title" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAccountNumber"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                    android:layout_marginTop="@dimen/pk_margin_three_dp"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBankName"
+                    tools:text="@string/screen_beneficiary_account_details_display_text_iban_or_account_no" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBenFoundTitle"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_beneficiary_account_details_display_text_beneficiary_found)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clAccountTitle"
+                tools:text="@string/screen_beneficiary_account_details_display_text_beneficiary_found" />
+
+            <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+                android:id="@+id/ivBeneficiaryIcon"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBenFoundTitle" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBenName"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                android:maxLines="2"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBeneficiaryIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBeneficiaryIcon"
+                app:layout_constraintTop_toTopOf="@+id/ivBeneficiaryIcon"
+                tools:text="Sufyan Shabbir" />
+
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlNickName"
+                style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_large"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_beneficiary_account_details_display_text_heading_nick_name)}"
+                app:hintEnabled="true"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                app:layout_constraintTop_toBottomOf="@id/ivBeneficiaryIcon"
+                tools:hint="@string/screen_beneficiary_account_details_display_text_heading_nick_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAccountHolderNickName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_beneficiary_account_details_display_text_nick_name_hint)}"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapSentences"
+                    android:maxLength="26"
+                    android:maxLines="1"
+                    android:onTextChanged="@{viewModel::onTextChange}"
+                    android:paddingTop="33dp"
+                    android:paddingBottom="2dp"
+                    tools:text="@string/screen_beneficiary_account_details_display_text_nick_name_hint" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddBeneficiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium_large"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:enabled="@{viewModel.viewState.isValidaNickName, default = false}"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.common_button_confirm)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tlNickName"
+                app:layout_constraintVertical_bias="1"
+                tools:text="@string/common_button_confirm" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

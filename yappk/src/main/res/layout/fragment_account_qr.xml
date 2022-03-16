@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.accountqr.AccountQrVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pk_bg_qr_code">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/pk_margin_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pk_ic_close_white_bg" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivScan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pk_ic_scan_white_bg_pk" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvIbanCopy"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/purple_card"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:onClick="@{viewModel::onClick}"
+            android:paddingHorizontal="@dimen/pk_margin_normal_large"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_copy)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_account_detail_display_text_copy" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

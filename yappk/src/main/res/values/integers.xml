@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="pkBackgroundGroupCollapsed">0</integer>
+    <integer name="pkBackgroundGroupExpanded">1</integer>
+    <integer name="pkBackgroundFirstChild">2</integer>
+    <integer name="pkBackgroundLastChild">3</integer>
+    <integer name="pkBackgroundChild">4</integer>
+    <integer name="pkUnitsCount">10</integer>
+    <integer name="pkDecimalCount">2</integer>
+    <integer name="pkSpareCardName">50</integer>
+    <integer name="pkNameLimit">25</integer>
+    <integer name="pk_beneficiary_length">31</integer>
+    <integer name="pk_notes_external_transfer_length">30</integer>
+    <integer name="pk_notes_internal_transfer_length">30</integer>
+    <integer name="pk_swift_bank_name_length">35</integer>
+    <integer name="pk_swift_branch_name_length">35</integer>
+    <integer name="pk_swift_city_name_length">32</integer>
+    <integer name="pk_skeleton_layout_item_count">5</integer>
+    <integer name="pk_adp_code_default_length">4</integer>
+
+</resources>

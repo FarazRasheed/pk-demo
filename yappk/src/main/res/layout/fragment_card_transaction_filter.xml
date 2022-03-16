@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.carddetail.primarycarddetaildashboard.cardtransactionfilter.CardTransactionFilterVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_cross"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_card_transaction_filter_display_text_toolbar_title)}" />
+
+        <View
+            android:id="@+id/vTbLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:alpha="0.2"
+            android:background="?attr/pkSecondaryTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbView" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbRetails"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            android:button="@null"
+            android:checked="true"
+            android:drawableEnd="@drawable/pk_checkbox_selector"
+            android:gravity="center_vertical"
+            android:onCheckedChanged="@{viewModel::onCheckedChanged}"
+            android:paddingStart="@dimen/margin_medium"
+            android:paddingEnd="@dimen/margin_medium"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_limit_display_text_retail_payment)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vTbLine"
+            tools:text="@string/screen_card_limit_display_text_retail_payment" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbAtm"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:checked="true"
+            android:drawableEnd="@drawable/pk_checkbox_selector"
+            android:gravity="center_vertical"
+            android:onCheckedChanged="@{viewModel::onCheckedChanged}"
+            android:paddingStart="@dimen/margin_medium"
+            android:paddingEnd="@dimen/margin_medium"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_limit_display_text_atm)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbRetails"
+            tools:text="@string/screen_card_limit_display_text_atm" />
+
+        <View
+            android:id="@+id/vCbLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:alpha="0.2"
+            android:background="?attr/pkSecondaryTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbAtm" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vCbLine">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRangeTitle"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/_18sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_card_limit_display_text_atm" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTransStartRange"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_extra_small"
+                android:text="@{viewModel.viewState.minRange}"
+                app:layout_constraintRight_toLeftOf="@+id/vRangeDivider"
+                app:layout_constraintTop_toTopOf="@+id/tvRangeTitle"
+                tools:ignore="RtlHardcoded"
+                tools:text="0" />
+
+            <View
+                android:id="@+id/vRangeDivider"
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/margin_extra_small"
+                android:background="?attr/pkColorPrimaryLight"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTransEndRange"
+                app:layout_constraintRight_toLeftOf="@+id/tvTransEndRange"
+                app:layout_constraintTop_toTopOf="@+id/tvTransEndRange" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTransEndRange"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="@{viewModel.viewState.maxRange}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvRangeTitle"
+                tools:ignore="RtlHardcoded"
+                tools:text="6,500" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.yap.yappk.pk.utils.rangebar.RangeSeekBar
+            android:id="@+id/rsbAmount"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_52sdp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:elevation="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clRange"
+            app:rsb_max="20000"
+            app:rsb_min="0"
+            app:rsb_min_interval="5000"
+            app:rsb_mode="range"
+            app:rsb_progress_color="@color/fab_color"
+            app:rsb_progress_default_color="@color/pkLightProgress"
+            app:rsb_progress_height="@dimen/_4sdp"
+            app:rsb_progress_radius="@dimen/_2sdp"
+            app:rsb_thumb_drawable="@drawable/pk_ic_filter_thumb"
+            app:rsb_thumb_height="@dimen/_60sdp"
+            app:rsb_thumb_width="@dimen/_60sdp">
+
+        </com.yap.yappk.pk.utils.rangebar.RangeSeekBar>
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowFilterAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/margin_normal"
+            android:paddingBottom="@dimen/margin_small"
+            app:constraint_referenced_ids="btnClearFilter, btnApplyFilter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClearFilter"
+            style="@style/Yap.Pk.Widget.Button.TextButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_transaction_filter_btn_text_clear)}"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/pk_text_size_h6"
+            tools:text="@string/screen_card_transaction_filter_btn_text_clear" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApplyFilter"
+            style="@style/Yap.Pk.Widget.Button.Filled.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_transaction_filter_btn_text_apply)}"
+            tools:text="@string/screen_card_transaction_filter_btn_text_apply" />
+
+        <View
+            android:id="@+id/vBottomLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:alpha="0.2"
+            android:background="?attr/pkSecondaryTextColor"
+            app:layout_constraintBottom_toTopOf="@id/flowFilterAction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

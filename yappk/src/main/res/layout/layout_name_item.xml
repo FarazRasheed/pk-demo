@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/cbName"
+        style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pk_margin_small"
+        android:button="@null"
+        android:checked="true"
+        android:drawableStart="@drawable/pk_bg_circle_checkbox_selector"
+        android:drawablePadding="@dimen/pk_margin_medium_large"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vTbLine"
+        tools:text="@string/screen_card_limit_display_text_retail_payment" />
+
+</layout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.addbeneficiary.main.adapter.AddBeneficiaryStateModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.yap.uikit.widget.TimelineView
+            android:id="@+id/timeline"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_small"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/_8sdp"
+            app:endLineColor="@color/pkLightBlueGrey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lineOrientation="horizontal"
+            app:linePadding="@dimen/pk_margin_small"
+            app:lineRoundedCorner="true"
+            app:lineStyle="normal"
+            app:lineWidth="@dimen/_3sdp"
+            app:marker="@drawable/pk_ic_tick_enabled"
+            app:markerInCenter="false"
+            app:markerPaddingBottom="@dimen/_8sdp"
+            app:markerPaddingTop="@dimen/_8sdp"
+            app:markerSize="@dimen/_30sdp"
+            app:startLineColor="@color/pkTransparent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

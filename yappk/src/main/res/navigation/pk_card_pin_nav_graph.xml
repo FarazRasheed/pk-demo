@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_pin_nav_graph"
+    app:startDestination="@id/cardPinIntroFragment">
+
+    <fragment
+        android:id="@+id/cardPinIntroFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.createpin.cardpinintro.CardPinIntroFragment"
+        android:label="CardPinIntroFragment"
+        tools:layout="@layout/fragment_card_pin_intro">
+        <action
+            android:id="@+id/action_cardPinIntroFragment_to_cardPinEnterFragment"
+            app:destination="@id/cardPinEnterFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cardPinEnterFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.createpin.cardpinenter.CardPinEnterFragment"
+        android:label="CardPinEnterFragment"
+        tools:layout="@layout/fragment_card_pin_enter">
+        <action
+            android:id="@+id/action_cardPinEnterFragment_to_cardConfirmPinFragment"
+            app:destination="@id/cardConfirmPinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardConfirmPinFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.createpin.cardconfirmpin.CardConfirmPinFragment"
+        android:label="CardConfirmPinFragment"
+        tools:layout="@layout/fragment_card_confirm_pin">
+        <action
+            android:id="@+id/action_cardConfirmPinFragment_to_webViewFragment2"
+            app:destination="@id/webViewFragment2" />
+        <action
+            android:id="@+id/action_cardConfirmPinFragment_to_cardPinSuccessFragment"
+            app:destination="@id/cardPinSuccessFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webViewFragment2"
+        android:name="com.yap.yappk.pk.ui.onboarding.webview.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/pk_fragment_webview" />
+    <fragment
+        android:id="@+id/cardPinSuccessFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.createpin.cardpinsuccess.CardPinSuccessFragment"
+        android:label="CardPinSuccessFragment"
+        tools:layout="@layout/fragment_card_pin_success" />
+
+</navigation>

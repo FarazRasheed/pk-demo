@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.main.DashboardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/main_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_56sdp" />
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_56sdp"
+                android:layout_gravity="bottom"
+                android:background="@color/pkWhite"
+                app:buttonGravity="center_vertical"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:elevation="4dp"
+                app:fabAlignmentMode="center"
+                app:fabAnimationMode="scale"
+                app:fabCradleMargin="0dp"
+                app:fabCradleRoundedCornerRadius="0dp"
+                app:fabCradleVerticalOffset="5dp"
+                tools:visibility="visible">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    style="@style/Yap.Pk.Widget.BottomNavigationView"
+                    android:layout_height="match_parent"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/pk_bottom_navigation_menu" />
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+            <View
+                android:id="@+id/vCircle"
+                android:layout_width="@dimen/_64sdp"
+                android:layout_height="@dimen/_64sdp"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="-30dp"
+                android:background="@drawable/pk_bg_circle"
+                android:visibility="invisible" />
+
+            <View
+                android:id="@+id/vOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:background="@color/pkWhite"
+                android:onClick="@{viewModel::onClick}"
+                android:visibility="invisible" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabYapIt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/pkWhite"
+                android:backgroundTint="@color/pkWhite"
+                android:onClick="@{viewModel::onClick}"
+                android:src="@drawable/pk_ic_yap_it"
+                app:borderWidth="0dp"
+                app:fabCustomSize="@dimen/_48sdp"
+                app:layout_anchor="@id/bottomNavigationView"
+                app:layout_anchorGravity="center_horizontal"
+                app:maxImageSize="@dimen/_20sdp"
+                app:tint="@color/pkBlueWithAHintOfPurple" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_anchor="@id/bottomNavigationView">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabAddMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pk_margin_xxl"
+                    android:layout_marginBottom="@dimen/_150sdp"
+                    android:background="@color/pkWhite"
+                    android:backgroundTint="@color/fab_color"
+                    android:elevation="4dp"
+                    android:onClick="@{viewModel::onClick}"
+                    android:src="@drawable/pk_ic_add"
+                    android:visibility="invisible"
+                    app:borderWidth="0dp"
+                    app:fabCustomSize="@dimen/_54sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:maxImageSize="@dimen/_26sdp"
+                    app:tint="@color/pkWhite" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAddMoney"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_small"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_dashboard_bottom_bar_add_money_text)}"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/fabAddMoney"
+                    app:layout_constraintStart_toStartOf="@id/fabAddMoney"
+                    app:layout_constraintTop_toBottomOf="@id/fabAddMoney"
+                    tools:text="@string/screen_dashboard_bottom_bar_add_money_text" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabSendMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/pk_margin_xxl"
+                    android:layout_marginBottom="@dimen/_150sdp"
+                    android:background="@color/pkWhite"
+                    android:backgroundTint="@color/fab_color"
+                    android:elevation="4dp"
+                    android:onClick="@{viewModel::onClick}"
+                    android:src="@drawable/pk_ic_send"
+                    android:visibility="invisible"
+                    app:borderWidth="0dp"
+                    app:fabCustomSize="@dimen/_54sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:maxImageSize="@dimen/_26sdp"
+                    app:tint="@color/pkWhite" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvSendMoney"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_small"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_dashboard_bottom_bar_send_money_text)}"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/fabSendMoney"
+                    app:layout_constraintStart_toStartOf="@id/fabSendMoney"
+                    app:layout_constraintTop_toBottomOf="@id/fabSendMoney"
+                    tools:text="@string/screen_dashboard_bottom_bar_send_money_text" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabPayBills"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/pk_margin_xl"
+                    android:background="@color/pkWhite"
+                    android:backgroundTint="@color/fab_color"
+                    android:elevation="4dp"
+                    android:onClick="@{viewModel::onClick}"
+                    android:src="@drawable/pk_ic_split"
+                    android:visibility="invisible"
+                    app:borderWidth="0dp"
+                    app:fabCustomSize="@dimen/_54sdp"
+                    app:layout_constraintBottom_toTopOf="@id/fabSendMoney"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.48"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:maxImageSize="@dimen/_26sdp"
+                    app:tint="@color/pkWhite" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvPayBills"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_small"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_dashboard_bottom_bar_pay_bills_text)}"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/fabPayBills"
+                    app:layout_constraintStart_toStartOf="@id/fabPayBills"
+                    app:layout_constraintTop_toBottomOf="@id/fabPayBills"
+                    tools:text="@string/screen_dashboard_bottom_bar_pay_bills_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

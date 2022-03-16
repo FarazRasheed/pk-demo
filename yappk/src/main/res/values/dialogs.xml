@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PkAlertDialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="buttonBarPositiveButtonStyle">@style/Pk.Alert.Button.Positive</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Pk.Alert.Button.Neutral</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Pk.Alert.Button.Neutral</item>
+    </style>
+
+    <style name="Pk.Alert.Button.Positive" parent="Yap.Pk.Widget.Button.TextButton.Small">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Pk.Alert.Button.Neutral" parent="Yap.Pk.Widget.Button.TextButton.Small">
+        <item name="android:textColor">@color/pkBlueGrey</item>
+    </style>
+
+    <style name="PkMaterialAlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/PkMaterialAlertDialog.App</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/PkMaterialAlertDialog.Theme.Title</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Pk.Alert.Button.Positive</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Pk.Alert.Button.Neutral</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Pk.Alert.Button.Neutral</item>
+    </style>
+
+    <style name="PkMaterialAlertDialog.App" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="shapeAppearance">@style/PkMaterialAlertDialog.App.MediumComponent</item>
+    </style>
+
+    <style name="PkMaterialAlertDialog.Theme.Title" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">@style/PkMaterialAlertDialog.TextAppearance</item>
+    </style>
+
+    <style name="PkMaterialAlertDialog.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="PkMaterialAlertDialog.TextAppearance" parent="@style/TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/pkBrightBlue</item>
+    </style>
+
+</resources>

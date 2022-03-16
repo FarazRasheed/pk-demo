@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.accountdetails.AccountDetailVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_toolbar_title)}" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_xl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbView"
+            app:srcCompat="@drawable/pk_ic_yap_text_logo" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvLabel"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium_large"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium_large"
+            android:gravity="center"
+            android:paddingStart="@dimen/pk_margin_medium_large"
+            android:paddingEnd="@dimen/pk_margin_medium_large"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_description)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+            tools:text="@string/screen_account_detail_display_text_description" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAccountTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLabel">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLableAccountTitle"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_account_title)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_account_detail_display_text_account_title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAccountTitle"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:text="@{viewModel.viewState.accountTitle}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLableAccountTitle"
+                tools:text="Jonathan Newport" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:alpha="0.5"
+                android:background="@color/pkLightBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAccountTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clIban"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clAccountTitle">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLableIban"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_iban)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_account_detail_display_text_iban" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvIban"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:layout_marginEnd="@dimen/pk_margin_extra_small"
+                android:text="@{viewModel.viewState.iban}"
+                app:layout_constraintEnd_toStartOf="@id/tvIbanCopy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLableIban"
+                tools:text="345612344567" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvIbanCopy"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/purple_card"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:onClick="@{viewModel::onClick}"
+                android:paddingHorizontal="@dimen/pk_margin_normal_large"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_copy)}"
+                app:layout_constraintBottom_toBottomOf="@id/tvIban"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvIban"
+                tools:text="@string/screen_account_detail_display_text_copy" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:alpha="0.5"
+                android:background="@color/pkLightBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvIban" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAccountNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clIban">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLabelAccountNumber"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_account_number)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_account_detail_display_text_account_number" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAccountNumber"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:layout_marginEnd="@dimen/pk_margin_extra_small"
+                android:text="@{viewModel.viewState.accountNumber}"
+                app:layout_constraintEnd_toStartOf="@id/tvAccountNumberCopy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelAccountNumber"
+                tools:text="345612344567" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAccountNumberCopy"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/purple_card"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:onClick="@{viewModel::onClick}"
+                android:paddingHorizontal="@dimen/pk_margin_normal_large"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_copy)}"
+                app:layout_constraintBottom_toBottomOf="@id/tvAccountNumber"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvAccountNumber"
+                tools:text="@string/screen_account_detail_display_text_copy" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:alpha="0.5"
+                android:background="@color/pkLightBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAccountNumber" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            style="@style/Yap.Pk.Widget.Button.TextButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pk_margin_medium"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_button_share)}"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/pk_text_size_h5"
+            app:icon="@drawable/pk_ic_share"
+            app:iconGravity="textEnd"
+            app:iconPadding="@dimen/pk_margin_normal"
+            app:iconTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_account_detail_button_share" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

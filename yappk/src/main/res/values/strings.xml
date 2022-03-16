@@ -1,0 +1,808 @@
+<resources>
+
+    <!-- Common -->
+    <string name="qv_add">+</string>
+    <string name="qv_remove">-</string>
+    <string name="rationale_camera">This app needs access to your camera so you can take pictures.</string>
+    <string name="common_display_text_retry">Retry</string>
+    <string name="empty_string"> </string>
+    <string name="common_button_next">Next</string>
+    <string name="common_display_text_error_no_internet">Looks like you\'re offline. Please reconnect and refresh to continue using YAP.</string>
+    <string name="common_button_yes">Yes</string>
+    <string name="common_button_no">No</string>
+    <string name="common_button_add">Add</string>
+    <string name="common_button_cancel">Cancel</string>
+    <string name="common_button_ok">OK</string>
+    <string name="common_button_settings">Settings</string>
+    <string name="common_button_save">Save</string>
+    <string name="common_button_confirm">Confirm</string>
+    <string name="common_button_delete">Delete</string>
+    <string name="common_button_view">View</string>
+    <string name="common_button_continue">Continue</string>
+    <string name="common_button_submit">Submit</string>
+    <string name="common_text_thanks">Thanks</string>
+    <string name="common_text_allow">Allow</string>
+    <string name="common_text_deny">Deny</string>
+    <string name="common_button_select">Select</string>
+    <string name="common_text_done">Done</string>
+    <string name="common_text_permission">needs following permissions to continue</string>
+    <string name="common_text_hey">Hey</string>
+    <string name="common_button_activate">Activate</string>
+    <string name="common_button_go_to_dashboard">Go to dashboard</string>
+    <string name="common_text_completed">Completed</string>
+    <string name="common_text_currency_type">PKR</string>
+    <string name="common_amount_hint">0.00</string>
+    <string name="common_percentage_hint">0</string>
+    <string name="common_display_text_nothing_to_report">Start using your account to see all your transactions here</string>
+    <string name="common_button_logout">Log out</string>
+    <string name="error_view_text">No results found\ntab to retry</string>
+    <string name="empty_view_text">No results found</string>
+    <string name="common_text_fee">Fee: %1s</string>
+    <string name="today">Today, %1$s</string>
+    <string name="tomorrow">Tomorrow, %1$s</string>
+    <string name="yesterday">Yesterday, %1$s</string>
+    <string name="common_text_complete">Complete</string>
+    <string name="common_text_coming_soon">Coming Soon</string>
+    <string name="fingerprint_error_unknown">Unknown error. Please try again later.</string>
+    <string name="common_text_enter">Re-enter</string>
+    <string name="common_text_new">new</string>
+    <string name="common_text_do_it_later">Do it later</string>
+    <string name="common_text_copied">Copied to clipboard</string>
+    <string name="common_display_text_daily_limit_error_single_transaction">This amount exceeds your daily transaction limit</string>
+    <string name="common_display_text_available_balance_error">Uh oh! You’ll need to have a minimum balance of %1s plus the fee stated to proceed with this payment. </string>
+    <string name="common_sm_display_text_min_max_limit_error_transaction">Your entered amount should be between %1s and %2s</string>
+    <string name="common_masked_card_number">XXXX XXXX XXXX %1s</string>
+    <string name="common_card_date">%1s/%2s</string>
+    <string name="common_top_up_denomination_amount">+%1s</string>
+    <string name="common_text_edit">Edit</string>
+    <string name="common_text_otp_title">Verify your One Time Password</string>
+    <string name="common_text_exit_pop_up_heading">Are you sure you want to Exit?</string>
+    <string name="common_text_exit_pop_up_description">The information you’ve entered will be lost</string>
+    <string name="common_saved_image_to_gallery">Your image has been saved to your gallery.</string>
+
+    <!--    Camera screens-->
+    <string name="message_camera_permission_denied">Camera and  Storage permissions are needed to capture image. Turning off any permission won\'t allow application run smoothly. Please turn on all requested permissions from Settings > Permissions.</string>
+    <string name="message_contact_permission_denied">Contacts permissions are needed to get contacts. Turning off any permission won\'t allow application run smoothly. Please turn on all requested permissions from Settings > Permissions.</string>
+    <string name="common_text_permissions_denied">This app may not work correctly without the requested permissions.</string>
+    <string name="open_setting">OPEN SETTINGS</string>
+
+    <string name="common_display_text_y2y_share">Hey! \n%2$s would like to send you some money via YAP. Download the app now and join YAP’s fast growing community!\n\nDownload YAP here:\n\n%3$s</string>
+
+    <!--Validation Error Messages start-->
+    <string name="error_message_email_validation">Invalid Email format</string>
+    <string name="error_message_phone_email_validation">Invalid Email or Phone format</string>
+    <string name="error_message_first_name_validation">Invalid first name format</string>
+    <string name="error_message_last_name_validation">Invalid last name format</string>
+    <string name="error_message_cpf_validation">Invalid CPF format</string>
+    <string name="error_message_url_validation">Invalid url format</string>
+    <string name="error_message_credit_card_validation">Invalid Credit Card format</string>
+    <string name="error_message_empty_validation">This field can\'t be empty</string>
+    <string name="error_message_not_equal_password">Passwords are not the same</string>
+    <string name="error_message_not_equal_phone">Mobile No are not the same</string>
+    <string name="default_required_validation_message">This field is required.</string>
+    <string name="error_message_postal_address">Postal Address is not valid</string>
+    <string name="default_required_length_message_min_max">The input must have length between %1$d
+        and %2$d.
+    </string>
+    <string name="default_required_length_message_min">The input length must be greater than
+        or equal to %1$d characters.
+    </string>
+    <string name="default_required_length_message_max">The input length must be less than or
+        equal to %1$d characters.
+    </string>
+    <string name="default_regex_validation_message">The field value does not match the
+        required format.
+    </string>
+    <string name="error_passcode_sequence">Sequential numbers are not allowed</string>
+    <string name="error_passcode_same_digits">Repetitive numbers are not allowed</string>
+    <string name="error_pin_code_not_same_digits">This doesn\'t match the previously entered PIN</string>
+    <!--Validation Error Messages End-->
+
+    <string name="screen_welcome_button_get_started">Get started</string>
+
+    <!--OTP verification Screen-->
+    <string name="screen_otp_verification_title_text">Verify your mobile number</string>
+    <string name="screen_otp_verification_sent_verification_code">We\'ve sent a verification code to\n %1s</string>
+    <string name="screen_otp_verification_resend_code">Resend code</string>
+    <string name="screen_otp_verification_verify">Verify</string>
+    <!--OTP verification Screen End-->
+
+    <!--Passcode Screen-->
+    <string name="screen_passcode_title_text">Create a 4 digit passcode to access your account </string>
+    <string name="screen_passcode_terms_and_condition">By creating a passcode you agree to our \nTerms &amp; Conditions</string>
+    <string name="screen_passcode_create_passcode">Create Passcode</string>
+    <string name="screen_passcode_create_new_passcode">Create new passcode</string>
+    <!--Passcode Screen END-->
+
+
+    <!--Name Verification Screen-->
+    <string name="screen_name_verification_title_text">What’s your name?</string>
+    <string name="screen_name_verification_first_name">First Name</string>
+    <string name="screen_name_verification_last_name">Last Name</string>
+    <!--Name Verification Screen End-->
+
+    <!--Email Verification Screen-->
+    <string name="screen_email_verification_screen_title_text">What\'s your preferred email address?</string>
+    <string name="screen_email_verification_screen_email_address">Email address</string>
+    <string name="screen_email_verification_screen_guide">Please validate your email address after signing up and we promise not to spam you.</string>
+    <string name="screen_email_verification_display_text_title">Great!</string>
+    <!--Email Verification Screen End-->
+
+    <!--  Onboarding congratulations screen -->
+    <string name="screen_onboarding_success_display_text_title">Congrats, %1s!</string>
+    <string name="screen_onboarding_success_verification_text_note">Due to all the excitement of our official launch, we are gradually activating as many accounts as possible to keep the app running smoothly. In the meantime, until your account is ready to be fully activated you’ll be placed in a queue.</string>
+    <string name="screen_onboarding_success_display_text_sub_title">A YAP account has been created for you in less than %1s seconds!</string>
+    <string name="screen_onboarding_success_display_text_sub_title_no_interval">A YAP Personal Account has been created for you!</string>
+
+    <plurals name="screen_onboarding_success_button_text">
+        <item quantity="one">Complete verification</item>
+        <item quantity="other">Queue up!</item>
+    </plurals>
+    <!--  Onboarding congratulations screen End-->
+
+
+    <!-- KYC home Screen-->
+    <string name="screen_kyc_home_display_text_screen_title">Complete verification</string>
+    <string name="screen_kyc_home_display_text_sub_heading">%1s, please scan your CNIC</string>
+    <string name="screen_kyc_home_document_id_title">CNIC</string>
+    <string name="screen_kyc_home_document_id_scan">Tap to scan your CNIC</string>
+    <string name="screen_kyc_home_button_skip">Skip and go to dashboard</string>
+    <!-- KYC home Screen END-->
+
+    <!-- Document scan result screen -->
+    <string name="screen_document_scan_display_text_title">Complete verification</string>
+    <string name="screen_document_scan_display_text_sub_title">Thanks %1s! Verify your details are exactly as per your CNIC.</string>
+    <string name="screen_document_scan_document_id_title">CNIC Number</string>
+    <string name="screen_document_scan_button_title_rescan_eid">Re-scan CNIC</string>
+    <string name="screen_document_scan_label_issue_date">Issue date</string>
+    <!-- Document scan result screen END-->
+
+    <!-- Document Details review  screen -->
+    <string name="screen_document_detail_review_display_text_title">Review details</string>
+    <string name="screen_document_detail_review_display_text_sub_title">Your details should be accurate to your CNIC.</string>
+    <string name="screen_document_detail_review_document_id_title">CNIC Number</string>
+    <string name="screen_document_detail_review_display_text_first_name_heading">Full name as per CNIC</string>
+    <string name="screen_document_detail_review_display_text_last_name_heading">Father / Spouse name</string>
+    <string name="screen_document_detail_review_display_text_gender_heading">Gender</string>
+    <string name="screen_document_detail_review_display_text_dob_heading">Date of birth</string>
+    <string name="screen_document_detail_review_display_text_issue_date_heading">Issue date</string>
+    <string name="screen_document_detail_review_display_text_expiry_date_heading">Expiry date</string>
+    <string name="screen_document_detail_review_display_text_residential_address_heading">Residential Address</string>
+    <!-- Document scan result screen END-->
+
+    <!-- Rejection EID screen -->
+    <string name="screen_kyc_information_error_display_text_explanation_from_usa">Sorry, we\'re unable to activate your YAP account at this time. We\'re working on it and we will let you know once resolved.</string>
+    <string name="screen_kyc_information_error_display_text_under_age">Sorry, we can\'t issue a business account to anyone under 21.</string>
+    <string name="screen_kyc_information_error_display_text_explanation_under_age">Sorry, we can’t issue a business account to anyone under 21.</string>
+    <string name="screen_kyc_information_error_button_go_to_dashboard">Go to dashboard</string>
+    <string name="screen_kyc_information_error_button_logout">Log out</string>
+    <string name="screen_kyc_information_error_display_text_title_under_age">Looks like you\'re under 21</string>
+    <string name="screen_kyc_information_error_display_text_expired_card">Sorry, it looks like you\'re Emirates ID has expired. You must have a valid Emirates ID to apply for a business account.</string>
+    <string name="screen_kyc_information_error_display_text_title_expired_card">Your Emirates ID has expired </string>
+    <!-- Rejection EID screen END -->
+
+    <!-- Mothers Maiden Name Screen-->
+    <string name="screen_mother_name_text_title">Select your mother’s maiden name</string>
+    <string name="screen_mother_name_text_sub_title">We ask this for security purpose</string>
+    <!-- Mothers Maiden Name End -->
+
+    <!-- Place of birth Screen-->
+    <string name="screen_place_of_birth_text_title">What is your place of birth?</string>
+    <string name="screen_place_of_birth_text_sub_title">We ask this for security purpose</string>
+    <!-- Place of birth End -->
+
+    <!--  Selfie guide screen -->
+    <string name="screen_selfie_guide_display_text_title">Take a selfie</string>
+    <string name="screen_selfie_guide_display_text_sub_title">Hold your device at eye level and look straight into the camera.</string>
+    <string name="screen_selfie_guide_display_text_tip">Tips : Take in good lighting and take off your glasses</string>
+    <string name="screen_selfie_guide_button_take_selfie">Take a selfie</string>
+
+    <!--  Take selfie screen -->
+    <string name="screen_take_selfie_display_text_sub_title">Align your face in the center of the circle, and press the button</string>
+
+    <!-- Selfie review screen -->
+    <string name="screen_selfie_review_display_text_title">Is this clear enough?</string>
+    <string name="screen_selfie_review_display_text_sub_title">Make sure your face is clear and the photo is not blurry</string>
+    <string name="screen_selfie_review_button_retake">Retake selfie</string>
+    <string name="screen_selfie_review_button_yes">Yes, that’s me!</string>
+
+    <!-- Card name confirmation screen -->
+    <string name="screen_card_name_confirmation_display_text_title">What name would you like on your card?</string>
+    <string name="screen_card_name_confirmation_display_text_sub_title">Please keep this as close to your real name.</string>
+    <string name="screen_card_name_confirmation_display_text_description">We can only print 26 characters on the card, so if you have a long name, we suggest you use initials where possible.</string>
+    <string name="screen_card_name_confirmation_display_text_is_it">Is it?</string>
+    <string name="screen_card_name_confirmation_button_fine">This is fine!</string>
+    <string name="screen_card_name_confirmation_button_edit">I’d like to edit my name</string>
+
+    <!--Update card name screen -->
+    <string name="screen_update_card_name_display_text_title">What name would you like on your card?</string>
+    <string name="screen_update_card_name_display_text_sub_title">Please keep this as close to your real name</string>
+    <string name="screen_update_card_name_display_text_description">We can only print 26 characters on the card, so if you have a long name, we suggest you use initials where possible.</string>
+    <string name="screen_update_card_name_label_text_full_name">Type your full name</string>
+    <string name="screen_update_card_name_display_text_count">%1s/26</string>
+
+    <!--Address selection  screen -->
+    <string name="screen_address_selection_display_text_title">Your card is ready to be \ndelivered!</string>
+    <string name="screen_address_selection_display_text_sub_title">Confirm this is your address, you can change it anytime</string>
+    <string name="screen_address_selection_display_text_button_tap_to_confirm_location">Tap map to confirm location</string>
+    <string name="screen_address_selection_input_field_address_label">Address</string>
+    <string name="screen_address_selection_input_field_building_name_label">Flat number/ Building name</string>
+    <string name="screen_address_selection_input_field_city">City</string>
+    <string name="screen_address_selection_button_confirm_location_text">Confirm location</string>
+    <string name="screen_address_selection_location_permission_msg">Yap determines your current location. Your location may be shown on map and is used to provide things such direction and in order to serve personalize alert. This allows for a better overall app experience.</string>
+    <string name="screen_address_selection_location_permission_title">Location Permission</string>
+
+    <!-- City selection screen -->
+    <string name="screen_city_name_selection_display_text_toolbar_title">Select your city</string>
+    <string name="screen_city_name_selection_display_hint_search">Search</string>
+
+    <!-- Card order success screen -->
+    <string name="screen_card_order_success_display_text_title">Your card is on it\'s way!</string>
+    <string name="screen_card_order_success_display_text_cnic">CNIC</string>
+    <string name="screen_card_order_success_kyc_on_the_way_display_text_guide">You will receive a message from our designated delivery company to confirm the date and time of delivery. Please make sure you have your CNIC on you at the time of delivery.</string>
+    <string name="screen_card_order_success_button_go_to_dashboard">Go to dashboard</string>
+
+    <!--  Sign in screen -->
+    <string name="screen_sign_in_display_text_heading_text">Sign in to your account</string>
+    <string name="screen_sign_in_input_text_email_hint">Email address or phone number</string>
+    <string name="screen_sign_in_button_sign_in">Sign in</string>
+    <string name="screen_sign_in_display_text_sign_up_prefix">New to YAP?</string>
+    <string name="screen_sign_in_display_text_sign_up">Sign up now</string>
+    <string name="screen_sign_in_display_text_sub_title">Enter the OTP sent to your registered mobile number to complete login</string>
+    <string name="screen_sign_in_display_text_error_text">That doesn\'t look right. Please try again</string>
+    <string name="screen_sign_in_label_switch_text">Remember ID</string>
+    <!--  Sign in screen END-->
+
+    <!-- Verify passcode screen -->
+    <string name="screen_verify_passcode_display_text_title">Enter your passcode to access your account</string>
+    <string name="screen_verify_passcode_button_sign_in">Sign in</string>
+    <string name="screen_verify_passcode_button_verify">Verify</string>
+    <string name="screen_verify_passcode_text_forgot_password">Forgot passcode?</string>
+    <string name="screen_verify_passcode_text_account_locked">Sorry, that’s too many incorrect attempts. Click on Forgot passcode to set a new one.</string>
+    <!-- Verify passcode screen END-->
+
+    <!-- Dashboard Screen -->
+    <string name="screen_dashboard_bottom_bar_home_text">Home</string>
+    <string name="screen_dashboard_bottom_bar_store_text">Store</string>
+    <string name="screen_dashboard_bottom_bar_yap_it_text">YAP it</string>
+    <string name="screen_dashboard_bottom_bar_cards_text">Cards</string>
+    <string name="screen_dashboard_bottom_bar_more_text">More</string>
+    <string name="screen_dashboard_bottom_bar_add_money_text">Add money</string>
+    <string name="screen_dashboard_bottom_bar_send_money_text">Send money</string>
+    <string name="screen_dashboard_bottom_bar_pay_bills_text">Pay bills</string>
+    <!-- Dashboard Screen END -->
+
+    <!--   Yap More-->
+    <string name="screen_more_display_text_bank_details">Account details</string>
+    <string name="screen_profile_settings_display_text_title">Settings</string>
+    <string name="screen_profile_settings_display_text_profile">Profile</string>
+    <string name="screen_profile_settings_display_text_personal_detail">Personal details</string>
+    <string name="screen_profile_settings_display_text_view">View</string>
+    <string name="screen_profile_settings_display_text_security">Security</string>
+    <string name="screen_profile_settings_display_text_privacy">Privacy</string>
+    <string name="screen_profile_settings_display_text_passcode">Passcode</string>
+    <string name="screen_profile_settings_display_text_change">Change</string>
+    <string name="screen_profile_settings_display_text_app_notifications">App notifications</string>
+    <string name="screen_profile_settings_display_text_about_us">About us</string>
+    <string name="screen_profile_settings_display_terms_and_conditions">Terms and conditions</string>
+    <string name="screen_profile_settings_display_text_instagram">Instagram</string>
+    <string name="screen_profile_settings_display_text_twitter">Twitter</string>
+    <string name="screen_profile_settings_display_text_facebook">Facebook</string>
+    <string name="screen_profile_settings_display_text_follow_us">Follow us</string>
+    <string name="screen_profile_settings_display_text_like_us">Like us</string>
+    <string name="screen_profile_settings_display_text_support">Support</string>
+    <string name="screen_profile_settings_display_text_sign_in_with_touch_id">Sign in with Touch ID</string>
+
+    <!--Personal Detail screen-->
+    <string name="screen_personal_details_display_text_emirates_id_details_update">Tap to update</string>
+    <string name="screen_personal_details_display_text_expired_emirates_id_details">Your ID has expired. Please ensure you update your card to continue accessing YAP</string>
+    <string name="screen_personal_details_display_text_required_emirates_id_details">Your EID is required.\nTap to update to ensure account continuity</string>
+    <!--Personal Detail Screen End-->
+
+    <!--   Help & Support-->
+    <string name="screen_help_support_display_text_title">Help &amp; Support</string>
+    <string name="screen_help_support_display_text_faqs">FAQs</string>
+    <string name="screen_help_support_display_text_live_chat">Live chat</string>
+    <string name="screen_help_support_display_text_chat_via_whatsApp">Live Agent chat via WhatsApp</string>
+    <string name="screen_help_support_display_text_call_us">Call us</string>
+    <string name="screen_help_support_display_text_available_24_hours">Available 24 hours</string>
+
+    <string name="no_internet">No Internet</string>
+    <string name="default_message">Check your Internet connection and try again.</string>
+    <string name="please_turn_on">Please turn on</string>
+    <string name="wifi">Wifi</string>
+    <string name="mobile_data">Mobile data</string>
+    <string name="please_turn_off">Please turn off</string>
+    <string name="airplane_mode">Airplane mode</string>
+    <string name="default_airplane_mode_message">You have turned on the airplane mode.</string>
+    <string name="default_airplane_mode_snackbar_message">You have turned on the airplane mode!</string>
+
+    <!--Generic OTP Screen-->
+    <string name="screen_generic_otp_verify_phone">Verify your phone number</string>
+    <string name="screen_generic_otp_verify_email">Verify your email address</string>
+    <string name="screen_generic_otp_code_sent">We\'ve sent a verification code to</string>
+
+    <!--Success-->
+    <string name="screen_success_phone_changed">Your phone number has been changed to</string>
+    <string name="screen_success_email_changed">Your email address has been changed to</string>
+
+    <!--  Invite a friend screen  -->
+    <string name="screen_invite_friend_display_text_title">Refer a friend</string>
+    <string name="screen_invite_friend_display_text_reward">Tell your friends about us!</string>
+    <string name="screen_invite_friend_display_text_referal_reward">Sharing is sweet, and it’s even better when you do it with friends. Send this special link to your special people so they change the way they bank too!</string>
+    <string name="screen_invite_friend_display_text_referal_code">Share your referral link</string>
+    <string name="screen_invite_friend_button_share">Share</string>
+    <string name="screen_invite_friend_display_text_share_url">Hey! I just joined the Pakistan\'s newest banking app – YAP. Transform the way you bank and reserve your place in the queue to be one of the first to join me in the banking revolution.\n\n%1s</string>
+
+    <string name="permissions_rationale_ask_again">This app may not work correctly without the requested permissions. Open the app settings screen to modify app permissions.</string>
+    <string name="title_settings_dialog">Permissions Required</string>
+
+
+    <!--Permission Settings Screen-->
+    <string name="screen_touch_id_text_title">Would you like to use Touch ID to log in to your account?</string>
+    <string name="screen_touch_id_text_description">Make sure your device settings for Touch ID are always on.</string>
+    <string name="screen_touch_id_text_terms_and_condition">By clicking “Use Touch ID” you agree to our Terms &amp; Conditions</string>
+    <string name="screen_touch_id_text_button">Use Touch ID</string>
+    <string name="screen_touch_id_text_no_thanks">No, thanks</string>
+    <string name="screen_notification_setting_text_title">Would you like to receive notifications from us?</string>
+    <string name="screen_notification_setting_description">We use push notifications to give you updates about all transactions and to send important reminders about your account.</string>
+    <string name="screen_notification_setting_text_yes_keep_up_to_date">Yes, keep me updated</string>
+    <string name="screen_notification_setting_text_no_thanks">No, thanks</string>
+    <!--Permission Settings Screen End-->
+
+
+    <!--    Change passcode screen-->
+    <string name="screen_change_passcode_title">%1$s your %2$s \n4- to 6-digit passcode</string>
+    <string name="screen_change_passcode_success">Your passcode has been changed successfully</string>
+    <string name="screen_forget_passcode_success">Your passcode has been updated successfully</string>
+    <string name="screen_forget_passcode_button_text">Set passcode</string>
+    <plurals name="screen_change_passcode_title_plurals">
+        <item quantity="one">Enter your current \n4- to 6-digit passcode</item>
+        <item quantity="few">Enter your new \n4- to 6-digit passcode</item>
+        <item quantity="other">Re-enter your new \n4- to 6-digit passcode</item>
+    </plurals>
+
+    <!--    Waiting list screen-->
+    <string name="screen_waiting_list_display_text_your_place_in_queue">Your place in the queue</string>
+    <string name="screen_waiting_list_display_text_waiting_behind_you">waiting behind you</string>
+    <string name="screen_waiting_list_display_text_we_will_notify_you">We will notify you when you\’ve reached the top. Log back in to see your updated place in the queue.</string>
+    <string name="screen_waiting_list_display_text_lead_the_bank_description">Boost yourself up the queue by %1s for every friend you refer that signs up.🚀</string>
+    <string name="screen_waiting_list_display_text_want_to_jump">Want to jump the queue?</string>
+    <string name="screen_waiting_list_display_text_signed_up_users">Signed up friends: %1s</string>
+    <string name="screen_waiting_list_display_button_text">Bump me up the queue</string>
+    <string name="screen_waiting_list_display_text_bottom_sheet_text_with_bumped_up_guide">Once your referred friends sign up, you will see their names listed below and your place in the queue bumped up by %1s spots for each friend!</string>
+    <string name="screen_waiting_list_display_text_bottom_sheet_text_with_no_referred_users">You referred 0 friend(s)! 😏</string>
+    <string name="screen_waiting_list_display_text_bottom_sheet_text_with_referred_users_count">You referred %1s friend(s)! 👏</string>
+    <string name="screen_waiting_list_display_text_bottom_sheet_text_with_bumped_up_spots_count">You have been bumped up by %1s spots.</string>
+
+    <!--Reached on the top of queue screen-->
+    <string name="screen_reached_top_queue_display_text">%1s, you reached the top of the Queue!</string>
+    <string name="screen_reached_top_queue_display_text_subtitle">You are now ready to fully activate and begin using your YAP account.</string>
+    <string name="screen_reached_top_queue_display_text_meeting_note">Make sure you have your CNIC at hand before we proceed</string>
+
+    <!--  Onboarding congratulations screen -->
+    <string name="screen_onboarding_congratulations_display_text_title">Congrats, %1s!</string>
+    <string name="screen_onboarding_congratulations_display_text_sub_title">A YAP Personal Account has been created for you in less than %1s seconds!</string>
+    <string name="screen_onboarding_congratulations_display_text_sub_title_no_interval">A YAP Personal Account has been created for you!</string>
+    <string name="screen_onboarding_congratulations_display_text_iban">Here\'s your IBAN</string>
+    <string name="screen_onboarding_congratulations_display_text_meeting_note">Make sure you have your Emirates ID at hand before we proceed</string>
+    <string name="screen_onboarding_congratulations_button_complete_verification">Complete verification</string>
+    <string name="screen_onboarding_congratulations_display_text_delay_detail_text">Due to all the excitement of our official launch, we are gradually activating as many accounts as possible to keep the app running smoothly. In the meantime, until your account is ready to be fully activated you’ll be placed in a queue.</string>
+
+    <!--  New passcode success screen -->
+    <string name="screen_new_passcode_success_display_text_title">You’re all set!</string>
+    <string name="screen_new_passcode_success_display_text_sub_title">Your new password has been created successfully</string>
+
+    <!--  Invalid customer screen -->
+    <string name="screen_invalid_customer_display_text_title">We’re sorry :(</string>
+    <string name="screen_invalid_customer_display_text_description">Unfortunately, we’re unable to proceed with creating your account at this time. However, we do appreciate your interest in getting a YAP account.</string>
+
+    <!--  Valid customer screen -->
+    <string name="screen_valid_customer_display_text_title">Some information is still needed!</string>
+    <string name="screen_valid_customer_display_text_description">A member from our customer service team will reach out to you.</string>
+
+    <!-- Cards screen -->
+    <string name="screen_card_section_display_text_card_page_count_text">%1s of %2s</string>
+    <string name="screen_card_section_display_text_masked_card_text">•• %1s</string>
+    <string name="screen_card_section_display_text_virtual_cards">Virtual cards</string>
+    <string name="screen_card_section_display_text_physical_cards">Physical cards</string>
+    <string name="screen_card_section_display_text_see_details">Card details</string>
+    <string name="screen_card_section_display_text_on_the_way">This card is on the way</string>
+    <string name="screen_card_section_display_text_expire">This card has expired</string>
+    <string name="screen_card_section_display_text_freeze">This card is frozen</string>
+    <string name="screen_card_section_display_text_update_card">Update card</string>
+    <string name="screen_card_section_display_text_unfreeze_card">Unfreeze card</string>
+    <string name="screen_card_section_display_text_need_kyc">Complete verification to get your card</string>
+    <string name="screen_card_section_display_text_card_balance">Card balance</string>
+    <string name="screen_card_section_display_text_set_pin">Create a PIN to start using your card</string>
+    <string name="screen_card_section_display_text_btn_lets">Let’s do it</string>
+    <string name="screen_card_section_display_text_blocked">This card is blocked</string>
+    <string name="screen_card_section_display_text_re_order">Order new card</string>
+    <string name="screen_card_section_display_text_card_number">Card number</string>
+    <string name="screen_card_section_display_text_expire_date">Expiry date</string>
+    <string name="screen_card_section_display_text_cvv">CVV</string>
+    <string name="screen_card_section_display_text_title_detail">%1s details</string>
+
+
+    <!-- Card pin intro screen -->
+    <string name="screen_card_pin_intro_display_text_title">Great, looks like you just received your YAP card!</string>
+    <string name="screen_card_pin_intro_display_text_description">Now create a unique 4-digit PIN code to be able to use your debit card for purchases and withdrawals</string>
+    <string name="screen_card_pin_intro_button_create">Create PIN code</string>
+
+    <!-- Card pin enter screen -->
+    <string name="screen_card_pin_enter_display_text_title">Set your PIN code</string>
+
+    <!-- Card pin confirm screen -->
+    <string name="screen_card_pin_confirm_display_text_title">Re-enter your PIN code to confirm</string>
+    <string name="screen_card_pin_confirm_display_text_terms">By creating a PIN code you agree to our \nTerms &amp; Conditions</string>
+    <string name="screen_card_pin_confirm_button_create">Create PIN code</string>
+
+    <!-- Card pin success screen -->
+    <string name="screen_card_pin_success_display_text_title">You’re all set! \nTime to top up</string>
+    <string name="screen_card_pin_success_display_text_description">Begin using your YAP card by topping up your card with PKR 100 or more</string>
+    <string name="screen_card_pin_success_button_top_up">Top up now</string>
+
+    <!-- Card status screen -->
+    <string name="screen_card_status_display_text_title">Primary card</string>
+    <string name="screen_card_status_display_text_virtual">Virtual card</string>
+    <string name="screen_card_status_display_text_label">Original card</string>
+    <string name="screen_card_status_display_text_kyc_need">Complete verification to get your card</string>
+    <string name="screen_card_status_display_text_shipping">Your primary card is on its way</string>
+    <string name="screen_card_status_display_text_shipped">Your primary card is shipped</string>
+    <string name="screen_card_status_display_text_status_ordering">Ordering</string>
+    <string name="screen_card_status_display_text_status_ordered">Ordered</string>
+    <string name="screen_card_status_display_text_status_building">Building</string>
+    <string name="screen_card_status_display_text_status_built">Built</string>
+    <string name="screen_card_status_display_text_status_shipping">Shipping</string>
+    <string name="screen_card_status_display_text_status_shipped">Shipped</string>
+    <string name="screen_card_status_btn_activate">Activate card</string>
+
+    <!-- Add card screen -->
+    <string name="screen_add_card_display_text_title">Add card</string>
+
+    <!-- Add money dashboard screen -->
+    <string name="screen_add_money_dashboard_display_text_toolbar_title">Add money</string>
+    <string name="screen_add_money_dashboard_display_text_title">How do you want to add money?</string>
+    <string name="screen_add_money_dashboard_display_text_credit_card">Debit/Credit Card</string>
+    <string name="screen_add_money_dashboard_display_text_bank_transfer">Bank transfer</string>
+    <string name="screen_add_money_dashboard_display_text_cash_cheque">Card or cheque</string>
+    <string name="screen_add_money_dashboard_display_text_qr_code">QR code</string>
+    <string name="screen_add_money_dashboard_display_text_request_money">Request money</string>
+
+    <!-- Account detail screen -->
+    <string name="screen_account_detail_display_text_toolbar_title">My YAP account details</string>
+    <string name="screen_account_detail_display_text_description">This is your YAP account summary. Use these details to transfer funds from another account into YAP.</string>
+    <string name="screen_account_detail_display_text_account_title">Account title</string>
+    <string name="screen_account_detail_display_text_iban">IBAN</string>
+    <string name="screen_account_detail_display_text_account_number">Account number</string>
+    <string name="screen_account_detail_display_text_copy">copy</string>
+    <string name="screen_account_detail_button_share">Share</string>
+
+    <!-- Card detail screen -->
+    <string name="screen_card_detail_display_text_name_your_card">Name your card</string>
+    <string name="screen_card_detail_display_text_change_pin">Change PIN</string>
+    <string name="screen_card_detail_display_text_view_statement">View statement</string>
+    <string name="screen_card_detail_display_text_report">Report lost or stolen</string>
+    <string name="screen_card_detail_display_text_card_details">Card details</string>
+    <string name="screen_card_detail_display_text_card_balance">Card balance</string>
+    <string name="screen_card_detail_display_text_limit">Set limits</string>
+    <string name="screen_card_detail_display_text_freeze">Freeze card</string>
+    <string name="screen_card_detail_display_text_Unfreeze">Unfreeze card</string>
+    <string name="screen_card_detail_display_text_unfreeze_now">Unfreeze now</string>
+    <string name="screen_card_detail_display_text_inactive">Card is Inactive</string>
+    <string name="screen_card_detail_display_text_frozen">This card is frozen</string>
+    <string name="screen_card_detail_display_text_transactions">Transactions</string>
+    <string name="screen_card_detail_display_text_filter">Filter</string>
+    <string name="screen_card_detail_display_text_list_time">%1s • %2s</string>
+    <string name="screen_card_detail_display_text_list_empty">Start using your card to see all your transactions here</string>
+
+
+    <!-- Card limit screen -->
+    <string name="screen_card_limit_display_text_toolbar_title">Set limits</string>
+    <string name="screen_card_limit_display_text_atm">ATM withdrawal</string>
+    <string name="screen_card_limit_display_text_atm_description">Allow your card to withdraw from cash machines</string>
+    <string name="screen_card_limit_display_text_online">Online transactions</string>
+    <string name="screen_card_limit_display_text_online_description">Allow your card to be used for purchases made over the internet</string>
+    <string name="screen_card_limit_display_text_retail_payment">Retail payments</string>
+    <string name="screen_card_limit_display_text_retail_payment_description">Allow your card to be used at retail outlets. This includes restaurants, petrol stations and hospitality venues </string>
+
+    <!--    Change pin screens flow start -->
+    <string name="screen_change_card_pin_display_text_header">Change PIN</string>
+
+    <!--    Current card pin screen-->
+    <string name="screen_current_card_pin_display_text_title">Enter your current PIN code</string>
+    <string name="screen_current_card_pin_display_text_forgot_pin">Forgot PIN</string>
+
+    <!--    Change card pin screen-->
+    <string name="screen_change_card_pin_display_text_title">Enter your new 4-digit PIN code</string>
+
+    <!--    Change confirm card pin screen-->
+    <string name="screen_change_confirm_card_pin_display_text_title">Enter it one more time</string>
+    <string name="screen_change_confirm_card_pin_button_create_new_pin">Create new PIN</string>
+
+    <!--    Change card pin success screen-->
+    <string name="screen_change_card_pin_success_display_text_title">Great, you’ve successfully updated your PIN!</string>
+    <string name="screen_change_card_pin_success_display_text_description">Remember this PIN as you’ll need it for all you transactions, and make sure you don’t share it with anyone</string>
+
+    <!--    Change pin screens flow End -->
+
+    <!-- Card forgot pin verify passcode screen -->
+    <string name="screen_card_forgot_pin_verify_passcode_display_text_toolbar_title">Forgot PIN</string>
+    <string name="screen_card_forgot_pin_verify_passcode_display_text_title">Enter your Passcode</string>
+
+    <!-- Card forgot pin enter pin screen -->
+    <string name="screen_card_forgot_pin_enter_pin_display_text_title">Enter your new 4-digit PIN code</string>
+
+    <!-- Card forgot pin confirm pin screen -->
+    <string name="screen_card_forgot_pin_confirm_pin_display_text_title">Enter it one more time</string>
+    <string name="screen_card_forgot_pin_confirm_pin_btn_text_create_pin">Create pin</string>
+
+    <!-- Verify otp forgot card pin screen -->
+    <string name="screen_verify_otp_forgot_card_pin_display_text_title">Verify your PIN change</string>
+
+    <!-- Card forgot pin update success screen -->
+    <string name="screen_card_forgot_pin_update_success_display_text_title">Great, you’ve successfully updated your PIN!</string>
+    <string name="screen_card_forgot_pin_update_success_display_text_description">Remember this PIN as you’ll need it for all you transactions, and make sure you don’t share it with anyone</string>
+
+    <!--    Name your card screen-->
+    <string name="screen_name_your_card_display_text_header">Name your card</string>
+    <string name="screen_name_your_card_display_text_input_hint">Card\'s name</string>
+    <string name="screen_name_your_card_display_text_input_active_hint">Name your Prime card</string>
+
+    <!--   Report lost/stolen card screen -->
+    <string name="screen_report_lost_and_stolen_card_display_text_header">Report lost or stolen card</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_primary_card">Primary card</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_reason_question">Tell us what happened to your card</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_damage_card">Damaged card</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_lost_stolen_card">Lost/Stolen card</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_block_description">Click \'block and report\' to confirm that your card has been lost, damaged or stolen. We will immediately block your card and report it to our security team.</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_block_guide">If you suspect any malicious activity or need to provide us with any other essential information regarding your card\'s disappearance, please give our customer care center at %1s</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_button">Block and report</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_dialog_title">Block card permanently</string>
+    <string name="screen_report_lost_and_stolen_card_display_text_dialog_description">Your card will now be permanently blocked. Once blocked, it will no longer be in use. Please note, your card number will change. Don’t worry, you can request a new card at any time.</string>
+
+    <!--    Reorder new card screen-->
+    <string name="screen_reorder_new_card_display_text_header">Reorder new card</string>
+    <string name="screen_reorder_new_card_display_text_title_card_fee">Card fees</string>
+    <string name="screen_reorder_new_card_display_text_balance_description">Your available balance is</string>
+    <string name="screen_reorder_new_card_display_text_edit">Edit</string>
+    <string name="screen_reorder_new_card_display_text_button">Confirm purchase</string>
+
+    <!--    Reorder new card success fragment-->
+    <string name="screen_reorder_new_card_success_display_text_header">Order successful!</string>
+    <string name="screen_reorder_new_card_success_display_text_block_description">Your card has been permanently blocked and a new card has been ordered and is on the way</string>
+    <string name="screen_reorder_new_card_success_display_text_guide">An agent will get in touch with you soon to arrange the delivery. Please keep your CNIC at hand.</string>
+
+    <!--   Address selection screen from reorder card flow -->
+    <string name="screen_reorder_address_selection_display_text_header">Confirm delivery address</string>
+    <string name="screen_reorder_address_selection_display_text_description">Is this your address? Otherwise choose your location from the map below</string>
+
+
+    <!-- Card transaction filter screen -->
+    <string name="screen_card_transaction_filter_display_text_toolbar_title">Filters</string>
+    <string name="screen_card_transaction_filter_btn_text_apply">Apply filters</string>
+    <string name="screen_card_transaction_filter_btn_text_clear">Clear filters</string>
+    <string name="screen_card_transaction_filter_display_text_balance">%1s Balance</string>
+
+    <!-- send money y2y screen -->
+    <string name="screen_send_yap_to_yap_display_text_toolbar_title">Send to a YAP contact</string>
+    <string name="screen_send_yap_to_yap_display_text_search">Search</string>
+    <string name="screen_send_yap_to_yap_display_text_yap_contacts">YAP contacts</string>
+    <string name="screen_send_yap_to_yap_display_text_all_contact">All contacts</string>
+    <string name="screen_send_yap_to_yap_display_text_no_contact">None of your friends have YAP yet.\nInvite them now and earn %1s for every friend that stars using YAP!</string>
+    <string name="screen_send_yap_to_yap_display_text_no_contact_result">No results</string>
+    <string name="screen_send_yap_to_yap_display_text_invite_now">Invite now</string>
+    <string name="screen_send_yap_to_yap_display_text_yap_contacts_count">%1s YAP contact(s)</string>
+    <string name="screen_send_yap_to_yap_display_text_phone_contact_title">Invite contacts from your address book</string>
+    <string name="screen_send_yap_to_yap_display_text_invite">Invite</string>
+
+    <!--    Send money dashboard screen-->
+    <string name="screen_send_money_dashboard_display_text_header">Send money</string>
+    <string name="screen_send_money_dashboard_display_text_with_recent_title">Who do you want to send money to?</string>
+    <string name="screen_send_money_dashboard_display_text_with_no_recent_title">How do you want to send money?</string>
+    <string name="screen_send_money_dashboard_display_text_recent_transfers">Recent transfers</string>
+    <string name="screen_send_money_dashboard_display_text_show_recent_transfers">Show Recent transfers</string>
+    <string name="screen_send_money_dashboard_display_text_hide">Hide</string>
+    <string name="screen_send_money_dashboard_display_text_yap_contact">YAP contact</string>
+    <string name="screen_send_money_dashboard_display_text_bank_transfer">Bank transfer</string>
+    <string name="screen_send_money_dashboard_display_text_qr_code">QR code</string>
+
+    <!--send money y2y transfer screen-->
+    <string name="screen_yap_to_yap_transfer_display_text_header">Send to a YAP contact</string>
+    <string name="screen_yap_to_yap_transfer_display_text_balance_description">Your available balance is %1s</string>
+    <string name="screen_yap_to_yap_transfer_display_text_note">Leave a message (optional)</string>
+
+    <!--    send money y2y transfer success screen-->
+    <string name="screen_yap_to_yap_transfer_success_display_text_header">Transfer successful</string>
+    <string name="screen_yap_to_yap_transfer_success_display_text_transfer_amount_title">You have transferred</string>
+    <string name="screen_yap_to_yap_transfer_success_display_text_transfer_mobile_number">Mobile number: %1s</string>
+    <string name="screen_yap_to_yap_transfer_success_display_text_transfer_reference_number">Reference number: %1s</string>
+    <string name="screen_yap_to_yap_transfer_success_button_go_to_dashboard">Go to dashboard</string>
+
+    <!-- add money card dashboard screen-->
+    <string name="screen_add_money_card_dashboard_display_text_no_card_tb_title">Add money using a card</string>
+    <string name="screen_add_money_card_dashboard_display_text_no_card_title">Start by adding a card</string>
+    <string name="screen_add_money_card_dashboard_display_text_no_card_description">Add a debit or credit card to top up</string>
+    <string name="screen_add_money_card_dashboard_display_text_card_tb_title">Top up using card</string>
+    <string name="screen_add_money_card_dashboard_display_text_card_title">You have %1s card(s)</string>
+    <string name="screen_add_money_card_dashboard_display_text_card_description">Choose which card you want to top up with</string>
+    <string name="screen_add_money_card_dashboard_display_text_add_card_item">+ Add a new card</string>
+
+    <!-- add external card screen-->
+    <string name="screen_add_external_card_display_text_tb_title">Enter your credit card details</string>
+    <string name="screen_add_external_card_display_text_nick_name_title">Add a card nickname</string>
+    <string name="screen_add_external_card_display_text_nick_name_hint">Add nickname</string>
+    <string name="screen_add_external_card_display_text_name_title">Full name on card</string>
+    <string name="screen_add_external_card_display_text_name_hint">Add cardholder name</string>
+    <string name="screen_add_external_card_display_text_card_number_title">Card number: 12–19 digits</string>
+    <string name="screen_add_external_card_display_text_card_number_hint">XXXX XXXX XXXX XXXX</string>
+    <string name="screen_add_external_card_display_text_expiry_title">Expiry date</string>
+    <string name="screen_add_external_card_display_text_expiry_hint">xx/xxxx</string>
+    <string name="screen_add_external_card_display_text_cvv_title">CVV</string>
+    <string name="screen_add_external_card_display_text_cvv_hint">xxx</string>
+
+    <!-- add external card success dialog screen-->
+    <string name="screen_add_external_card_dialog_display_text_title">Your card has been added successfully</string>
+    <string name="screen_add_external_card_dialog_display_text_description">Top up now with this card?</string>
+    <string name="screen_add_external_card_dialog_display_button_top_up">Yes, top up now</string>
+    <string name="screen_add_external_card_dialog_display_button_later">No, do it later</string>
+
+    <!-- external card detail screen-->
+    <string name="screen_external_card_detail_display_text_tb_title">Card details</string>
+    <string name="screen_external_card_detail_display_text_nick_name_hint">Card nickname</string>
+    <string name="screen_external_card_detail_display_text_card_hint">Card</string>
+    <string name="screen_external_card_detail_display_text_type_hint">Type</string>
+    <string name="screen_external_card_detail_display_text_expire_date_hint">Expire date</string>
+    <string name="screen_external_card_detail_button_text_remove_card">Remove card</string>
+    <string name="screen_external_card_detail_display_text_alert_msg">This card will be removed from your top-up methods.</string>
+    <string name="screen_external_card_detail_display_text_remove">Remove</string>
+
+    <!--    External card top up screen-->
+    <string name="screen_external_card_top_up_display_text_header">Top up using card</string>
+    <string name="screen_external_card_top_up_display_text_top_up_amount">Enter the top up amount</string>
+    <string name="screen_external_card_top_up_display_text_top_up_guide">Note that the issuing bank may have its own charges</string>
+    <string name="screen_external_card_top_up_display_text_available_yap_balance">Your available YAP balance is %1s</string>
+
+    <!--    Verify card cvv-->
+    <string name="screen_verify_card_cvv_display_text_header">Top up confirmation</string>
+    <string name="screen_verify_card_cvv_display_text_guide">Enter the CVV to top up your account with %1s</string>
+
+    <!-- TopUp successful detail screen-->
+    <string name="screen_top_up_successful_display_text_tb_title">Top up successful</string>
+    <string name="screen_top_up_successful_display_text_top_up">You have now added %1s to your account</string>
+    <string name="screen_top_up_successful_display_text_balance">Your new account balance is</string>
+
+    <!-- TopUp otp verification detail screen-->
+    <string name="screen_top_up_otp_verification_display_text_tb_title">Top up confirmation</string>
+
+    <!-- Select card scheme screen-->
+    <string name="screen_select_card_scheme_display_text_title">Select a card</string>
+    <string name="screen_select_card_scheme_display_text_free_card_description">Get YAP free card and enjoy %1s benefits</string>
+    <string name="screen_select_card_scheme_display_text_scheme_paypak">local PayPak</string>
+    <string name="screen_select_card_scheme_display_text_scheme_mastercard">mastercard</string>
+    <string name="screen_select_card_scheme_display_text_paid_card_description">Get the %1s YAP card for %2s</string>
+    <string name="screen_select_card_scheme_button_free_card_button">Get it for free</string>
+    <string name="screen_select_card_scheme_button_paid_card_button">Buy now</string>
+
+    <!-- Select card scheme benefits screen-->
+    <string name="screen_card_scheme_benefits_display_text_free_card_description">Card description here</string>
+    <string name="screen_card_scheme_benefits_display_text_paid_card_description">Card description here.\nBuy this card now for %1s and enjoy all benefits</string>
+
+    <!-- OnBoarding failed screens-->
+    <!-- invalid CNIC-->
+    <string name="screen_on_boarding_failed_display_text_title_sorry">We’re sorry :(</string>
+    <string name="screen_on_boarding_failed_display_text_sub_title_sorry">Unfortunately, we’re unable to proceed with creating your account at this time. However, we do appreciate your interest in getting a YAP account.</string>
+    <!-- Expired CNIC-->
+    <string name="screen_on_boarding_failed_display_text_title_cnic_expired">Looks like your CNIC is expired!</string>
+    <string name="screen_on_boarding_failed_display_text_sub_title_cnic_expired">To complete your YAP account. please re-scan with a valid CNIC and try again.</string>
+    <string name="screen_on_boarding_failed_display_text_button_title_re_scan">Re-scan CNIC</string>
+    <string name="screen_on_boarding_failed_display_text_button_go_to_dashboard">Skip and go to dashboard</string>
+
+    <!--    Under 18-->
+    <string name="screen_on_boarding_failed_display_text_title_under_eighteen">Looks like you’re under 18!</string>
+    <string name="screen_on_boarding_failed_display_text_sub_title_under_eighteen">Unfortunately, YAP is only available to users over the age of 18. But don’t worry! We’re working on bringing something special to our younger audiences soon 😉</string>
+    <!--    CNIC already exist-->
+    <string name="screen_on_boarding_failed_display_text_title_cnic_already_exist">Oops! You’re CNIC is linked to another account!</string>
+    <string name="screen_on_boarding_failed_display_text_sub_title_cnic_already_exist">Your CNIC is already linked to another account! Please log out and try logging into that account. If you forgot your details, please reach out to our customer service team for help.</string>
+
+    <!--    CNIC do not exist-->
+    <string name="screen_on_boarding_failed_display_text_title_cnic_do_not_exist">Oops, looks like that CNIC doesn’t exist!</string>
+    <string name="screen_on_boarding_failed_display_text_sub_title_cnic_do_not_exist">To complete your YAP account, please re-scan with a valid CNIC and try again.</string>
+
+    <!-- Payment card dashboard screen   -->
+    <string name="screen_payment_card_dashboard_display_text_card_tb_title">Pay fee using card</string>
+    <string name="screen_payment_card_dashboard_display_text_card_description">Choose which card you want to pay fee with</string>
+
+    <!-- End OnBoarding failed screens-->
+
+    <!--    Card order payment confirmation screen-->
+    <string name="screen_card_order_payment_confirmation_display_text_header">Confirm payment</string>
+    <string name="screen_card_order_payment_confirmation_display_text_pay_pak_scheme">%1s Card</string>
+    <string name="screen_card_order_payment_confirmation_display_text_card_fees">Card fees</string>
+    <string name="screen_card_order_payment_confirmation_display_text_pay_with">Pay with</string>
+    <string name="screen_card_order_payment_confirmation_display_text_button">Place order for %1s</string>
+    <string name="screen_card_order_payment_confirmation_display_text_masked_number">**** **** **** **** %1s</string>
+
+    <!-- Add beneficiary screens-->
+    <string name="screen_add_beneficiary_display_text_header">Add beneficiary</string>
+
+    <!--    Banks list screen-->
+    <string name="screen_bank_lists_display_text_title">What is the bank name?</string>
+
+    <!--    Fetch beneficiary details screen-->
+    <string name="screen_fetch_beneficiary_display_text_title">Beneficiary account details</string>
+    <string name="screen_fetch_beneficiary_display_text_account_iban_heading">Account number/IBAN</string>
+    <string name="screen_fetch_beneficiary_display_text_account_iban_hint">Enter account number/IBAN</string>
+    <string name="screen_fetch_beneficiary_display_text_button_find_account">Find account</string>
+
+    <!--    Beneficiary account details screen-->
+    <string name="screen_beneficiary_account_details_display_text_title">Confirm the beneficiary</string>
+    <string name="screen_beneficiary_account_details_display_text_iban_or_account_no">%1s: %2s</string>
+    <string name="screen_beneficiary_account_details_display_text_iban">IBAN</string>
+    <string name="screen_beneficiary_account_details_display_text_account_no">Account number</string>
+    <string name="screen_beneficiary_account_details_display_text_beneficiary_found">The beneficiary found:</string>
+    <string name="screen_beneficiary_account_details_display_text_heading_nick_name">Nickname</string>
+    <string name="screen_beneficiary_account_details_display_text_nick_name_hint">Enter nick name</string>
+    <string name="screen_beneficiary_account_details_display_text_pop_up_title">Beneficiary has been added successfully</string>
+    <string name="screen_beneficiary_account_details_display_text_pop_up_description">Send money to this beneficiary now?</string>
+    <string name="screen_beneficiary_account_details_display_text_pop_up_button_send_now">Yes, send now</string>
+    <string name="screen_beneficiary_account_details_display_text_pop_up_button_send_later">No, send later</string>
+
+    <!-- End Add beneficiary screens-->
+    <!--    Main bank transfer screen-->
+    <string name="screen_main_bank_transfer_display_text_tb_title">Bank transfer</string>
+    <string name="screen_main_bank_transfer_display_text_all">All beneficiaries</string>
+    <string name="screen_main_bank_transfer_display_text_description_add">Send money to contacts outside your YAP network by adding them as a beneficiary. You can do so by tapping the add button on the top right of this screen. For now, start adding beneficiaries by clicking below.</string>
+    <string name="screen_main_bank_transfer_display_text_button_add">Add now</string>
+    <string name="screen_main_bank_transfer_display_text_pop_up_description">Are you sure you want to delete this beneficiary?</string>
+
+    <!--  bank transfer beneficiary detail screen-->
+    <string name="screen_bank_transfer_beneficiary_detail_display_text_tb_title">View beneficiary</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_button_send_money">Send money</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_button_delete">Delete beneficiary</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_iban_number">IBAN: %1s</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_account_number">Account number: %1s</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_transfer_type">Transfer type</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_bank_transfer">Bank transfer</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_hint_nick_name">Nick name</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_hint_enter_nick_name">Enter nick name</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_choose">Choose from Library</string>
+    <string name="screen_bank_transfer_beneficiary_detail_display_take">Take a Photo</string>
+    <string name="screen_bank_transfer_beneficiary_detail_error">Invalid file found</string>
+    <string name="screen_bank_transfer_beneficiary_detail_chooser_title">Pick Image</string>
+    <string name="screen_bank_transfer_beneficiary_detail_folder_name">YAP Images</string>
+    <string name="screen_bank_transfer_beneficiary_detail_use_photo">Use photo</string>
+    <string name="screen_bank_transfer_beneficiary_detail_retake">Re-take photo</string>
+
+    <!--    Bank transfer screen-->
+    <string name="screen_bank_transfer_display_text_tb_title">Send money to</string>
+    <string name="screen_bank_transfer_display_text_available_balance">Your available balance is %1s</string>
+    <string name="screen_bank_transfer_display_text_reasons_heading">Select the reason for transfer</string>
+    <string name="screen_bank_transfer_display_text_reasons_hint">Transferring amount to a friend</string>
+    <string name="screen_bank_transfer_display_text_note_hint">Type a note here</string>
+
+    <!--    Bank transfer amount confirmation screen-->
+    <string name="screen_bank_transfer_amount_confirmation_display_text_tb_title">Confirm transfer</string>
+    <string name="screen_bank_transfer_amount_confirmation_display_text_amount_description">%1s will receive %2s</string>
+
+    <!--    Bank transfer success screen-->
+    <string name="screen_bank_transfer_success_display_text_tb_title">Transfer successful!</string>
+    <string name="screen_bank_transfer_success_display_text_amount_heading">You have sent</string>
+    <string name="screen_bank_transfer_success_display_text_account_number">Account number: %1s</string>
+    <string name="screen_bank_transfer_success_display_text_iban_number">IBAN: %1s</string>
+    <string name="screen_bank_transfer_success_display_text_reference_number">Reference number: %1s</string>
+
+    <!-- QR Code Screen-->
+    <string name="screen_fragment_qr_code_share_my_code">Share my code</string>
+    <string name="screen_fragment_qr_code_save_to_gallery">Save to Gallery</string>
+    <string name="screen_fragment_qr_code_text_share_to_proceed">Share your unique YAP QR payments code to proceed</string>
+    <string name="screen_fragment_qr_code_text_scan_to_proceed">Scan a YAP QR payments code to proceed</string>
+    <string name="screen_fragment_qr_code_text_image_library">Image Library</string>
+    <string name="screen_fragment_qr_code_text_my_qr_code">My QR Code</string>
+    <string name="screen_fragment_qr_code_text_qr_code_image_name">YAP-qrCode</string>
+    <string name="screen_fragment_qr_code_text_qr_code_share_title">YAP QR code</string>
+    <string name="screen_fragment_qr_code_text_qr_code_share_description">"Hi! its %1s \nHere is my YAP QR Code, please scan it for money transactions."</string>
+    <string name="screen_fragment_qr_code_text_qr_code_own_error_msg">Scanned QR code belongs to your own YAP account. Please scan another QR code.</string>
+    <string name="screen_fragment_qr_code_text_qr_code_decoding_error_msg">Inaccurate QRCode, Please try again.</string>
+
+</resources>

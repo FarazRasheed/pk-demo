@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.listadapter.CardItemViewModel" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/pk_margin_small">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_normal"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            android:paddingTop="@dimen/pk_margin_small"
+            android:paddingBottom="@dimen/pk_margin_small"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_section_display_text_virtual_cards)}"
+            android:visibility="@{viewModel.cardData.type == 1 ? View.VISIBLE :View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/screen_card_section_display_text_virtual_cards" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCard"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_54sdp"
+            android:layout_marginTop="@dimen/pk_margin_extra_small"
+            android:layout_marginStart="@dimen/pk_margin_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:errorImg="@{@drawable/pk_card_spare}"
+            app:loadImg="@{viewModel.cardData.frontImage}"
+            app:placeHolder="@{@drawable/pk_bg_card_place_holder}"/>
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="tvBalance, tvCurrency"
+            app:flow_verticalGap="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@id/ivCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivCard" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="tvName, tvCardNumber"
+            app:flow_verticalGap="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@id/ivCard"
+            app:layout_constraintEnd_toStartOf="@id/flowPrice"
+            app:layout_constraintStart_toEndOf="@id/ivCard"
+            app:layout_constraintTop_toTopOf="@id/ivCard" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvName"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            android:text="@{viewModel.cardData.cardName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivCard"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Sufyan Shabbir" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvCardNumber"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            android:textColor="@color/light_grey"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_section_display_text_masked_card_text,  viewModel.cardData.maskedCardNo.toString().substring( viewModel.cardData.maskedCardNo.length-4, viewModel.cardData.maskedCardNo.length))}"
+            android:visibility="@{viewModel.cardData.maskedCardNo !=null ? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivCard"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/screen_card_section_display_text_masked_card_text" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvBalance"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            android:text="@{viewModel.cardData.cardBalance != null ? viewModel.cardData.cardBalance.toString() : '0.00'}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1000" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvCurrency"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            android:textColor="@color/light_grey"
+            android:text="@{viewModel.cardData.currency}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivCard"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="PKR" />
+
+        <View
+            android:id="@+id/vLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:alpha="0.2"
+            android:background="?attr/pkSecondaryTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ivCard"
+            app:layout_constraintTop_toBottomOf="@id/ivCard" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

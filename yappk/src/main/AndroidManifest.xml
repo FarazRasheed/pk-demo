@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yap.yappk">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:protectionLevel="signature" />
+
+    <!--    Camera Permission needs-->
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:theme="@style/Theme.Base.Yap.Pk"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name="com.yap.yappk.pk.ui.onboarding.main.YapPkMainActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yap.yappk.pk.ui.auth.main.AuthenticationActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yap.yappk.pk.ui.dashboard.main.PkDashboardActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yap.yappk.pk.ui.kyc.main.KycDashboardActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".pk.ui.dashboard.cards.cardpin.main.CardPinActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".pk.ui.dashboard.cards.cardstatus.main.CardDeliveryActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pk.ui.dashboard.yapit.addmoney.main.AddMoneyMainActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pk.ui.dashboard.cards.carddetail.main.CardDetailMainActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pk.ui.dashboard.cards.reorder.main.ReorderCardActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pk.ui.dashboard.yapit.sendmoney.main.SendMoneyDashboardMainActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".pk.ui.dashboard.yapit.sendmoney.addbeneficiary.main.AddBeneficiaryActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yap.yappk.pk.ui.dashboard.yapit.qrcode.main.MainQrActivity"
+            android:theme="@style/Theme.Base.Yap.Pk"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:enabled="true"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource" />
+        </provider>
+    </application>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+            <category android:name="android.intent.category.BROWSABLE" />
+        </intent>
+    </queries>
+
+</manifest>

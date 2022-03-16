@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Yap.Pk.Widget.TextInputLayout.OutLined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textAppearance">
+            @style/Yap.Pk.Widget.TextAppearance.TextInputField
+        </item>
+        <item name="errorTextAppearance">
+            @style/Yap.Pk.Widget.TextInputLayout.TextAppearance.Error
+        </item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cornerFamily">cut</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_40sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_40sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_40sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_40sdp</item>
+        <item name="expandedHintEnabled">false</item>
+        <item name="hintEnabled">false</item>
+        <item name="startIconTint">@null</item>
+        <item name="endIconTint">@null</item>
+        <item name="endIconMode">custom</item>
+        <item name="boxBackgroundColor">@color/pkTextInputBackgroundColor</item>
+        <item name="android:textColor">?attr/colorPrimaryDark</item>
+        <item name="materialThemeOverlay">@style/Yap.Pk.EditText.Outline.ThemeOverlay</item>
+        <item name="prefixTextAppearance">@style/Yap.Pk.Widget.TextInputLayout.Prefix</item>
+        <item name="boxStrokeColor">@color/pk_text_input_layout_box_border_color_state</item>
+        <item name="prefixTextColor">@color/pkBlueGreyTwo</item>
+        <item name="hintTextColor">@color/pkBlueGrey</item>
+        <item name="boxStrokeErrorColor">@color/pkError</item>
+        <item name="errorTextColor">@color/pkError</item>
+        <item name="errorIconDrawable">@drawable/pk_ic_error</item>
+
+    </style>
+
+    <style name="Yap.Pk.Widget.TextInputLayout.Filled" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+        <item name="hintTextAppearance">@style/Yap.Pk.Hint.TextAppearance.TextInputLayout</item>
+        <item name="materialThemeOverlay">@style/Yap.EditText.Filled.ThemeOverlay</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxBackgroundColor">@color/pk_text_input_background_color_states</item>
+        <item name="boxStrokeColor">@color/pk_text_input_layout_box_color_state</item>
+        <item name="android:textColorHint">@color/pk_text_input_layout_label_color_state</item>
+        <item name="hintTextColor">?attr/pkPrimaryDarkTextColor</item>
+        <item name="expandedHintEnabled">false</item>
+        <item name="boxStrokeErrorColor">@color/pkError</item>
+        <item name="errorTextColor">@color/pkError</item>
+        <item name="endIconTint">@null</item>
+        <item name="endIconMode">custom</item>
+        <item name="android:textAppearance">
+            @style/Yap.Pk.Widget.TextAppearance.TextInputField
+        </item>
+        <item name="errorTextAppearance">
+            @style/Yap.Pk.Widget.TextInputLayout.TextAppearance.Error
+        </item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextAppearance.TextInputField" parent="">
+        <item name="android:textSize">@dimen/pk_text_size_h2</item>
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="font">@font/pk_roboto_regular</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextInputLayout.TextAppearance.Error" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/pkError</item>
+        <item name="android:textSize">@dimen/pk_text_size_h7</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+    </style>
+
+    <style name="Yap.EditText.Filled.ThemeOverlay" parent="">
+        <item name="editTextStyle">@style/Yap.Pk.Widget.FilledBox.Padding</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.FilledBox.Padding" parent="@style/Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingTop">@dimen/pk_margin_large</item>
+        <item name="android:textColor">?attr/pkPrimaryDarkTextColor</item>
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Yap.Pk.Hint.TextAppearance.TextInputLayout" parent="">
+        <item name="android:textSize">@dimen/pk_text_size_h7</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+    </style>
+
+    <style name="Yap.Pk.EditText.Outline.ThemeOverlay" parent="">
+        <item name="editTextStyle">@style/Yap.Pk.Widget.Outline</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.Outline" parent="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">?attr/pkPrimaryDarkTextColor</item>
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:paddingTop">@dimen/pk_margin_normal_large</item>
+        <item name="android:paddingBottom">@dimen/pk_margin_normal_large</item>
+        <item name="android:paddingStart">@dimen/pk_margin_large</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextInputLayout.Prefix" parent="">
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+    </style>
+
+    <style name="Yap.Pk.App.Widget.TextInputLayout.Filled.Drawable" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="hintTextAppearance">@style/Yap.Pk.Hint.TextAppearance.TextInputLayout</item>
+        <item name="materialThemeOverlay">@style/Yap.EditText.Filled.ThemeOverlay</item>
+        <item name="boxBackgroundColor">@color/pk_text_input_background_color_states</item>
+        <item name="boxStrokeColor">@color/pk_text_input_layout_box_color_state</item>
+        <item name="android:textColorHint">@color/pk_text_input_layout_label_color_state</item>
+        <item name="hintTextColor">?attr/pkPrimaryDarkTextColor</item>
+        <item name="expandedHintEnabled">false</item>
+        <item name="boxStrokeErrorColor">@color/pkError</item>
+        <item name="android:textAppearance">
+            @style/Yap.Pk.Widget.TextAppearance.TextInputField
+        </item>
+        <item name="errorTextAppearance">
+            @style/Yap.Pk.Widget.TextInputLayout.TextAppearance.Error
+        </item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.main.KycDashboardVM" />
+
+        <import type="android.view.View" />
+
+        <import type="com.yap.yappk.R" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <com.yap.uikit.widget.progressbar.AnimatedProgressBar
+            android:id="@+id/apbProgress"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:paddingHorizontal="@dimen/pk_margin_small"
+            android:visibility="@{viewModel.viewState.toolsBarVisibility? View.VISIBLE : View.INVISIBLE }"
+            app:apbBackgroundColor="@color/pkLightBlueGrey"
+            app:apbColor="?attr/colorPrimary"
+            app:apbIconSize="@dimen/_26sdp"
+            app:apbLeftBackgroundDrawable="@drawable/pk_ic_back"
+            app:apbProgress="@{viewModel.viewState.currentProgress}"
+            app:apbProgressCompleted="@{viewModel.viewState.currentProgress == 100}"
+            app:apbRightBackgroundDrawable="@{viewModel.viewState.currentProgress == 100 ?@drawable/pk_ic_tick_enabled : @drawable/pk_ic_tick_disabled}"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/pk_kyc_dashboard_nav_graph" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.AddMoneyDashboardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_cross"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_add_money_dashboard_display_text_toolbar_title)}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvLabel"
+            style="@style/Yap.Pk.Widget.TextView.Heading.Primary"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:paddingStart="@dimen/pk_margin_medium_large"
+            android:paddingEnd="@dimen/pk_margin_medium_large"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_add_money_dashboard_display_text_title)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView"
+            tools:text="@string/screen_add_money_dashboard_display_text_title" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowCardVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="flowRowOne, flowRowTwo"
+            app:flow_horizontalAlign="start"
+            app:flow_verticalGap="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLabel" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowRowOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:constraint_referenced_ids="icCredit, icBankTransfer"
+            app:flow_horizontalGap="@dimen/pk_margin_medium" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowRowTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:constraint_referenced_ids="icQr"
+            app:flow_horizontalGap="@dimen/pk_margin_medium" />
+
+
+        <com.yap.yappk.pk.utils.ItemCard
+            android:id="@+id/icCredit"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:itemCardIcon="@drawable/pk_ic_credit_card"
+            app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_add_money_dashboard_display_text_credit_card)}"
+            app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall" />
+
+        <com.yap.yappk.pk.utils.ItemCard
+            android:id="@+id/icBankTransfer"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:itemCardIcon="@drawable/pk_ic_bank_transfer"
+            app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_add_money_dashboard_display_text_bank_transfer)}"
+            app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall" />
+
+        <com.yap.yappk.pk.utils.ItemCard
+            android:id="@+id/icQr"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:itemCardIcon="@drawable/pk_ic_qr_option"
+            app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_add_money_dashboard_display_text_qr_code)}"
+            app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

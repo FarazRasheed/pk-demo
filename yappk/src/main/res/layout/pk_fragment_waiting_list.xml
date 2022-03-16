@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.R" />
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.waitinglist.WaitingListViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_20sdp">
+
+            <FrameLayout
+                android:id="@+id/flVideoPlayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.yap.uikit.widget.videoview.AndExoPlayerView
+                    android:id="@+id/andExoPlayerView"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:visibility="invisible"
+                    app:andexo_aspect_ratio="aspect_match"
+                    app:andexo_play_when_ready="true"
+                    app:andexo_resize_mode="Zoom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </FrameLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvQueueDetail"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_normal_large"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_waiting_list_display_text_your_place_in_queue)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flVideoPlayer"
+                tools:text="@string/screen_waiting_list_display_text_your_place_in_queue" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rankViewFlow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_normal_large"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvQueueDetail">
+
+                <com.yap.uikit.widget.rollingcounterview.RollingCounterView
+                    android:id="@+id/dtvRankOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rcvTextColor="?attr/colorPrimaryDark"
+                    app:rcvTextStyle="@{R.style.Yap_Pk_Widget_TextView_PrimaryDarkColor_XLarge}" />
+
+                <com.yap.uikit.widget.rollingcounterview.RollingCounterView
+                    android:id="@+id/dtvRankTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rcvTextColor="?attr/colorPrimaryDark"
+                    app:rcvTextStyle="@{R.style.Yap_Pk_Widget_TextView_PrimaryDarkColor_XLarge}" />
+
+                <com.yap.uikit.widget.rollingcounterview.RollingCounterView
+                    android:id="@+id/dtvRankThree"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rcvTextColor="?attr/colorPrimaryDark"
+                    app:rcvTextStyle="@{R.style.Yap_Pk_Widget_TextView_PrimaryDarkColor_XLarge}" />
+
+                <com.yap.uikit.widget.rollingcounterview.RollingCounterView
+                    android:id="@+id/dtvRankFour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rcvTextColor="?attr/colorPrimaryDark"
+                    app:rcvTextStyle="@{R.style.Yap_Pk_Widget_TextView_PrimaryDarkColor_XLarge}" />
+
+                <com.yap.uikit.widget.rollingcounterview.RollingCounterView
+                    android:id="@+id/dtvRankFive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rcvTextColor="?attr/colorPrimaryDark"
+                    app:rcvTextStyle="@{R.style.Yap_Pk_Widget_TextView_PrimaryColor_XLarge}" />
+
+                <com.yap.uikit.widget.rollingcounterview.RollingCounterView
+                    android:id="@+id/dtvRankSix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rcvTextColor="?attr/colorPrimaryDark"
+                    app:rcvTextStyle="@{R.style.Yap_Pk_Widget_TextView_PrimaryDarkColor_XLarge}" />
+
+                <com.yap.uikit.widget.rollingcounterview.RollingCounterView
+                    android:id="@+id/dtvRankSeven"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rcvTextColor="?attr/colorPrimaryDark"
+                    app:rcvTextStyle="@{R.style.Yap_Pk_Widget_TextView_PrimaryDarkColor_XLarge}" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvUsersAbove"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_normal_large"
+                android:text="@{viewModel.viewState.waitingBehind}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rankViewFlow"
+                tools:text="2312" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvWaitingBehind"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_waiting_list_display_text_waiting_behind_you)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvUsersAbove"
+                tools:text="@string/screen_waiting_list_display_text_waiting_behind_you" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvNotifyYoutext"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_normal_large"
+                android:gravity="center"
+                android:lineSpacingExtra="2sp"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_waiting_list_display_text_we_will_notify_you)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvWaitingBehind"
+                tools:text="@string/screen_waiting_list_display_text_we_will_notify_you" />
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/fwColoredBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:background="@drawable/purple_card"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/pk_margin_normal"
+                android:paddingTop="@dimen/pk_margin_medium_small"
+                android:paddingEnd="@dimen/pk_margin_normal"
+                android:paddingBottom="@dimen/pk_margin_medium"
+                app:constraint_referenced_ids="tvJump,tvLeadBankText,tvSignedUpUsers"
+                app:layout_constraintTop_toBottomOf="@+id/tvNotifyYoutext" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvJump"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="3sp"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_waiting_list_display_text_want_to_jump)}"
+                tools:text="@string/screen_waiting_list_display_text_want_to_jump" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLeadBankText"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="3sp"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_waiting_list_display_text_lead_the_bank_description,viewModel.viewState.jump)}"
+                tools:text="@string/screen_waiting_list_display_text_lead_the_bank_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSignedUpUsers"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="3sp"
+                android:onClick="@{viewModel::onClick}"
+                android:paddingTop="@dimen/pk_margin_medium"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_waiting_list_display_text_signed_up_users,viewModel.viewState.signedUpUsers)}"
+                tools:text="@string/screen_waiting_list_display_text_signed_up_users" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_large"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_waiting_list_display_button_text))}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fwColoredBox"
+                app:layout_constraintVertical_bias="1"
+                tools:text="@string/screen_waiting_list_display_button_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

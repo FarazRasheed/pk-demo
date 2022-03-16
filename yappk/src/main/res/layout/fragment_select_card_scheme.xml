@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.cardorder.cardscheme.SelectCardSchemeVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_select_card_scheme_display_text_title)}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/screen_select_card_scheme_display_text_title" />
+        <com.yap.uikit.widget.multiStateView.MultiStateLayout
+            android:id="@+id/multiStateView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:uikit_msv_animateViewChanges="false"
+            app:uikit_msv_emptyView="@layout/pk_layout_empty_view_no_results"
+            app:uikit_msv_errorView="@layout/pk_layout_error_view"
+            app:uikit_msv_viewState="content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCardsSchemes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="true"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/pk_layout_card_scheme_item" />
+        </com.yap.uikit.widget.multiStateView.MultiStateLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

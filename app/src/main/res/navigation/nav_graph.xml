@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/accountSelectionFragment">
+
+    <fragment
+        android:id="@+id/accountSelectionFragment"
+        android:name="com.digitify.testyappakistan.onboarding.accountSelection.AccountSelectionFragment"
+        android:label="AccountSelectionFragment"
+        tools:layout="@layout/fragment_account_selection">
+        <action
+            android:id="@+id/action_accountSelectionFragment_to_mobileNumFragment"
+            app:destination="@id/mobileNumFragment" />
+        <action
+            android:id="@+id/action_accountSelectionFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mobileNumFragment"
+        android:name="com.digitify.testyappakistan.onboarding.mobile.MobileNoFragment"
+        android:label="MobileNoFragment"
+        tools:layout="@layout/fragment_mobile_no">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.digitify.testyappakistan.signin.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_mobileNumFragment"
+            app:destination="@id/mobileNumFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_accountSelectionFragment"
+            app:destination="@id/accountSelectionFragment" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_forgot_card_pin_nav_graph"
+    app:startDestination="@id/forgotPinVerifyPasscodeFragment">
+
+    <fragment
+        android:id="@+id/forgotPinVerifyPasscodeFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.forgotpin.verifypasscode.ForgotPinVerifyPasscodeFragment"
+        android:label="ForgotPinVerifyPasscodeFragment"
+        tools:layout="@layout/fragment_forgot_pin_verify_passcode">
+        <action
+            android:id="@+id/action_forgotPinVerifyPasscodeFragment_to_forgotPinEnterNewCardPinFragment"
+            app:destination="@id/forgotPinEnterNewCardPinFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPinEnterNewCardPinFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.forgotpin.enterpin.ForgotPinEnterNewCardPinFragment"
+        android:label="ForgotPinEnterNewCardPinFragment"
+        tools:layout="@layout/fragment_forgot_pin_enter_new_card_pin">
+        <action
+            android:id="@+id/action_forgotPinEnterNewCardPinFragment_self"
+            app:destination="@id/forgotPinEnterNewCardPinFragment" />
+        <action
+            android:id="@+id/action_forgotPinEnterNewCardPinFragment_to_verifyOtpFragment"
+            app:destination="@id/verifyOtpFragment" />
+        <action
+            android:id="@+id/action_forgotPinEnterNewCardPinFragment_to_forgotCardPinUpdateSuccessFragment"
+            app:destination="@id/forgotCardPinUpdateSuccessFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/verifyOtpFragment"
+        android:name="com.yap.yappk.pk.ui.generic.verifyotp.VerifyOtpFragment"
+        android:label="VerifyOtpFragment"
+        tools:layout="@layout/fragment_verify_otp" />
+
+    <fragment
+        android:id="@+id/forgotCardPinUpdateSuccessFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.forgotpin.forgotpinupdatesuccess.ForgotCardPinUpdateSuccessFragment"
+        android:label="ForgotCardPinUpdateSuccessFragment"
+        tools:layout="@layout/fragment_forgot_pin_update_success" />
+
+
+</navigation>

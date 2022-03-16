@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.selfie.selfiereview.SelfieReviewVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.yap.uikit.widget.toolbarview.ToolBarView
+                android:id="@+id/tbView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tbStartIconDrawable="@drawable/pk_ic_close" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTitle"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                android:layout_marginTop="@dimen/pk_margin_large"
+                android:layout_marginEnd="@dimen/pk_margin_medium"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_selfie_review_display_text_title)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tbView"
+                tools:text="@string/screen_selfie_review_display_text_title" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvImage"
+                android:layout_width="@dimen/_190sdp"
+                android:layout_height="@dimen/_220sdp"
+                android:layout_marginTop="@dimen/pk_margin_large"
+                android:background="@color/pkWhite"
+                app:cardCornerRadius="@dimen/pk_margin_small"
+                app:cardElevation="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/pk_margin_small"
+                    app:filePath="@{viewModel.viewState.filePath}"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Pk.RoundImageView"
+                    tools:src="@drawable/pk_ic_profile" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSubTitle"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_small"
+                android:gravity="center"
+                android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_selfie_review_display_text_sub_title))}"
+                app:layout_constraintBottom_toTopOf="@id/btnYes"
+                app:layout_constraintEnd_toEndOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/cvImage"
+                app:layout_constraintVertical_bias="0.15"
+                tools:text="@string/screen_selfie_review_display_text_sub_title" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_selfie_review_button_yes)}"
+                app:layout_constraintBottom_toTopOf="@+id/btnReTake"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/screen_selfie_review_button_yes" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReTake"
+                style="@style/Yap.Pk.Widget.Button.TextButton.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="@dimen/pk_margin_small"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_selfie_review_button_retake)}"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/pk_text_size_h5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/screen_selfie_review_button_retake" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

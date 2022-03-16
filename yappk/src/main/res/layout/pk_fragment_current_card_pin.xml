@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.cardpin.changecardpin.currentcardpin.CurrentCardPinVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_change_card_pin_display_text_header)}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvLabel"
+            style="@style/Yap.Pk.Widget.TextView.Heading.Primary"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:paddingStart="@dimen/pk_margin_medium_large"
+            android:paddingEnd="@dimen/pk_margin_medium_large"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_current_card_pin_display_text_title)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView"
+            tools:text="@string/screen_change_card_pin_display_text_header" />
+
+        <com.yap.uikit.widget.dialerpad.SecureCodeView
+            android:id="@+id/tvPassCode"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/pk_margin_extra_large2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabel"
+            app:scv_maxLength="@integer/pk_adp_code_default_length" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvError"
+            style="@style/Yap.Pk.Widget.TextView.PassCode.Error"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:gravity="center"
+            android:lineSpacingExtra="0sp"
+            android:text="@{viewModel.viewState.pinError}"
+            android:textColor="@color/pkError"
+            android:textSize="@dimen/pk_text_size_h8"
+            android:visibility="@{viewModel.viewState.pinError==null?View.INVISIBLE:View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPassCode"
+            tools:text="error message will be here"
+            tools:visibility="invisible" />
+
+        <com.yap.uikit.widget.dialerpad.AdjustableDialerPad
+            android:id="@+id/keyBoard"
+            style="@style/Yap.App.Layout.Adjustable_DialerPad"
+            android:layout_marginStart="@dimen/pk_margin_medium_large"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium_large"
+            app:adpBtnMaxWidth="@dimen/_64sdp"
+            app:adpCodeMaxLength="@integer/pk_adp_code_default_length"
+            app:adpLeftIcon="@drawable/pk_ic_delete"
+            app:adpLeftIconPadding="@dimen/pk_margin_normal"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvError"
+            app:rightKeyVisibility="@{false}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_medium_large"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:enabled="@{viewModel.viewState.valid, default = false}"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.common_button_next)}"
+            app:layout_constraintBottom_toTopOf="@+id/tvForgotPin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/common_button_next" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvForgotPin"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_medium_large"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_current_card_pin_display_text_forgot_pin)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_current_card_pin_display_text_forgot_pin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

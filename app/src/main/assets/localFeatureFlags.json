@@ -1,0 +1,28 @@
+{
+  "features": [
+    {
+      "key": "YP-PK",
+      "title": "YAP Pakistan Feature Flag",
+      "description": "Enabling/Disabling YAP Pakistan Module from Super Application",
+      "value": true
+    },
+    {
+      "key": "YP-UAE",
+      "title": "YAP UAE Feature Flag",
+      "description": "Enabling/Disabling YAP UAE Module from Super Application",
+      "value": false
+    },
+    {
+      "key": "YP-KSA",
+      "title": "YAP KSA Feature Flag",
+      "description": "Enabling/Disabling YAP KSA Module from Super Application",
+      "value": false
+    },
+    {
+      "key": "YP-GHANA",
+      "title": "YAP GHANA Feature Flag",
+      "description": "Enabling/Disabling YAP GHANA Module from Super Application",
+      "value": false
+    }
+  ]
+}

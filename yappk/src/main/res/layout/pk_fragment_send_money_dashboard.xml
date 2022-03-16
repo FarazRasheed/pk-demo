@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.dashboard.SendMoneyDashboardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbEndIconDrawable="@drawable/pk_ic_user_search"
+            app:tbEndIconVisibility="true"
+            app:tbStartIconDrawable="@drawable/pk_ic_cross"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_header)}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvLabel"
+            style="@style/Yap.Pk.Widget.TextView.Heading.Primary"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:paddingStart="@dimen/pk_margin_medium"
+            android:paddingEnd="@dimen/pk_margin_medium"
+            android:text="@{viewModel.viewState.isNoRecentTransfers ? LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_with_no_recent_title): LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_with_recent_title)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView"
+            tools:text="@string/screen_send_money_dashboard_display_text_with_no_recent_title" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRecentHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:visibility="@{viewModel.viewState.isNoRecentTransfers ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/tvLabel">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRecentTransfer"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{viewModel.viewState.isRecentTransfersVisible}"
+                android:onClick="@{viewModel::onClick}"
+                android:paddingStart="@dimen/pk_margin_medium_large"
+                android:paddingTop="@dimen/pk_margin_small"
+                android:paddingEnd="@dimen/pk_margin_medium_large"
+                android:paddingBottom="@dimen/pk_margin_small"
+                android:textColor="@{viewModel.viewState.isRecentTransfersVisible == false ? @color/pkBlueGrey: @color/pkBlueWithAHintOfPurple}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:text="@{viewModel.viewState.isRecentTransfersVisible == false ? LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_recent_transfers) : LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_show_recent_transfers) }"
+                tools:text="@string/screen_send_money_dashboard_display_text_show_recent_transfers" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hideRecentText"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.XSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_large"
+                android:onClick="@{viewModel::onClick}"
+                android:paddingStart="@dimen/pk_margin_medium_large"
+                android:paddingTop="@dimen/pk_margin_small"
+                android:paddingEnd="@dimen/pk_margin_medium_large"
+                android:paddingBottom="@dimen/pk_margin_small"
+                android:visibility="@{viewModel.viewState.isRecentTransfersVisible== false ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:text="@{LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_hide)}"
+                tools:text="@string/screen_send_money_dashboard_display_text_hide" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecentBeneficiaries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium_large"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:adapter="@{viewModel.recentTransferAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecentTransfer" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowCardVertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium_large"
+            android:layout_marginTop="@dimen/pk_margin_medium_small"
+            android:layout_marginEnd="@dimen/pk_margin_medium_large"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="flowRowOne, flowRowTwo"
+            app:flow_horizontalAlign="start"
+            app:flow_verticalGap="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clRecentHeader" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowRowOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:constraint_referenced_ids="icYapToYap, icBankTransfer"
+            app:flow_horizontalGap="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.yap.yappk.pk.utils.ItemCard
+            android:id="@+id/icYapToYap"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:itemCardIcon="@drawable/pk_ic_contacts"
+            app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_yap_contact)}"
+            app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall" />
+
+        <com.yap.yappk.pk.utils.ItemCard
+            android:id="@+id/icBankTransfer"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:itemCardIcon="@drawable/pk_ic_bank_transfer_primary"
+            app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_bank_transfer)}"
+            app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowRowTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:constraint_referenced_ids="icQr"
+            app:flow_horizontalGap="@dimen/pk_margin_medium"
+            tools:ignore="MissingConstraints" />
+
+        <com.yap.yappk.pk.utils.ItemCard
+            android:id="@+id/icQr"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:itemCardIcon="@drawable/pk_ic_qr_option"
+            app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_send_money_dashboard_display_text_qr_code)}"
+            app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

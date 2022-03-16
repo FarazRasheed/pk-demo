@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/tvName"
+        style="@style/Yap.Pk.Widget.TextView.PrimaryColor.XSmall"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_marginHorizontal="@dimen/pk_margin_small"
+        android:layout_marginVertical="@dimen/pk_margin_small"
+        android:background="@drawable/pk_bg_single_selector"
+        android:checked="false"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#360f73"
+        tools:text="Name" />
+</layout>

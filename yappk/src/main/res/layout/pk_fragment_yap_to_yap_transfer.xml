@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.yaptoyap.sendtoyapmain.transfer.main.YapToYapTransferVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.uikit.utils.spannables.SpannableKt" />
+
+        <import type="com.digitify.core.utils.SpannableStringCreatorKt" />
+
+        <import type="com.yap.yappk.pk.utils.StringExtKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/clFTSnackbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:elevation="@dimen/_3sdp" />
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_yap_to_yap_transfer_display_text_header)}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clMain"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingStart="@dimen/pk_margin_medium_large"
+                android:paddingEnd="@dimen/pk_margin_medium_large">
+
+                <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+                    android:id="@+id/niView"
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="@dimen/_55sdp"
+                    android:layout_marginTop="@dimen/pk_margin_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:niImageUrl="@{viewModel.viewState.contact.imgUrl}"
+                    app:niText="@{viewModel.viewState.contact.fullName}" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvUserName"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_small"
+                    android:text="@{viewModel.viewState.contact.fullName}"
+                    app:layout_constraintEnd_toEndOf="@+id/niView"
+                    app:layout_constraintStart_toStartOf="@+id/niView"
+                    app:layout_constraintTop_toBottomOf="@+id/niView"
+                    tools:text="Sufyan" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvMobileNumber"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/tvUserName"
+                    app:layout_constraintStart_toStartOf="@+id/tvUserName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                    tools:text="+92 302 5101902" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivFlag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_extra_large2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMobileNumber"
+                    app:srcCompat="@drawable/pk_ic_flag" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCurrency"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pk_margin_extra_small"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.common_text_currency_type)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivFlag"
+                    app:layout_constraintLeft_toRightOf="@+id/ivFlag"
+                    app:layout_constraintTop_toTopOf="@+id/ivFlag"
+                    tools:text="PKR" />
+
+                <com.yap.yappk.pk.utils.EasyMoneyEditText
+                    android:id="@+id/etAmount"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/_140sdp"
+                    android:minHeight="@dimen/_55sdp"
+                    android:inputType="phone"
+                    app:enableDecimal="false"
+                    android:onTextChanged="@{viewModel::onAmountChange}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvCurrency"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvCurrency"
+                    tools:text="1234567891" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTransferFee"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:text="@{SpannableStringCreatorKt.getText(context.resources, @string/common_text_fee,SpannableKt.color(@color/pkDarkSlateBlue, StringExtKt.toFormattedCurrency(viewModel.viewState.transferFee,true,`PKR`,true)))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etAmount"
+                    tools:text="@string/common_text_fee" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAvailableBalance"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_extra_small"
+                    android:text="@{SpannableStringCreatorKt.getText(context.resources, @string/screen_yap_to_yap_transfer_display_text_balance_description,SpannableKt.color(@color/pkDarkSlateBlue, viewModel.viewState.accountCurrentBalance))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTransferFee"
+                    tools:text="@string/screen_yap_to_yap_transfer_display_text_balance_description" />
+
+                <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                    android:id="@+id/tlTransferNote"
+                    style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_small"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_yap_to_yap_transfer_display_text_note)}"
+                    app:hintEnabled="false"
+                    app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                    app:hintTextColorSelected="@color/pkBlueGrey"
+                    app:layout_constraintTop_toBottomOf="@id/tvAvailableBalance"
+                    tools:hint="@string/screen_yap_to_yap_transfer_display_text_note">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTransferNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@{LocalizationKt.getString(context,StringsKt.screen_yap_to_yap_transfer_display_text_note)}"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/pk_margin_three_dp"
+                        tools:text="" />
+                </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                    android:enabled="@{viewModel.viewState.isValidAmount, default = false}"
+                    android:onClick="@{viewModel::onClick}"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.common_button_confirm)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tlTransferNote"
+                    app:layout_constraintVertical_bias="1"
+                    tools:text="@string/common_button_confirm" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

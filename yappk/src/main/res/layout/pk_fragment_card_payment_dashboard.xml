@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.cardorder.cardpaymentdashboard.CardPaymentDashboardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbEndIconDrawable="@drawable/pk_ic_plus_primary"
+            app:tbEndIconVisibility="true"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbStartIconVisibility="true"
+            app:tbTitleText="@{viewModel.viewState.tbTitle}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:paddingStart="@dimen/pk_margin_medium_large"
+            android:paddingEnd="@dimen/pk_margin_medium_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView"
+            tools:text="@string/screen_add_money_card_dashboard_display_text_card_tb_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDescription"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_small"
+            android:layout_marginTop="@dimen/pk_margin_extra_small"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="@string/screen_add_money_card_dashboard_display_text_card_description" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_240sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvCardName"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_small"
+            android:layout_marginTop="@dimen/pk_margin_extra_small"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPagerCard"
+            tools:text="citi bank" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivSecure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_extra_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCardName"
+            app:srcCompat="@drawable/pk_ic_secure_by_yap" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_medium_large"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.common_button_select)}"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/common_button_select" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

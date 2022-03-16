@@ -1,0 +1,22 @@
+{
+  "features": [
+    {
+      "key": "YP_PK_PAY_BILLS",
+      "title": "YAP-PK Pay Bills",
+      "description": "Enabling/Disabling YAP Pakistan Pay Bills",
+      "value": true
+    },
+    {
+      "key": "YP_PK_ADD_MONEY",
+      "title": "YAP-PK Add Money",
+      "description": "Enabling/Disabling YAP Pakistan Add Money",
+      "value": true
+    },
+    {
+      "key": "YP_PK_SEND_MONEY",
+      "title": "YAP-PK Send Money",
+      "description": "Enabling/Disabling YAP Pakistan Send Money",
+      "value": true
+    }
+  ]
+}

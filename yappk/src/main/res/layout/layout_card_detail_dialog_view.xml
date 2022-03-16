@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pk_bg_card_white_round"
+        android:paddingBottom="@dimen/pk_margin_medium">
+
+        <com.yap.uikit.widget.multiStateView.MultiStateLayout
+            android:id="@+id/msvStateView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:uikit_msv_emptyView="@layout/pk_layout_empty_view_no_results"
+            app:uikit_msv_errorView="@layout/pk_layout_error_view"
+            app:uikit_msv_loadingView="@layout/pk_layout_loading_view"
+            app:uikit_msv_viewState="content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivCard"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginTop="@dimen/pk_margin_medium_small"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/pk_card_spare" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal"
+                    android:src="@drawable/pk_ic_cross"
+                    android:tint="@color/pkDarkSlateBlue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardType"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivCard"
+                    tools:text="Primary Card" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardName"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_extra_small"
+                    android:layout_marginEnd="@dimen/pk_margin_extra_small"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCardType"
+                    tools:text="Shopping" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCardName">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCardNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/pk_margin_medium"
+                        android:layout_marginTop="@dimen/pk_margin_medium"
+                        android:layout_marginEnd="@dimen/pk_margin_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvLabelCardNo"
+                            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_section_display_text_card_number)}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@string/screen_card_section_display_text_card_number" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvCardNo"
+                            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/pk_margin_extra_small"
+                            android:layout_marginEnd="@dimen/pk_margin_extra_small"
+                            app:layout_constraintEnd_toStartOf="@id/tvCardNoCopy"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvLabelCardNo"
+                            tools:text="345612344567" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvCardNoCopy"
+                            style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/purple_card"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:paddingHorizontal="@dimen/pk_margin_normal_large"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:paddingBottom="@dimen/_3sdp"
+                            android:text="@{LocalizationKt.getString(context,StringsKt.screen_account_detail_display_text_copy)}"
+                            app:layout_constraintBottom_toBottomOf="@id/tvCardNo"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tvCardNo"
+                            tools:text="@string/screen_account_detail_display_text_copy" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginTop="@dimen/pk_margin_extra_small"
+                            android:alpha="0.5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvCardNo" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clExpire"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvLabelExpire"
+                            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_section_display_text_expire_date)}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@string/screen_card_section_display_text_expire_date" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvExpire"
+                            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                            android:layout_width="180dp"
+                            android:layout_height="26dp"
+                            android:layout_marginTop="@dimen/pk_margin_extra_small"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvLabelExpire"
+                            tools:text="02/24" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginTop="@dimen/pk_margin_extra_small"
+                            android:alpha="0.5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvExpire" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCvv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvLabelCvv"
+                            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_section_display_text_cvv)}"
+                            app:layout_constraintEnd_toEndOf="@id/tvCvv"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="@id/tvCvv"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@string/screen_card_section_display_text_cvv" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvCvv"
+                            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/pk_margin_extra_small"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvLabelCvv"
+                            tools:text="233" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginTop="@dimen/pk_margin_extra_small"
+                            android:alpha="0.5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvCvv" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.helper.widget.Flow
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_medium"
+                        android:orientation="horizontal"
+                        app:constraint_referenced_ids="clExpire, clCvv"
+                        app:flow_horizontalGap="@dimen/pk_margin_small"
+                        app:layout_constraintEnd_toEndOf="@id/clCardNumber"
+                        app:layout_constraintStart_toStartOf="@id/clCardNumber"
+                        app:layout_constraintTop_toBottomOf="@id/clCardNumber" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.yap.uikit.widget.multiStateView.MultiStateLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_320sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

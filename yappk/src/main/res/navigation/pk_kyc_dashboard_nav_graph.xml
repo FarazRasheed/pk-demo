@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kyc_dashboard_nav_graph"
+    app:startDestination="@id/kycUploadDocumentFragment">
+    <fragment
+        android:id="@+id/kycUploadDocumentFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.uploaddocument.upload.KycUploadDocumentFragment"
+        android:label="KycUploadDocumentFragment"
+        tools:layout="@layout/fragment_kyc_upload_document">
+        <action
+            android:id="@+id/action_kycUploadDocumentFragment_to_kycScanDocumentFragment"
+            app:destination="@id/kycScanDocumentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kycScanDocumentFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.uploaddocument.scan.KycScanDocumentFragment"
+        android:label="KycScanDocumentFragment"
+        tools:layout="@layout/fragment_kyc_scan_document">
+        <action
+            android:id="@+id/action_kycScanDocumentFragment_to_documentReviewFragment"
+            app:destination="@id/documentReviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selfieGuideFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.selfie.selfieguide.SelfieGuideFragment"
+        android:label="SelfieGuideFragment"
+        tools:layout="@layout/fragment_selfie_guide">
+        <action
+            android:id="@+id/action_selfieGuideFragment_to_takeSelfieFragment"
+            app:destination="@id/takeSelfieFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/takeSelfieFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.selfie.takeselfie.TakeSelfieFragment"
+        android:label="TakeSelfieFragment"
+        tools:layout="@layout/fragment_take_selfie">
+        <action
+            android:id="@+id/action_takeSelfieFragment_to_selfieReviewFragment"
+            app:destination="@id/selfieReviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/documentReviewFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.uploaddocument.reviewdetails.DocumentReviewFragment"
+        android:label="DocumentReviewFragment"
+        tools:layout="@layout/fragment_document_review">
+        <action
+            android:id="@+id/action_documentReviewFragment_to_mothersMaidenNameFragment"
+            app:destination="@id/mothersMaidenNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mothersMaidenNameFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.secretquestions.mothersmaiden.MothersMaidenNameFragment"
+        android:label="MothersMaidenNameFragment"
+        tools:layout="@layout/fragment_mother_maiden_name">
+        <action
+            android:id="@+id/action_mothersMaidenNameFragment_to_placeOfBirthFragment"
+            app:destination="@id/placeOfBirthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeOfBirthFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.secretquestions.birthcity.PlaceOfBirthFragment"
+        android:label="PlaceOfBirthFragment"
+        tools:layout="@layout/fragment_place_of_birth">
+        <action
+            android:id="@+id/action_placeOfBirthFragment_to_selfieGuideFragment"
+            app:destination="@id/selfieGuideFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/selfieReviewFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.selfie.selfiereview.SelfieReviewFragment"
+        android:label="SelfieReviewFragment"
+        tools:layout="@layout/fragment_selfie_review">
+        <action
+            android:id="@+id/action_selfieReviewFragment_to_selectCardSchemeFragment"
+            app:destination="@id/selectCardSchemeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardNameConfirmationFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.cardname.cardnameconfirmation.CardNameConfirmationFragment"
+        android:label="CardNameConfirmationFragment"
+        tools:layout="@layout/fragment_card_name_confirmation">
+        <action
+            android:id="@+id/action_cardNameConfirmationFragment_to_updateCardNameFragment"
+            app:destination="@id/updateCardNameFragment" />
+        <action
+            android:id="@+id/action_cardNameConfirmationFragment_to_cardPaymentAddCardFragment"
+            app:destination="@id/cardPaymentAddCardFragment" />
+        <action
+            android:id="@+id/action_cardNameConfirmationFragment_to_addressSelectionFragment"
+            app:destination="@id/addressSelectionFragment" />
+        <action
+            android:id="@+id/action_cardNameConfirmationFragment_to_cardPaymentDashboardFragment"
+            app:destination="@id/cardPaymentDashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateCardNameFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.cardname.updatecardname.UpdateCardNameFragment"
+        android:label="UpdateCardNameFragment"
+        tools:layout="@layout/fragment_update_card_name" />
+    <fragment
+        android:id="@+id/addressSelectionFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.address.delivery.AddressSelectionFragment"
+        android:label="AddressSelectionFragment"
+        tools:layout="@layout/fragment_address_selection">
+        <action
+            android:id="@+id/action_addressSelectionFragment_to_cityNameFragment"
+            app:destination="@id/cityNameFragment" />
+
+        <action
+            android:id="@+id/action_addressSelectionFragment_to_cardOrderPaymentConfirmationFragment"
+            app:destination="@id/cardOrderPaymentConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityNameFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.address.city.CityNameFragment"
+        android:label="CityNameFragment"
+        tools:layout="@layout/fragment_city_name" />
+    <fragment
+        android:id="@+id/cardOrderSuccessFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.address.success.CardOrderSuccessFragment"
+        android:label="CardOrderSuccessFragment"
+        tools:layout="@layout/fragment_card_order_success" />
+    <fragment
+        android:id="@+id/invalidCustomerFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.customer.invalid.InvalidCustomerFragment"
+        android:label="InvalidCustomerFragment"
+        tools:layout="@layout/fragment_invalid_customer" />
+    <fragment
+        android:id="@+id/validCustomerFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.customer.valid.ValidCustomerFragment"
+        android:label="ValidCustomerFragment"
+        tools:layout="@layout/fragment_valid_customer" />
+    <fragment
+        android:id="@+id/selectCardSchemeFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.cardorder.cardscheme.SelectCardSchemeFragment"
+        android:label="SelectCardSchemeFragment"
+        tools:layout="@layout/fragment_select_card_scheme">
+        <action
+            android:id="@+id/action_selectCardSchemeFragment_to_cardSchemeBenefitsFragment"
+            app:destination="@id/cardSchemeBenefitsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardSchemeBenefitsFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.cardorder.cardbenefits.CardSchemeBenefitsFragment"
+        android:label="CardSchemeBenefitsFragment"
+        tools:layout="@layout/fragment_card_scheme_benefits">
+        <action
+            android:id="@+id/action_cardSchemeBenefitsFragment_to_cardNameConfirmationFragment"
+            app:destination="@id/cardNameConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardPaymentAddCardFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.cardorder.cardpaymentaddcard.CardPaymentAddCardFragment"
+        android:label="CardPaymentAddCardFragment"
+        tools:layout="@layout/pk_fragment_card_payment_add_card">
+        <action
+            android:id="@+id/action_cardPaymentAddCardFragment_to_addressSelectionFragment"
+            app:destination="@id/addressSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardPaymentDashboardFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.cardorder.cardpaymentdashboard.CardPaymentDashboardFragment"
+        android:label="CardPaymentDashboardFragment"
+        tools:layout="@layout/pk_fragment_card_payment_dashboard">
+        <action
+            android:id="@+id/action_cardPaymentDashboardFragment_to_addressSelectionFragment"
+            app:destination="@id/addressSelectionFragment" />
+        <action
+            android:id="@+id/action_cardPaymentDashboardFragment_to_cardPaymentAddCardFragment"
+            app:destination="@id/cardPaymentAddCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardOrderPaymentConfirmationFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.paymentconfirmation.CardOrderPaymentConfirmationFragment"
+        android:label="CardOrderPaymentConfirmationFragment"
+        tools:layout="@layout/pk_fragment_card_order_payment_confirmation">
+        <action
+            android:id="@+id/action_cardOrderPaymentConfirmationFragment_to_onBoardingCardCvvFragment"
+            app:destination="@id/onBoardingCardCvvFragment" />
+        <action
+            android:id="@+id/action_cardOrderPaymentConfirmationFragment_to_topUpOtpVerificationFragment2"
+            app:destination="@id/topUpOtpVerificationFragment2" />
+        <action
+            android:id="@+id/action_cardOrderPaymentConfirmationFragment_to_cardOrderSuccessFragment"
+            app:destination="@id/cardOrderSuccessFragment" />
+        <action
+            android:id="@+id/action_cardOrderPaymentConfirmationFragment_to_validCustomerFragment"
+            app:destination="@id/validCustomerFragment" />
+        <action
+            android:id="@+id/action_cardOrderPaymentConfirmationFragment_to_invalidCustomerFragment"
+            app:destination="@id/invalidCustomerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingCardCvvFragment"
+        android:name="com.yap.yappk.pk.ui.kyc.cvv.OnBoardingCardCvvFragment"
+        android:label="OnBoardingCardCvvFragment"
+        tools:layout="@layout/pk_fragment_onboarding_card_cvv" />
+    <fragment
+        android:id="@+id/topUpOtpVerificationFragment2"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.topup.otpverification.TopUpOtpVerificationFragment"
+        android:label="TopUpOtpVerificationFragment"
+        tools:layout="@layout/pk_fragment_top_up_otp_verification" />
+</navigation>

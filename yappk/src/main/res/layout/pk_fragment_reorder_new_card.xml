@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.reorder.newcard.ReorderNewCardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_reorder_new_card_display_text_header)}" />
+
+        <ScrollView
+            android:id="@+id/svContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/pk_margin_large"
+                android:paddingRight="@dimen/pk_margin_large">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivReorderCard"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="@dimen/_220sdp"
+                    android:layout_marginTop="@dimen/pk_margin_large"
+                    tools:src="@drawable/pk_card_spare"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardTile"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal_large"
+                    android:background="@drawable/purple_card"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_primary_card)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivReorderCard"
+                    tools:text="@string/screen_report_lost_and_stolen_card_display_text_primary_card" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardFeeTitle"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium"
+                    android:gravity="center"
+                    android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_reorder_new_card_display_text_title_card_fee))}"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCardTile"
+                    tools:text="@string/screen_reorder_new_card_display_text_title_card_fee" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardFee"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.viewState.reorderNewCardFee}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCardFeeTitle"
+                    tools:text="PKR 39.50" />
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_small"
+                    android:orientation="horizontal"
+                    app:constraint_referenced_ids="tvAvailableBalanceTitle,tvAvailableBalanceValue"
+                    app:flow_horizontalGap="@dimen/margin_extra_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCardFee" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAvailableBalanceTitle"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_reorder_new_card_display_text_balance_description)}"
+                    tools:text="@string/screen_reorder_new_card_display_text_balance_description" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAvailableBalanceValue"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{viewModel.viewState.availableBalance}"
+                    tools:text="PKR 500.00" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_small"
+                    android:background="@drawable/pk_bg_card_white_round"
+                    android:padding="@dimen/pk_margin_medium_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAvailableBalanceTitle">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/pk_bg_circle_light_purple"
+                        android:padding="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/pk_ic_map_location" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvLocationTitle"
+                        style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/pk_margin_medium_large"
+                        android:layout_marginEnd="@dimen/pk_margin_extra_small"
+                        android:text="@{viewModel.viewState.cardAddressTitle}"
+                        app:layout_constraintEnd_toStartOf="@+id/tvLocationEdit"
+                        app:layout_constraintStart_toEndOf="@+id/ivLocation"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="12 Street Road" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvLocationSubTitle"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/pk_margin_extra_small"
+                        android:text="@{viewModel.viewState.cardAddressSubTitle}"
+                        app:layout_constraintEnd_toStartOf="@+id/tvLocationEdit"
+                        app:layout_constraintStart_toStartOf="@+id/tvLocationTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLocationTitle"
+                        tools:text="12 Street Road" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvLocationEdit"
+                        style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel::onClick}"
+                        android:padding="@dimen/margin_extra_small"
+                        android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_reorder_new_card_display_text_edit))}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@string/screen_reorder_new_card_display_text_edit" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConfirmPurchase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:onClick="@{viewModel::onClick}"
+                    android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_reorder_new_card_display_text_button))}"
+                    app:layout_constraintBottom_toTopOf="@+id/tvDoItLater"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clLocation"
+                    tools:text="@string/screen_reorder_new_card_display_text_button" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvDoItLater"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:layout_marginBottom="@dimen/pk_margin_large"
+                    android:onClick="@{viewModel::onClick}"
+                    android:text="@{String.format(LocalizationKt.getString(context,StringsKt.common_text_do_it_later))}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnConfirmPurchase"
+                    tools:text="@string/common_text_do_it_later" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

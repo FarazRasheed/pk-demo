@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.address.city.CityNameVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:paddingHorizontal="@dimen/pk_margin_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_chevron_left"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_city_name_selection_display_text_toolbar_title)}" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginHorizontal="@dimen/pk_margin_large"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:background="@drawable/pk_bg_search_widget"
+            android:onClick="@{viewModel::onClick}"
+            android:textAlignment="center"
+            android:theme="@style/PkAppSearchView"
+            app:closeIcon="@drawable/pk_ic_clear_field"
+            app:defaultQueryHint="Search"
+            app:iconifiedByDefault="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView"
+            app:queryBackground="@null"
+            app:queryHint="@{LocalizationKt.getString(context,StringsKt.screen_city_name_selection_display_hint_search)}"
+            app:searchHintIcon="@drawable/pk_ic_search"
+            app:searchIcon="@null" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvHintView"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pk_ic_search"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_city_name_selection_display_hint_search)}"
+            app:layout_constraintBottom_toTopOf="@+id/multiStateView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView"
+            app:layout_constraintVertical_bias="0.45"
+            tools:text="@string/screen_city_name_selection_display_hint_search" />
+
+        <com.yap.uikit.widget.multiStateView.MultiStateLayout
+            android:id="@+id/multiStateView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/pk_margin_large"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:uikit_msv_animateViewChanges="false"
+            app:uikit_msv_emptyView="@layout/pk_layout_empty_view_no_results"
+            app:uikit_msv_errorView="@layout/pk_layout_error_view"
+            app:uikit_msv_loadingView="@layout/pk_layout_loading_view"
+            app:uikit_msv_viewState="content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdgeLength="20dp"
+                android:requiresFadingEdge="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="10"
+                tools:listitem="@layout/layout_item_city_name" />
+        </com.yap.uikit.widget.multiStateView.MultiStateLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

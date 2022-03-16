@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.addbeneficiary.main.AddBeneficiaryVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbEndText="@{LocalizationKt.getString(context,StringsKt.common_button_cancel)}"
+            app:tbEndTextMarginEnd="@dimen/pk_margin_normal"
+            app:tbEndTextVisibility="true"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_add_beneficiary_display_text_header)}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAddBeneficiaryState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_xl"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:adapter="@{viewModel.statesAdapter}"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView"
+            tools:itemCount="3"
+            tools:listitem="@layout/layout_item_card_delivery_status" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvAddBeneficiaryState"
+            app:navGraph="@navigation/pk_add_beneficiary_nav_graph" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

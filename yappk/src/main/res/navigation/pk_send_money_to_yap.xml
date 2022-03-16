@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_send_money_to_yap"
+    app:startDestination="@id/sendToYAPMainFragment">
+
+    <fragment
+        android:id="@+id/sendToYAPMainFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.yaptoyap.sendtoyapmain.SendToYAPMainFragment"
+        android:label="SendToYAPMainFragment"
+        tools:layout="@layout/fragment_send_to_yap_main">
+        <action
+            android:id="@+id/action_sendToYAPMainFragment_to_contactSearchFragment"
+            app:destination="@id/contactSearchFragment" />
+        <action
+            android:id="@+id/action_sendToYAPMainFragment_to_pk_y2y_transfer_nav"
+            app:destination="@id/pk_y2y_transfer_nav" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactSearchFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.yaptoyap.sendtoyapmain.search.ContactSearchFragment"
+        android:label="ContactSearchFragment"
+        tools:layout="@layout/fragment_contact_search" >
+        <action
+            android:id="@+id/action_contactSearchFragment_to_pk_y2y_transfer_nav"
+            app:destination="@id/pk_y2y_transfer_nav" />
+    </fragment>
+    <include app:graph="@navigation/pk_y2y_transfer_nav_graph" />
+
+</navigation>

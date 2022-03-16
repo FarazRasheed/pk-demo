@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.transfer.BankTransferVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.uikit.utils.spannables.SpannableKt" />
+
+        <import type="com.digitify.core.utils.SpannableStringCreatorKt" />
+
+        <import type="com.yap.yappk.pk.utils.StringExtKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbEndText="@{LocalizationKt.getString(context,StringsKt.common_button_cancel)}"
+            app:tbEndTextMarginEnd="@dimen/pk_margin_normal"
+            app:tbEndTextVisibility="true"
+            app:tbStartIconVisibility="false"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_display_text_tb_title)}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clMain"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingStart="@dimen/pk_margin_medium_large"
+                android:paddingEnd="@dimen/pk_margin_medium_large">
+
+                <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+                    android:id="@+id/niView"
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="@dimen/_55sdp"
+                    android:layout_marginTop="@dimen/pk_margin_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvBeneficiaryName"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_small"
+                    app:layout_constraintEnd_toEndOf="@+id/niView"
+                    app:layout_constraintStart_toStartOf="@+id/niView"
+                    app:layout_constraintTop_toBottomOf="@+id/niView"
+                    tools:text="Sufyan" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAccountNumber"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/tvBeneficiaryName"
+                    app:layout_constraintStart_toStartOf="@+id/tvBeneficiaryName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBeneficiaryName"
+                    tools:text="2422132323245332" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCurrencyType"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal_large"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.common_text_currency_type)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAccountNumber"
+                    tools:text="@string/common_text_currency_type" />
+
+                <com.yap.yappk.pk.utils.EasyMoneyEditText
+                    android:id="@+id/etAmount"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_three_dp"
+                    android:inputType="phone"
+                    android:minWidth="@dimen/_140sdp"
+                    android:minHeight="@dimen/_55sdp"
+                    android:onTextChanged="@{viewModel::onAmountChange}"
+                    app:enableDecimal="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCurrencyType"
+                    tools:text="1234567891" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTransferFee"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal"
+                    android:text="@{SpannableStringCreatorKt.getText(context.resources, @string/common_text_fee,SpannableKt.color(@color/pkDarkSlateBlue, StringExtKt.toFormattedCurrency(viewModel.viewState.transferFee,true,`PKR`,true)))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etAmount"
+                    tools:text="@string/common_text_fee" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAvailableBalance"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium"
+                    android:text="@{SpannableStringCreatorKt.getText(context.resources,@string/screen_bank_transfer_display_text_available_balance,SpannableKt.color(@color/pkDarkSlateBlue,StringExtKt.toFormattedCurrency(viewModel.viewState.accountCurrentBalance,true,`PKR`,true)))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTransferFee"
+                    tools:text="@string/screen_bank_transfer_display_text_available_balance" />
+
+                <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                    android:id="@+id/tlReasons"
+                    style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal_large"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_display_text_reasons_heading)}"
+                    app:endIconDrawable="@drawable/pk_ic_drop_down"
+                    app:hintEnabled="true"
+                    app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                    app:hintTextColorSelected="@color/pkBlueGrey"
+                    app:layout_constraintTop_toBottomOf="@id/tvAvailableBalance"
+                    tools:hint="@string/screen_bank_transfer_display_text_reasons_heading">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etReasons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                        android:ellipsize="end"
+                        android:enabled="false"
+                        android:hint="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_display_text_reasons_hint)}"
+                        android:maxLines="1"
+                        android:paddingTop="33dp"
+                        android:paddingBottom="2dp"
+                        tools:text="@string/screen_bank_transfer_display_text_reasons_hint" />
+                </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+                <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                    android:id="@+id/tlTransferNote"
+                    style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_small"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    app:hintEnabled="false"
+                    app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                    app:hintTextColorSelected="@color/pkBlueGrey"
+                    app:layout_constraintTop_toBottomOf="@id/tlReasons">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTransferNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_display_text_note_hint)}"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/pk_margin_three_dp"
+                        tools:text="@string/screen_bank_transfer_display_text_note_hint" />
+                </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                    android:enabled="@{viewModel.viewState.isValidAmount, default = false}"
+                    android:onClick="@{viewModel::onClick}"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.common_button_next)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tlTransferNote"
+                    app:layout_constraintVertical_bias="1"
+                    tools:text="@string/common_button_confirm" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

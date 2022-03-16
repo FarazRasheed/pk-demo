@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.cardpin.changecardpin.success.ChangeCardPinSuccessVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDark"
+            android:layout_marginTop="@dimen/pk_margin_xxl"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/pk_margin_large"
+            android:layout_marginEnd="@dimen/pk_margin_large"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_change_card_pin_success_display_text_title)) }"
+            android:textSize="@dimen/pk_text_size_h3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/screen_change_card_pin_success_display_text_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSubTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/pk_margin_large"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:layout_marginEnd="@dimen/pk_margin_large"
+            android:gravity="center"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_change_card_pin_success_display_text_description)) }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="@string/screen_change_card_pin_success_display_text_description" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_extra_large"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.common_text_done))}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
+            app:layout_constraintVertical_bias="1"
+            tools:text="@string/common_text_done" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

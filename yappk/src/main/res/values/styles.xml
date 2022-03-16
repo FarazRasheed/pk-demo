@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Yap.Pk.Widget.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/pkWhite</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Pk.CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearance.Pk.RoundImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">5%</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.ToolBar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:actionBarSize</item>
+        <item name="android:minHeight">?android:actionBarSize</item>
+        <item name="android:background">@color/pkWhite</item>
+        <item name="title">@null</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.ToolBar" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">?android:actionBarSize</item>
+        <item name="android:minWidth">?android:actionBarSize</item>
+        <item name="android:layout_gravity">center|center_vertical|center_horizontal</item>
+        <item name="android:gravity">center|center_vertical|center_horizontal</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/pkDarkSlateBlue</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="font">@font/pk_roboto_regular</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.ImageView" parent="PkAppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">@string/empty_string</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.ImageView.Circle.Small" parent="Yap.Pk.Widget.ImageView">
+        <item name="android:layout_width">@dimen/_26sdp</item>
+        <item name="android:layout_height">@dimen/_26sdp</item>
+        <item name="android:contentDescription">@string/empty_string</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Pk.CircleImageView</item>
+    </style>
+
+    <style name="Yap.Pk.Switch" parent="TextAppearance.AppCompat.Widget.Switch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/pkPrimaryDarkTextColor</item>
+        <item name="android:textSize">@dimen/pk_text_size_h7</item>
+    </style>
+
+    <style name="PkAppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/PkAppModalStyle</item>
+    </style>
+
+    <style name="PkAppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/pk_bg_white_top_rounded_corner</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="elevation">@dimen/_4sdp</item>
+        <item name="itemTextAppearanceInactive">
+            @style/Yap.Pk.BottomNavigationView.TextAppearance.InActive
+        </item>
+        <item name="itemTextAppearanceActive">
+            @style/Yap.Pk.BottomNavigationView.TextAppearance.Active
+        </item>
+
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorPrimary">@color/pkBlueWithAHintOfPurple</item>
+        <item name="colorOnPrimary">@color/design_default_color_error</item>
+    </style>
+
+    <style name="Yap.Pk.Layout" parent="PkAppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Yap.Pk.Layout.LinearLayout" parent="Yap.Pk.Layout">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Yap.Pk.Layout.LinearLayout.Horizontal" parent="Yap.Pk.Layout.LinearLayout">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Yap.Pk.Layout.LinearLayout.Horizontal.White" parent="Yap.Pk.Layout.LinearLayout.Horizontal">
+        <item name="android:background">@color/pkWhite</item>
+    </style>
+
+    <style name="Yap.Pk.Layout.LinearLayout.Horizontal.wrap_content" parent="Yap.Pk.Layout.LinearLayout.Horizontal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Yap.Pk.Layout.LinearLayout.Horizontal.match_parent" parent="Yap.Pk.Layout.LinearLayout.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Yap.Pk.Layout.LinearLayout.Vertical" parent="Yap.Pk.Layout.LinearLayout">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Yap.Pk.Layout.LinearLayout.Vertical.White" parent="Yap.Pk.Layout.LinearLayout.Vertical">
+        <item name="android:background">@color/pkWhite</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.Divider.Horizontal" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_1sdp</item>
+        <item name="android:background">@color/pkPaleLilac</item>
+    </style>
+
+    <style name="PkCustomShapeAppearanceBottomSheetDialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="PkCustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/PkCustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="PkCustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/PkCustomBottomSheet</item>
+    </style>
+
+    <declare-styleable name="PaginatedRecyclerView">
+        <!--
+            Set the offset from the end of the list at which onNextPage event needs to be triggered, default is 5.
+            Follows convention of `AutoCompleteTextView.completionThreshold`.
+            -->
+        <attr name="paginationThreshold" format="integer" />
+        <!-- Class name of placeholder adapter, instance of the class will be created reflectively. -->
+        <attr name="placeholderAdapter" format="string" />
+        <!-- Class name of error adapter, instance of the class will be created reflectively. -->
+        <attr name="errorAdapter" format="string" />
+    </declare-styleable>
+
+    <style name="AnimationUpPopup">
+        <item name="android:windowEnterAnimation">@anim/pk_grow_fade_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/pk_shrink_fade_out_from_bottom</item>
+    </style>
+
+</resources>

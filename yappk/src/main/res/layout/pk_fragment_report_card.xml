@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.carddetail.primarycarddetaildashboard.report.ReportCardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.R" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_header)}" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/pkWhite"
+                android:paddingLeft="@dimen/pk_margin_large"
+                android:paddingRight="@dimen/pk_margin_large">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivReportCard"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="@dimen/_220sdp"
+                    android:layout_marginTop="@dimen/pk_margin_large"
+                    tools:src="@drawable/pk_card_spare"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvSpareCardTile"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_small"
+                    android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_primary_card))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivReportCard"
+                    tools:text="@string/screen_report_lost_and_stolen_card_display_text_primary_card" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardNumber"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_extra_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSpareCardTile"
+                    tools:text="4044 2345 **** 1234" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivSecuredByYap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCardNumber"
+                    app:srcCompat="@drawable/pk_ic_secure_by_yap" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCaption"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_reason_question))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivSecuredByYap"
+                    tools:text="@string/screen_report_lost_and_stolen_card_display_text_reason_question" />
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/flReasons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_large"
+                    android:orientation="horizontal"
+                    app:constraint_referenced_ids="icDamage,icLostStolen"
+                    app:flow_horizontalGap="@dimen/pk_margin_normal_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCaption" />
+
+                <com.yap.yappk.pk.utils.ItemCard
+                    android:id="@+id/icDamage"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    app:itemCardBackground="@{viewModel.viewState.isCardDamageOption ?R.drawable.pk_bg_card_grey_selected_round: viewModel.viewState.isCardDamageOption==null ? R.drawable.pk_bg_card_white_round:R.drawable.pk_bg_card_white_round}"
+                    app:itemCardIcon="@drawable/pk_ic_damaged_card"
+                    app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_damage_card)}"
+                    app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.yap.yappk.pk.utils.ItemCard
+                    android:id="@+id/icLostStolen"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    app:itemCardBackground="@{viewModel.viewState.isCardDamageOption ?R.drawable.pk_bg_card_white_round: viewModel.viewState.isCardDamageOption==null ?R.drawable.pk_bg_card_white_round: R.drawable.pk_bg_card_grey_selected_round}"
+                    app:itemCardIcon="@drawable/pk_ic_lost"
+                    app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_lost_stolen_card)}"
+                    app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvHeading"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_extra_large"
+                    android:gravity="center"
+                    android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_block_description))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/flReasons"
+                    tools:text="@string/screen_report_lost_and_stolen_card_display_text_block_description" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvWarning"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:background="@drawable/pk_bg_colored_warning"
+                    android:gravity="center"
+                    android:padding="@dimen/pk_margin_medium"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_block_guide, viewModel.viewState.helpDeskNumber)}"
+                    android:textColor="@color/pkWarning"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHeading"
+                    tools:text="@string/screen_report_lost_and_stolen_card_display_text_block_guide" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBlock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:layout_marginBottom="@dimen/pk_margin_large"
+                    android:enabled="@{viewModel.viewState.isCardDamageOption==null ? false:true, default=false}"
+                    android:onClick="@{viewModel::onClick}"
+                    android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_report_lost_and_stolen_card_display_text_button))}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWarning"
+                    tools:text="@string/screen_report_lost_and_stolen_card_display_text_button" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

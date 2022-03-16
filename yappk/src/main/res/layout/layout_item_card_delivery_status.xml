@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.cardstatus.adapter.StatusDataModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/vHelper"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/pk_margin_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.yap.uikit.widget.TimelineView
+            android:id="@+id/timeline"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_small"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/_8sdp"
+            app:endLineColor="@color/pkLightBlueGrey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lineOrientation="horizontal"
+            app:linePadding="@dimen/pk_margin_small"
+            app:lineRoundedCorner="true"
+            app:lineStyle="normal"
+            app:lineWidth="@dimen/_6sdp"
+            app:marker="@drawable/pk_ic_tick_disabled"
+            app:markerInCenter="false"
+            app:markerPaddingBottom="@dimen/_8sdp"
+            app:markerPaddingTop="@dimen/_8sdp"
+            app:markerSize="@dimen/_30sdp"
+            app:startLineColor="@color/pkTransparent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvStatus"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@{viewModel.markerInProgress ? @color/pkBlueGrey: @color/pkDarkSlateBlue}"
+            app:layout_constraintEnd_toEndOf="@+id/vHelper"
+            app:layout_constraintStart_toStartOf="@+id/vHelper"
+            app:layout_constraintTop_toBottomOf="@+id/timeline"
+            tools:text="Built" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

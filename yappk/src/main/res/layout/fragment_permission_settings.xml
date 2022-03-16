@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.auth.biometric.BiometricPermissionVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.digitify.core.utils.ConstantsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/pk_margin_medium_large">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTouchId"
+            android:layout_width="@dimen/_56sdp"
+            android:layout_height="@dimen/_56sdp"
+            android:layout_marginTop="@dimen/pk_margin_xxl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcDrawable="@{viewModel.viewState.icon}"
+            tools:src="@drawable/ic_touch_id" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_extra_large2"
+            android:gravity="center"
+            android:text="@{viewModel.viewState.screenTitle}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivTouchId"
+            tools:text="@string/screen_touch_id_text_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDescription"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:gravity="center"
+            android:text="@{viewModel.viewState.screenDescription}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="@string/screen_touch_id_text_description" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTermsCondition"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pk_margin_medium"
+            android:gravity="center"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_touch_id_text_terms_and_condition)}"
+            android:visibility="@{viewModel.viewState.screenType == ConstantsKt.TOUCH_ID_SCREEN_TYPE? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@id/btnConfirmation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="@string/screen_touch_id_text_terms_and_condition" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pk_margin_medium"
+            android:autoSizeTextType="uniform"
+            android:maxLines="1"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{viewModel.viewState.buttonTitle}"
+            app:layout_constraintBottom_toTopOf="@id/tvNoThanks"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_touch_id_text_button" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvNoThanks"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pk_margin_medium"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_touch_id_text_no_thanks)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_touch_id_text_no_thanks" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryColor" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.TextView</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/pkPrimaryTextColor</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryDark" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.TextView</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/pkPrimaryDarkTextColor</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.Secondary" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.TextView</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/pkSecondaryTextColor</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.Tertiary" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.TextView</item>
+        <item name="android:textColor">?attr/pkTertiaryTextColor</item>
+    </style>
+
+    <style name="Yap.Pk.TextAppearance.TextView" parent="">
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="font">@font/pk_roboto_regular</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:font" tools:targetApi="o">@font/pk_roboto_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+
+    <style name="Yap.Pk.Widget.TextView.White" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.TextView</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/pkWhiteColor</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryColor.XXLarge" parent="Yap.Pk.Widget.TextView.PrimaryColor">
+        <item name="android:textSize">@dimen/pk_text_size_h2</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryColor.XLarge" parent="Yap.Pk.Widget.TextView.PrimaryColor">
+        <item name="android:textSize">@dimen/pk_text_size_h3</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryColor.Large" parent="Yap.Pk.Widget.TextView.PrimaryColor">
+        <item name="android:textSize">@dimen/pk_text_size_h5</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryColor.Medium" parent="Yap.Pk.Widget.TextView.PrimaryColor">
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryColor.Small" parent="Yap.Pk.Widget.TextView.PrimaryColor">
+        <item name="android:textSize">@dimen/pk_text_size_h7</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryColor.XSmall" parent="Yap.Pk.Widget.TextView.PrimaryColor">
+        <item name="android:textSize">@dimen/pk_text_size_h8</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge" parent="Yap.Pk.Widget.TextView.PrimaryDark">
+        <item name="android:textSize">@dimen/pk_text_size_h2</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge" parent="Yap.Pk.Widget.TextView.PrimaryDark">
+        <item name="android:textSize">@dimen/pk_text_size_h3</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryDarkColor.Large" parent="Yap.Pk.Widget.TextView.PrimaryDark">
+        <item name="android:textSize">@dimen/pk_text_size_h5</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium" parent="Yap.Pk.Widget.TextView.PrimaryDark">
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryDarkColor.Small" parent="Yap.Pk.Widget.TextView.PrimaryDark">
+        <item name="android:textSize">@dimen/pk_text_size_h7</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall" parent="Yap.Pk.Widget.TextView.PrimaryDark">
+        <item name="android:textSize">@dimen/pk_text_size_h8</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.SecondaryColor.XLarge" parent="Yap.Pk.Widget.TextView.Secondary">
+        <item name="android:textSize">@dimen/pk_text_size_h3</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.SecondaryColor.Large" parent="Yap.Pk.Widget.TextView.Secondary">
+        <item name="android:textSize">@dimen/pk_text_size_h5</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.SecondaryColor.Medium" parent="Yap.Pk.Widget.TextView.Secondary">
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.SecondaryColor.Small" parent="Yap.Pk.Widget.TextView.Secondary">
+        <item name="android:textSize">@dimen/pk_text_size_h7</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.SecondaryColor.XSmall" parent="Yap.Pk.Widget.TextView.Secondary">
+        <item name="android:textSize">@dimen/pk_text_size_h8</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.WhiteColor.XLarge" parent="Yap.Pk.Widget.TextView.White">
+        <item name="android:textSize">@dimen/pk_text_size_h3</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.WhiteColor.Large" parent="Yap.Pk.Widget.TextView.White">
+        <item name="android:textSize">@dimen/pk_text_size_h5</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.WhiteColor.Medium" parent="Yap.Pk.Widget.TextView.White">
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.WhiteColor.Small" parent="Yap.Pk.Widget.TextView.White">
+        <item name="android:textSize">@dimen/pk_text_size_h7</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.WhiteColor.XSmall" parent="Yap.Pk.Widget.TextView.White">
+        <item name="android:textSize">@dimen/pk_text_size_h8</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.WhiteColor.MinSmall" parent="Yap.Pk.Widget.TextView.White">
+        <item name="android:textSize">@dimen/pk_text_size_c_0</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.WhiteColor.XXXSmall" parent="Yap.Pk.Widget.TextView.White">
+        <item name="android:textSize">@dimen/pk_text_size_c_1</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.WhiteColor.XXSmall" parent="Yap.Pk.Widget.TextView.White">
+        <item name="android:textSize">@dimen/pk_text_size_c0</item>
+    </style>
+
+    <style name="Yap.Pk.BottomNavigationView.TextAppearance.Active" parent="@style/Yap.Pk.TextAppearance.TextView">
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:color">@color/pkBlueWithAHintOfPurple</item>
+        <item name="android:textSize">@dimen/pk_text_size_h8</item>
+    </style>
+
+    <style name="Yap.Pk.BottomNavigationView.TextAppearance.InActive" parent="@style/Yap.Pk.TextAppearance.TextView">
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:color">@color/pkBlueGrey</item>
+        <item name="android:textSize">@dimen/pk_text_size_h8</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.Heading.Primary" parent="Yap.Pk.Widget.TextView.PrimaryDarkColor.Large">
+        <item name="android:textSize">@dimen/pk_text_size_h5</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.TextView.Heading</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+    </style>
+
+    <style name="Yap.Pk.TextAppearance.TextView.Heading" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="font">@font/pk_roboto_regular</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:font" tools:targetApi="o">@font/pk_roboto_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textColor">?attr/pkPrimaryDarkTextColor</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.Description.Primary" parent="Yap.Pk.Widget.TextView.SecondaryColor.Medium">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.TextView.Description
+        </item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+    </style>
+
+    <style name="Yap.Pk.TextAppearance.TextView.Description" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="font">@font/pk_roboto_regular</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:font" tools:targetApi="o">@font/pk_roboto_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textColor">?attr/pkPrimaryDarkTextColor</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PassCode" parent="Yap.Pk.Widget.TextView.PrimaryDark">
+        <item name="android:textSize">@dimen/pk_text_size_h2</item>
+        <item name="android:letterSpacing">0.29</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:inputType">number</item>
+        <item name="android:layout_marginTop">@dimen/pk_margin_medium_large</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.TextView.PassCode.Error" parent="Yap.Pk.Widget.TextView.PrimaryColor.XSmall">
+        <item name="android:letterSpacing">0</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:layout_marginTop">@dimen/pk_margin_extra_small</item>
+        <item name="android:textColor">@color/pkError</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+</resources>

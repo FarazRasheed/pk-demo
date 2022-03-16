@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.selfie.takeselfie.TakeSelfieVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/pvCamera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbBackgroundDrawable="@drawable/pk_bg_transparent"
+            app:tbStartIconDrawable="@drawable/pk_ic_close" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSubTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            android:gravity="center"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_take_selfie_display_text_sub_title))}"
+            android:textColor="@color/pkWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbView"
+            tools:text="@string/screen_take_selfie_display_text_sub_title" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_extra_large2"
+            android:layout_marginBottom="@dimen/pk_margin_extra_large2"
+            android:src="@drawable/pk_ic_selfie_ring"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubTitle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnTakePhoto"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginBottom="@dimen/pk_margin_extra_large2"
+            android:enabled="@{viewModel.viewState.hasFace}"
+            android:onClick="@{viewModel::onClick}"
+            android:src="@{viewModel.viewState.hasFace? @drawable/pk_ic_camera:@drawable/pk_ic_camera_disable}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/pk_ic_camera" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

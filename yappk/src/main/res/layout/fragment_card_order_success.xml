@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.address.success.CardOrderSuccessVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/pk_margin_normal">
+
+            <FrameLayout
+                android:id="@+id/flVideoPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.yap.uikit.widget.videoview.AndExoPlayerView
+                    android:id="@+id/andExoPlayerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_160sdp"
+                    android:visibility="invisible"
+                    app:andexo_aspect_ratio="aspect_match"
+                    app:andexo_play_when_ready="true"
+                    app:andexo_resize_mode="Zoom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </FrameLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCardOnWay"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_order_success_display_text_title)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flVideoPlayer"
+                tools:text="@string/screen_card_order_success_display_text_title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvYapMember"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_large"
+                android:layout_marginTop="@dimen/pk_margin_medium_large"
+                android:layout_marginEnd="@dimen/pk_margin_large"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_order_success_kyc_on_the_way_display_text_guide)}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCardOnWay"
+                tools:text="@string/screen_card_order_success_kyc_on_the_way_display_text_guide" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCNIC"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/pk_eid_layout_size"
+                android:layout_marginTop="@dimen/pk_margin_large"
+                android:background="@drawable/bg_round_corners"
+                android:backgroundTint="@color/pkBlueWithAHintOfPurpleFaded"
+                android:drawableEnd="@drawable/pk_ic_tick"
+                android:gravity="center_vertical"
+                android:padding="@dimen/pk_margin_medium"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_order_success_display_text_cnic)}"
+                app:layout_constraintEnd_toEndOf="@+id/tvCardOnWay"
+                app:layout_constraintStart_toStartOf="@+id/tvCardOnWay"
+                app:layout_constraintTop_toBottomOf="@+id/tvYapMember"
+                tools:text="@string/screen_card_order_success_display_text_cnic" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoToDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/pk_margin_extra_large"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_order_success_button_go_to_dashboard)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCNIC"
+                app:layout_constraintVertical_bias="0.988"
+                tools:text="@string/screen_card_order_success_button_go_to_dashboard" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

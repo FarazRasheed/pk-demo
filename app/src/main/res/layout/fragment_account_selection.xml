@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.digitify.testyappakistan.onboarding.accountSelection.AccountSelectionVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pkWhite"
+        android:keepScreenOn="true"
+        android:orientation="vertical"
+        tools:context="co.yap.app.main.MainActivity">
+
+        <com.yap.uikit.widget.videoview.AndExoPlayerView
+            android:id="@+id/andExoPlayerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:andexo_aspect_ratio="aspect_match"
+            app:andexo_play_when_ready="true"
+            app:andexo_resize_mode="Zoom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvCaption"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pk_margin_large"
+            android:gravity="center"
+            android:textColor="@color/pkWhite"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/layoutButtons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_home_display_text_sign_in_title" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPersonal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onClick}"
+                app:text="@{LocalizationKt.getString(context,StringsKt.screen_welcome_button_get_started)}" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvDisplayTextSignIn"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pk_margin_medium"
+                    android:layout_marginTop="@dimen/pk_margin_normal_large"
+                    android:gravity="center"
+                    android:text="@string/screen_home_display_text_sign_in_title"
+                    android:textColor="@color/semi_white_80"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvSignIn"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_toRightOf="@+id/tvDisplayTextSignIn"
+                    android:gravity="center"
+                    android:onClick="@{viewModel::onClick}"
+                    android:paddingTop="@dimen/pk_margin_normal_large"
+                    android:paddingEnd="@dimen/pk_margin_large"
+                    android:paddingBottom="@dimen/pk_margin_large"
+                    android:text="@string/screen_home_display_text_sign_in_action"
+                    android:textColor="@color/pkWhite"
+                    app:layout_constraintLeft_toRightOf="@+id/tvDisplayTextSignIn"
+                    tools:ignore="MissingConstraints" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.waitinglist.bottomsheetadapter.WaitingListItemVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp">
+
+        <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+            android:id="@+id/ivSignedUpUser"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/pk_margin_large"
+            app:niEnableGlideSignature="true"
+            app:niTextFont="@font/pk_roboto_regular"
+            app:niTextSize="@dimen/_14ssp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvName"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="0dp"
+            android:lines="2"
+            android:text="@{viewModel.inviteeDetail.inviteeCustomerName}"
+            app:layout_constraintStart_toEndOf="@+id/ivSignedUpUser"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Sufyan Shabbir" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

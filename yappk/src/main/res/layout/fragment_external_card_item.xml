@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.carddashboard.externalcarditem.ExternalCardItemVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.yappk.pk.utils.widgets.PaymentCard
+            android:id="@+id/pcCard"
+            android:layout_width="@dimen/_210sdp"
+            android:layout_height="@dimen/_130sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:paymentCardDateStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.XSmall"
+            app:paymentCardInfoIcon="@drawable/pk_ic_info_"
+            app:paymentCardNameStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.XSmall"
+            app:paymentCardNumberStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.Medium" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCardStatus"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginTop="-20dp"
+            android:background="@drawable/pk_bg_round_circle"
+            android:elevation="@dimen/_2sdp"
+            android:onClick="@{viewModel::onClick}"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.86"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pcCard"
+            tools:visibility="visible">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivCardStatus"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/pk_ic_group_alert"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

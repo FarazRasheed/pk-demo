@@ -1,0 +1,17 @@
+<resources>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- Home Screen -->
+    <string name="screen_home_display_text_tag_line">The Personalized Banking App</string>
+    <string name="screen_home_display_text_account_selection">I want an account for</string>
+    <string name="screen_home_button_personal_text">Personal</string>
+    <string name="screen_home_button_business_text">Business</string>
+    <string name="screen_home_display_text_sign_in_action">Sign in</string>
+    <string name="screen_home_display_text_sign_in_title">Already have an account?</string>
+    <!-- Home Screen -->
+
+    <string name="screen_welcome_button_get_started">Get started</string>
+</resources>

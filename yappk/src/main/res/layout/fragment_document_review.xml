@@ -1,0 +1,332 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.uploaddocument.reviewdetails.DocumentReviewVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/pk_margin_medium"
+            android:paddingEnd="@dimen/pk_margin_medium">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTitle"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_title)}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_document_detail_review_display_text_title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSubTitle"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pk_margin_medium"
+                android:layout_marginTop="@dimen/pk_margin_small"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_sub_title)}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="@string/screen_document_detail_review_display_text_sub_title" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_large"
+                app:cardBackgroundColor="#502C9E"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubTitle">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/pk_margin_large"
+                    android:paddingTop="@dimen/pk_margin_normal"
+                    android:paddingEnd="@dimen/pk_margin_medium"
+                    android:paddingBottom="@dimen/pk_margin_normal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/pk_ic_profile" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvEid"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/pk_margin_medium_large"
+                        android:text="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_document_id_title)}"
+                        android:textColor="@color/pkWhite"
+                        app:layout_constraintLeft_toRightOf="@+id/ivProfile"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@string/screen_document_detail_review_document_id_title" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView5"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/pk_margin_medium_large"
+                        android:text="@{viewModel.viewState.cnicNumber}"
+                        android:textColor="@color/pkWhite"
+                        app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                        app:layout_constraintTop_toBottomOf="@+id/tvEid"
+                        tools:text="12345-12345678-1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!--Document bio data details start -->
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlFirstName"
+                style="@style/Yap.Pk.App.Widget.TextInputLayout.Filled.Drawable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_normal_large"
+                android:enabled="false"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_first_name_heading)}"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvCard"
+                tools:hint="@string/screen_document_detail_review_display_text_first_name_heading">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/pk_ic_tick"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_first_name_heading)}"
+                    android:inputType="textPersonName"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@={viewModel.viewState.firstName}"
+                    tools:hint="@string/screen_document_detail_review_display_text_first_name_heading"
+                    tools:text="" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlLastName"
+                style="@style/Yap.Pk.App.Widget.TextInputLayout.Filled.Drawable"
+                android:layout_width="0dp"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium_small"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_last_name_heading)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlFirstName"
+                tools:hint="@string/screen_document_detail_review_display_text_last_name_heading">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@{viewModel.viewState.lastName.empty || viewModel.viewState.lastName == null ? null : @drawable/pk_ic_tick }"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_last_name_heading)}"
+                    android:inputType="textPersonName"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@={viewModel.viewState.lastName}"
+                    android:textAllCaps="true"
+                    tools:hint="@string/screen_document_detail_review_display_text_last_name_heading"
+                    tools:text="" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlGender"
+                style="@style/Yap.Pk.App.Widget.TextInputLayout.Filled.Drawable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium_small"
+                android:enabled="false"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_gender_heading)}"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlLastName"
+                tools:hint="@string/screen_document_detail_review_display_text_gender_heading">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/pk_ic_tick"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_gender_heading)}"
+                    android:inputType="textPersonName"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@={viewModel.viewState.gender}"
+                    tools:hint="@string/screen_document_detail_review_display_text_gender_heading" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlDob"
+                style="@style/Yap.Pk.App.Widget.TextInputLayout.Filled.Drawable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium_small"
+                android:enabled="false"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_dob_heading)}"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlGender"
+                tools:hint="@string/screen_document_detail_review_display_text_dob_heading">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/pk_ic_tick"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_dob_heading)}"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@{viewModel.viewState.dateOfBirth}"
+                    tools:drawableEnd="@drawable/pk_ic_tick"
+                    tools:hint="@string/screen_document_detail_review_display_text_dob_heading" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlIssueDate"
+                style="@style/Yap.Pk.App.Widget.TextInputLayout.Filled.Drawable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium_small"
+                android:enabled="false"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_issue_date_heading)}"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlDob"
+                tools:hint="@string/screen_document_detail_review_display_text_issue_date_heading">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etIssueDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/pk_ic_tick"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_issue_date_heading)}"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@{viewModel.viewState.documentIssueDate}"
+                    tools:drawableEnd="@drawable/pk_ic_tick"
+                    tools:hint="@string/screen_document_detail_review_display_text_issue_date_heading" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlExpiryDate"
+                style="@style/Yap.Pk.App.Widget.TextInputLayout.Filled.Drawable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium_small"
+                android:enabled="false"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_expiry_date_heading)}"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlIssueDate"
+                tools:hint="@string/screen_document_detail_review_display_text_expiry_date_heading">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etExpiryDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/pk_ic_tick"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_expiry_date_heading)}"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@{viewModel.viewState.expiryDate}"
+                    tools:drawableEnd="@drawable/pk_ic_tick"
+                    tools:hint="@string/screen_document_detail_review_display_text_expiry_date_heading" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlResidentialAddress"
+                style="@style/Yap.Pk.App.Widget.TextInputLayout.Filled.Drawable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium_small"
+                android:enabled="false"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_residential_address_heading)}"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlExpiryDate"
+                tools:hint="@string/screen_document_detail_review_display_text_residential_address_heading">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etResidentialAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/pk_ic_tick"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_document_detail_review_display_text_residential_address_heading)}"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:paddingBottom="2dp"
+                    android:text="@{viewModel.viewState.residentialAddress}"
+                    tools:hint="@string/screen_document_detail_review_display_text_residential_address_heading" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+            <!--Document bio data details end -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/pk_margin_large"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.common_button_next)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tlResidentialAddress"
+                tools:text="@string/common_button_next" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

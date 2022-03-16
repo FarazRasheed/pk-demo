@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.yaptoyap.sendtoyapmain.contacts.phonecontacts.adapter.PhoneContactItemViewModel" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_normal"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:paddingTop="@dimen/pk_margin_small"
+            android:paddingBottom="@dimen/pk_margin_small"
+            android:visibility="gone"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_send_yap_to_yap_display_text_phone_contact_title)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/screen_send_yap_to_yap_display_text_phone_contact_title"
+            tools:visibility="visible" />
+
+        <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/pk_margin_normal"
+            android:layout_marginTop="@dimen/pk_margin_extra_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="tvName, tvPhoneNumber"
+            app:flow_verticalGap="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@id/ivImage"
+            app:layout_constraintEnd_toStartOf="@id/tvInvite"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            app:layout_constraintTop_toTopOf="@id/ivImage" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvName"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Sufyan Shabbir" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvPhoneNumber"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            android:textColor="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="+92 300 0000000" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvInvite"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_normal_large"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="0dp"
+            android:lines="1"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_send_yap_to_yap_display_text_invite)}"
+            app:layout_constraintBottom_toBottomOf="@id/ivImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivImage"
+            tools:text="@string/screen_send_yap_to_yap_display_text_invite" />
+
+
+        <View
+            android:id="@+id/vLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ivImage"
+            app:layout_constraintTop_toBottomOf="@id/ivImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

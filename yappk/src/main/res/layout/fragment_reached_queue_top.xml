@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.topqueue.ReachedQueueTopVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/pk_margin_large"
+            android:paddingTop="@dimen/pk_margin_large"
+            android:paddingEnd="@dimen/pk_margin_large">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/appCompatTextView3"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_reached_top_queue_display_text,viewModel.viewState.firstName)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_reached_top_queue_display_text" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/appCompatTextView4"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_reached_top_queue_display_text_subtitle)}"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3"
+                tools:layout_editor_absoluteX="21dp"
+                tools:text="@string/screen_reached_top_queue_display_text_subtitle" />
+
+            <FrameLayout
+                android:id="@+id/flcardAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/appCompatTextView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4">
+
+                <com.yap.uikit.widget.videoview.AndExoPlayerView
+                    android:id="@+id/andExoPlayerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_300sdp"
+                    android:visibility="invisible"
+                    app:andexo_aspect_ratio="aspect_match"
+                    app:andexo_play_when_ready="true"
+                    app:andexo_resize_mode="Zoom" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView6"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_reached_top_queue_display_text_meeting_note)}"
+                app:layout_constraintBottom_toTopOf="@id/btnCompleteVerification"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@+id/flcardAnimation"
+                tools:text="@string/screen_reached_top_queue_display_text_meeting_note" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCompleteVerification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_small"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:layout_marginEnd="@dimen/pk_margin_small"
+                android:layout_marginBottom="@dimen/pk_margin_large"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_onboarding_congratulations_button_complete_verification)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="1"
+                tools:text="@string/screen_onboarding_congratulations_button_complete_verification" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

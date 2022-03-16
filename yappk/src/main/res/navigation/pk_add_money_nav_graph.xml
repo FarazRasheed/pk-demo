@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_money_nav_graph"
+    app:startDestination="@id/addMoneyDashboardFragment">
+
+    <fragment
+        android:id="@+id/addMoneyDashboardFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.AddMoneyDashboardFragment"
+        android:label="AddMoneyDashboardFragment"
+        tools:layout="@layout/fragment_add_money_dashboard">
+        <action
+            android:id="@+id/action_addMoneyDashboardFragment_to_accountDetailFragment"
+            app:destination="@id/accountDetailFragment" />
+        <action
+            android:id="@+id/action_addMoneyDashboardFragment_to_cardDashboardFragment"
+            app:destination="@id/cardDashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountDetailFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.accountdetails.AccountDetailFragment"
+        android:label="AccountDetailFragment"
+        tools:layout="@layout/fragment_account_detail" />
+    <fragment
+        android:id="@+id/cardDashboardFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.carddashboard.CardDashboardFragment"
+        android:label="CardDashboardFragment"
+        tools:layout="@layout/fragment_card_dashboard">
+        <action
+            android:id="@+id/action_cardDashboardFragment_to_addExternalCardFragment"
+            app:destination="@id/addExternalCardFragment" />
+        <action
+            android:id="@+id/action_cardDashboardFragment_to_externalCardDetailFragment"
+            app:destination="@id/externalCardDetailFragment" />
+        <action
+            android:id="@+id/action_cardDashboardFragment_to_externalCardTopUpFragment"
+            app:destination="@id/topUpViaExternalCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExternalCardFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.carddashboard.addexternalcard.AddExternalCardFragment"
+        android:label="AddExternalCardFragment"
+        tools:layout="@layout/fragment_add_external_card" />
+    <fragment
+        android:id="@+id/externalCardDetailFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.carddashboard.externalcarddetail.ExternalCardDetailFragment"
+        android:label="ExternalCardDetailFragment"
+        tools:layout="@layout/fragment_external_card_detail" />
+    <fragment
+        android:id="@+id/topUpSuccessFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.topupsuccess.TopUpSuccessFragment"
+        android:label="TopUpSuccessFragment"
+        tools:layout="@layout/fragment_top_up_success" />
+    <fragment
+        android:id="@+id/topUpViaExternalCardFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.topup.transfer.TopUpViaExternalCardFragment"
+        android:label="TopUpViaExternalCardFragment"
+        tools:layout="@layout/pk_fragment_top_up_via_external_card">
+        <action
+            android:id="@+id/action_topUpViaExternalCardFragment_to_cardCvvFragment"
+            app:destination="@id/cardCvvFragment" />
+        <action
+            android:id="@+id/action_topUpViaExternalCardFragment_to_topUpOtpVerificationFragment"
+            app:destination="@id/topUpOtpVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardCvvFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.topup.cardcvv.CardCvvFragment"
+        android:label="CardCvvFragment"
+        tools:layout="@layout/pk_fragment_card_cvv">
+        <action
+            android:id="@+id/action_cardCvvFragment_to_topUpSuccessFragment"
+            app:destination="@id/topUpSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topUpOtpVerificationFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.topup.otpverification.TopUpOtpVerificationFragment"
+        android:label="TopUpOtpVerificationFragment"
+        tools:layout="@layout/pk_fragment_top_up_otp_verification" />
+</navigation>

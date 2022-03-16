@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.success.BankTransferSuccessVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.uikit.utils.spannables.SpannableKt" />
+
+        <import type="com.digitify.core.utils.SpannableStringCreatorKt" />
+
+        <import type="com.yap.yappk.pk.utils.StringExtKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbEndIconDrawable="@drawable/pk_ic_share"
+            app:tbEndIconVisibility="true"
+            app:tbStartIconVisibility="false"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_success_display_text_tb_title)}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clMain"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingStart="@dimen/pk_margin_medium_large"
+                android:paddingEnd="@dimen/pk_margin_medium_large">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clShare"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/pk_margin_normal"
+                    android:background="@color/pkWhite"
+                    app:layout_constraintBottom_toTopOf="@+id/btnGoToDashboard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+                        android:id="@+id/niView"
+                        android:layout_width="@dimen/_55sdp"
+                        android:layout_height="@dimen/_55sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvReceiverName"
+                        style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_small"
+                        app:layout_constraintEnd_toEndOf="@+id/niView"
+                        app:layout_constraintStart_toStartOf="@+id/niView"
+                        app:layout_constraintTop_toBottomOf="@+id/niView"
+                        tools:text="Sufyan" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvTransferAmountTitle"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_large"
+                        android:text="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_success_display_text_amount_heading)}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvReceiverName"
+                        tools:text="@string/screen_bank_transfer_success_display_text_amount_heading" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvTransferAmountValue"
+                        style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_three_dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTransferAmountTitle"
+                        tools:text="PKR 2,480.00" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivSuccessTick"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_medium"
+                        android:layout_marginBottom="@dimen/pk_margin_medium"
+                        app:layout_constraintBottom_toTopOf="@+id/flSuccessData"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTransferAmountValue"
+                        app:layout_constraintVertical_bias="0.65"
+                        app:srcCompat="@drawable/pk_ic_circle_background_tick" />
+
+                    <androidx.constraintlayout.helper.widget.Flow
+                        android:id="@+id/flSuccessData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/pk_margin_large"
+                        android:background="@drawable/pk_bg_card_white_round"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/pk_margin_large"
+                        android:paddingBottom="@dimen/pk_margin_large"
+                        app:constraint_referenced_ids="ivBankLogo,tvBankName,tvReceiverAccountNumber,tvReferenceNumber,tvDate"
+                        app:flow_verticalGap="@dimen/pk_margin_small"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+                        android:id="@+id/ivBankLogo"
+                        android:layout_width="@dimen/_38sdp"
+                        android:layout_height="@dimen/_38sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvBankName"
+                        style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_three_dp"
+                        android:paddingTop="@dimen/pk_margin_extra_small"
+                        tools:text="Allied bank" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvReceiverAccountNumber"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_three_dp"
+                        tools:text="@string/screen_bank_transfer_success_display_text_account_number" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvReferenceNumber"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_three_dp"
+                        tools:text="@string/screen_bank_transfer_success_display_text_reference_number" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvDate"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_three_dp"
+                        tools:text="Jan 29, 2021・10:35 AM" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGoToDashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                    android:onClick="@{viewModel::onClick}"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.common_button_go_to_dashboard)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="1"
+                    tools:text="@string/common_button_go_to_dashboard" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

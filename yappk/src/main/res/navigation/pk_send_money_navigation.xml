@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_send_money_navigation"
+    app:startDestination="@id/sendMoneyDashboardFragment">
+
+    <fragment
+        android:id="@+id/sendMoneyDashboardFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.dashboard.SendMoneyDashboardFragment"
+        android:label="SendMoneyDashboardFragment"
+        tools:layout="@layout/pk_fragment_send_money_dashboard">
+        <action
+            android:id="@+id/action_sendMoneyDashboardFragment_to_pk_send_money_to_yap"
+            app:destination="@id/pk_send_money_to_yap" />
+        <action
+            android:id="@+id/action_sendMoneyDashboardFragment_to_globalSearchFragment"
+            app:destination="@id/globalSearchFragment" />
+        <action
+            android:id="@+id/action_sendMoneyDashboardFragment_to_pk_y2y_transfer_nav"
+            app:destination="@id/pk_y2y_transfer_nav" />
+        <action
+            android:id="@+id/action_sendMoneyDashboardFragment_to_pk_send_money_bank_transfer"
+            app:destination="@id/pk_send_money_bank_transfer" />
+    </fragment>
+    <include app:graph="@navigation/pk_send_money_to_yap" />
+    <fragment
+        android:id="@+id/globalSearchFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.globalsearch.GlobalSearchFragment"
+        android:label="GlobalSearchFragment"
+        tools:layout="@layout/fragment_global_search">
+        <action
+            android:id="@+id/action_globalSearchFragment_to_pk_y2y_transfer_nav"
+            app:destination="@id/pk_y2y_transfer_nav" />
+    </fragment>
+    <include app:graph="@navigation/pk_y2y_transfer_nav_graph" />
+    <include app:graph="@navigation/pk_send_money_bank_transfer" />
+</navigation>

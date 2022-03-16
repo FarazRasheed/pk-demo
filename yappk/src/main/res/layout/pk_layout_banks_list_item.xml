@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pk_margin_normal_large">
+
+        <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+            android:id="@+id/ivBankLogo"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvBankName"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:maxLines="2"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBankLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivBankLogo"
+            app:layout_constraintTop_toTopOf="@+id/ivBankLogo"
+            tools:text="HBL Bank" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

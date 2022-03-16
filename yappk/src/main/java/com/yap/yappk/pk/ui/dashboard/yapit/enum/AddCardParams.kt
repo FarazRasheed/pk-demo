@@ -1,0 +1,17 @@
+package com.yap.yappk.pk.ui.dashboard.yapit.enum
+
+const val SESSIONID: String = "sessionID"
+const val CARD_ALIAS: String = "alias"
+const val CARD_COLOR: String = "color"
+const val CARD_NUMBER: String = "number"
+const val CARD_ERRORS: String = "errors"
+const val IS_CARD_SAVE: String = "saveCardDetails"
+const val CARD_RETURN_SCHEME: String = "yap-app://"
+const val CARD_HTTP_HEADER: String = "X-Requested-With"
+const val OTP_HTTP_MIM_TYPE: String = "text/html"
+const val OTP_HTTP_ENCODING: String = "base64"
+const val OTP_VERIFICATION_SCHEME: String = "yap.co"
+const val OTP_TRANSACTION: String = "transactions"
+const val CARD_INPUT_DATE_FORMAT: String = "MMyy"
+const val CARD_OUTPUT_DATE_FORMAT: String = "MM/yy"
+const val CARD_TIME_ZONE: String = "UTC"

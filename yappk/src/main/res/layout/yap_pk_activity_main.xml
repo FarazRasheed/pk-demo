@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.main.MainViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:orientation="horizontal"
+            android:visibility="@{viewModel.viewState.toolsBarVisibility? View.VISIBLE : View.GONE }"
+            android:paddingHorizontal="@dimen/pk_margin_medium_large">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                style="@style/Yap.Pk.Widget.ImageView.Circle.Small"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/pkBlueWithAHintOfPurple"
+                android:onClick="@{viewModel::onClick}"
+                android:src="@drawable/pk_ic_back"
+                app:contentPadding="@dimen/_8sdp"
+                app:srcCompat="@drawable/pk_ic_back" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBar"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/pk_margin_small"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                android:layout_marginEnd="@dimen/pk_margin_medium"
+                android:layout_weight="1"
+                android:max="@{viewModel.viewState.totalProgress}"
+                android:secondaryProgress="@{viewModel.viewState.currentProgress}"
+                app:trackCornerRadius="@dimen/_4sdp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/tbBtnCheck"
+                style="@style/Yap.Pk.Widget.ImageView.Circle.Small"
+                android:layout_gravity="center_vertical"
+                app:enabled="@{false}"
+                app:srcCompat="@drawable/progress_status_background_tick" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/pk_onboarding_nav_graph" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

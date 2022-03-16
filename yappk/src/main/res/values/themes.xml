@@ -1,0 +1,126 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Base.Yap.Pk" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/pkBlueWithAHintOfPurple</item>
+        <item name="colorPrimaryDark">@color/pkDarkSlateBlue</item>
+        <item name="pkColorPrimaryLight">@color/pkLighterPurple</item>
+        <item name="colorOnPrimary">@color/pkWhite</item>
+        <item name="android:colorBackground">@color/pkWhite</item>
+        <item name="android:statusBarColor" tools:targetApi="M">@color/pkDarkSlateBlue</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="materialButtonStyle">@style/Yap.Pk.Widget.Button.Filled</item>
+        <item name="colorControlActivated">?attr/colorPrimaryDark</item>
+        <item name="android:layoutDirection">ltr</item>
+        <item name="tbTitleStyle">@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium</item>
+        <item name="tbEndTextStyle">@style/Yap.Pk.Widget.TextView.PrimaryColor.Small</item>
+
+        <!-- Text Colors -->
+        <item name="prefixTextColor">@color/pkBlueWithAHintOfPurpleFaded</item>
+        <item name="hintTextColor">@color/pkBlueGrey</item>
+        <item name="pkPrimaryTextColor">@color/pkBlueWithAHintOfPurple</item>
+        <item name="pkPrimaryDarkTextColor">@color/pkDarkSlateBlue</item>
+        <item name="pkSecondaryTextColor">@color/pkBlueGrey</item>
+        <item name="pkTertiaryTextColor">@color/pkBrightBlue</item>
+        <item name="pkWhiteColor">@color/pkWhite</item>
+        <!-- Switch style-->
+
+        <!--    Otp Background colors  -->
+        <item name="otpBackgroundColor">@color/pkLightBlueGreyFaded36</item>
+        <item name="otpErrorBorderColor">@color/pkError</item>
+        <item name="otpSuccessBorderColor">@color/pk_otp_success</item>
+        <item name="otpActiveBorderColor">@color/pkPeriwinkle</item>
+        <!--    Otp Background colors END  -->
+
+
+        <item name="switchStyle">@style/Yap.Pk.SwitchComponent</item>
+
+        <item name="bottomSheetDialogTheme">@style/PkCustomBottomSheetDialog</item>
+        <item name="alertDialogTheme">@style/PkAlertDialogTheme</item>
+        <item name="materialAlertDialogTheme">@style/PkMaterialAlertDialogTheme</item>
+
+
+        <!-- Start new activity animation slide in and slide out  -->
+        <item name="android:windowAnimationStyle">@style/PkCustomActivityAnimation</item>
+
+        <!--  Identity Scanner style theme -->
+        <item name="scannerStepsHeaderStyle">@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium
+        </item>
+        <item name="scannerTitleStyle">@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium</item>
+        <item name="scannerReviewTitleTextStyle">
+            @style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium
+        </item>
+        <item name="scannerAppBarStyle">@style/Theme.Yap.Pk.AppBarOverlay</item>
+        <item name="scannerToolbarStyle">@style/Theme.Yap.Pk.PopupOverlay</item>
+        <item name="scannerButtonStyle">@style/Yap.Pk.Widget.Button.Filled</item>
+
+        <item name="snackbarStyle">@style/SnackBar</item>
+
+    </style>
+
+    <style name="PkCustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <!-- specify enter and exit transitions -->
+        <item name="android:activityOpenEnterAnimation">@anim/pk_slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/pk_slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/pk_slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/pk_slide_out_right</item>
+    </style>
+
+    <style name="Theme.Yap.Pk.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Yap.Pk.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="PkAppTheme" parent="Theme.Base.Yap.Pk">
+        <!--        <item name="android:colorBackground">@color/white</item>-->
+        <!--        <item name="android:background">@android:color/white</item>-->
+        <!--        <item name="android:windowDisablePreview">true</item>-->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.Base.Yap.Pk.Splash" parent="PkAppTheme">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!--<item name="android:windowDisablePreview">true</item>-->
+    </style>
+
+    <style name="Theme.Base.Yap.Pk.Main" parent="Theme.Base.Yap.Pk">
+        <item name="android:colorBackground">@color/pkWhite</item>
+        <item name="android:navigationBarColor">@color/pkWhite</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <!-- Switch -->
+    <style name="PkCustomSwitch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="colorControlActivated">?attr/colorPrimary</item>
+    </style>
+
+    <style name="PkCustomDialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowBackground">@color/pkSemiBlack</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="PkAppSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">@dimen/pk_text_size_c4</item>
+        <item name="android:editTextColor">?attr/colorPrimaryDark</item>
+        <item name="android:textStyle">normal</item>
+        <item name="defaultQueryHint">Search</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="closeIcon">@android:color/transparent</item>
+    </style>
+
+    <style name="SnackBar" parent="@style/Widget.MaterialComponents.Snackbar">
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
+</resources>

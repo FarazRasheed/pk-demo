@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.signupcompleted.SignupCompletedVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+
+        <import type="android.view.View" />
+
+        <import type="com.yap.yappk.R" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ivTick"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pk_ic_tick_filled" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvHeading"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+            android:layout_marginTop="@dimen/pk_margin_normal_large"
+            android:layout_marginBottom="@dimen/pk_margin_heading_to_field"
+            android:gravity="center"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_onboarding_success_display_text_title),viewModel.viewState.name) }"
+            app:layout_constraintTop_toBottomOf="@id/ivTick"
+            app:selected="@{true}"
+            tools:text="@string/screen_onboarding_success_display_text_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDescription"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:gravity="center"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_onboarding_success_display_text_sub_title_no_interval)}"
+            app:layout_constraintTop_toBottomOf="@id/tvHeading"
+            tools:text="@string/screen_onboarding_success_display_text_sub_title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCard"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:src="@drawable/pk_card_spare"
+            app:layout_constraintBottom_toTopOf="@+id/tvIbanTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvIbanTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:layout_marginBottom="@dimen/pk_margin_small"
+            android:gravity="center"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_onboarding_congratulations_display_text_iban) }"
+            android:visibility="@{viewModel.viewState.waiting ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/tvIban"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivCard"
+            tools:text="@string/screen_onboarding_congratulations_display_text_iban" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvIban"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium_large"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:background="@drawable/pk_bg_round_edit_text_general"
+            android:gravity="center"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingTop="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_12sdp"
+            android:text="@{viewModel.viewState.ibanNumber}"
+            android:visibility="@{viewModel.viewState.waiting ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/tvNote"
+            app:layout_constraintEnd_toEndOf="@id/tvDescription"
+            app:layout_constraintStart_toStartOf="@+id/tvDescription"
+            tools:text="AE07 0331 2345 6789 01** ***" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvNote"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium_large"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:gravity="center"
+            android:text="@{viewModel.viewState.isWaiting? LocalizationKt.getString(context,StringsKt.screen_onboarding_success_verification_text_note) : LocalizationKt.getString(context,StringsKt.screen_reached_top_queue_display_text_meeting_note)}"
+            app:layout_constraintBottom_toTopOf="@+id/btnNext"
+            app:layout_constraintEnd_toEndOf="@id/tvDescription"
+            app:layout_constraintStart_toStartOf="@+id/tvDescription"
+            tools:text="@string/screen_reached_top_queue_display_text_meeting_note" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/pk_margin_extra_large"
+            android:layout_marginBottom="@dimen/pk_margin_large"
+            android:enabled="true"
+            android:onClick="@{viewModel::onClick}"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="@{@plurals/screen_onboarding_success_button_text(viewModel.viewState.isWaiting ? 2 : 1)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Queue up!" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

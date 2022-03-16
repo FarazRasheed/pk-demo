@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_y2y_transfer_nav"
+    app:startDestination="@id/yapToYapTransferFragment">
+
+    <fragment
+        android:id="@+id/yapToYapTransferFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.yaptoyap.sendtoyapmain.transfer.main.YapToYapTransferFragment"
+        android:label="YapToYapTransferFragment"
+        tools:layout="@layout/pk_fragment_yap_to_yap_transfer">
+        <action
+            android:id="@+id/action_yapToYapTransferFragment_to_yapToYapTransferSuccessFragment2"
+            app:destination="@id/yapToYapTransferSuccessFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/yapToYapTransferSuccessFragment2"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.yaptoyap.sendtoyapmain.transfer.success.YapToYapTransferSuccessFragment"
+        android:label="YapToYapTransferSuccessFragment"
+        tools:layout="@layout/pk_fragment_yap_to_yap_transfer_success" />
+</navigation>

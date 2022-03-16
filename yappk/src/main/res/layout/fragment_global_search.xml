@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.globalsearch.GlobalSearchVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            android:background="@drawable/pk_bg_search_widget"
+            android:defaultFocusHighlightEnabled="true"
+            android:focusable="true"
+            android:focusedByDefault="true"
+            android:onClick="@{viewModel::onClick}"
+            android:textAlignment="center"
+            android:theme="@style/PkAppSearchView"
+            app:closeIcon="@drawable/pk_ic_clear_field"
+            app:defaultQueryHint="Search"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toStartOf="@+id/tvCancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryBackground="@null"
+            app:queryHint="Search beneficiaries"
+            app:searchHintIcon="@drawable/pk_ic_search"
+            app:searchIcon="@drawable/pk_ic_search" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvCancel"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/pk_margin_normal"
+            android:onClick="@{viewModel::onClick}"
+            android:text="Cancel"
+            app:layout_constraintBottom_toBottomOf="@id/searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/searchView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvYapContacts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/pk_margin_extra_small"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            tools:itemCount="3"
+            tools:listitem="@layout/layout_search_contact_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

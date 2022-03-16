@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.topup.transfer.TopUpViaExternalCardVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.uikit.utils.spannables.SpannableKt" />
+
+        <import type="com.digitify.core.utils.SpannableStringCreatorKt" />
+
+        <import type="com.yap.yappk.pk.utils.StringExtKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_external_card_top_up_display_text_header)}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:paddingStart="@dimen/pk_margin_medium_large"
+                android:paddingEnd="@dimen/pk_margin_medium_large">
+
+                <com.yap.yappk.pk.utils.widgets.PaymentCard
+                    android:id="@+id/ivCustomCard"
+                    android:layout_width="@dimen/_95sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:paymentCardChipIconHeight="@dimen/_13sdp"
+                    app:paymentCardChipIconWidth="@dimen/_13sdp"
+                    app:paymentCardInfoIconHeight="@dimen/_9sdp"
+                    app:paymentCardInfoIconWidth="@dimen/_10sdp"
+                    app:paymentCardNameStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.XXSmall"
+                    app:paymentCardNumberStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.MinSmall"
+                    app:paymentCardSize="small"
+                    app:paymentCardDateStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.XXSmall" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clRightData"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pk_margin_large"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivCustomCard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivCustomCard"
+                    app:layout_constraintTop_toTopOf="@+id/ivCustomCard">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvCardName"
+                        style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Citi Bank Card" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvCardNumber"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_extra_small"
+                        app:layout_constraintStart_toStartOf="@+id/tvCardName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCardName"
+                        tools:text="4040 3318 **** 3456" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivSecure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_extra_small"
+                        android:src="@drawable/pk_ic_secure_by_yap"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCardNumber" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvEnterAmountDescription"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_large"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_external_card_top_up_display_text_top_up_amount)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivCustomCard"
+                    tools:text="@string/screen_external_card_top_up_display_text_top_up_amount" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCurrencyType"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal_large"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.common_text_currency_type)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEnterAmountDescription"
+                    tools:text="@string/common_text_currency_type" />
+
+                <com.yap.yappk.pk.utils.EasyMoneyEditText
+                    android:id="@+id/etAmount"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_three_dp"
+                    android:inputType="phone"
+                    android:minWidth="@dimen/_140sdp"
+                    android:minHeight="@dimen/_55sdp"
+                    android:onTextChanged="@{viewModel::onAmountChange}"
+                    app:enableDecimal="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCurrencyType"
+                    tools:text="1234567891" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDenominations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:adapter="@{viewModel.denominationsAdapter}"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etAmount"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/pk_item_denominations" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTransferFee"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:text="@{SpannableStringCreatorKt.getText(context.resources, @string/common_text_fee,SpannableKt.color(@color/pkDarkSlateBlue, StringExtKt.toFormattedCurrency(viewModel.viewState.transferFee,true,viewModel.sessionManager.userAccount.currency.code,true)))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvDenominations"
+                    tools:text="@string/common_text_fee" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTransferGuide"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_external_card_top_up_display_text_top_up_guide)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTransferFee"
+                    tools:text="@string/screen_external_card_top_up_display_text_top_up_guide" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCurrentBalance"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal_large"
+                    android:text="@{SpannableStringCreatorKt.getText(context.resources,@string/screen_external_card_top_up_display_text_available_yap_balance,SpannableKt.color(@color/pkDarkSlateBlue,viewModel.viewState.accountCurrentBalance))}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTransferGuide"
+                    tools:text="@string/screen_external_card_top_up_display_text_available_yap_balance" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal_large"
+                    android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                    android:enabled="@{viewModel.viewState.isValidAmount, default = false}"
+                    android:onClick="@{viewModel::onClick}"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.common_button_next)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCurrentBalance"
+                    app:layout_constraintVertical_bias="1"
+                    tools:text="@string/common_button_next" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

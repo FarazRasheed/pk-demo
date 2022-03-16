@@ -1,0 +1,11 @@
+<layout>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/Widget.MaterialComponents.CircularProgressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:padding="@dimen/pk_margin_normal"
+        android:paddingTop="@dimen/pk_margin_normal" />
+</layout>

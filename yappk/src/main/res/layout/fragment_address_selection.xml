@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.address.delivery.AddressSelectionVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/maps"
+                layout="@layout/pk_layout_google_map"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:viewModel="@{viewModel}" />
+
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/motionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutDescription="@xml/fragment_address_selection_scene"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/flowHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/pkWhite"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/pk_margin_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.yap.uikit.widget.progressbar.AnimatedProgressBar
+                        android:id="@+id/apbProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/pk_margin_medium"
+                        android:paddingHorizontal="@dimen/pk_margin_small"
+                        app:apbBackgroundColor="@color/pkLightBlueGrey"
+                        app:apbColor="?attr/colorPrimary"
+                        app:apbIconSize="@dimen/_26sdp"
+                        app:apbLeftBackgroundDrawable="@drawable/pk_ic_back"
+                        app:apbProgress="90"
+                        app:apbRightBackgroundDrawable="@{@drawable/pk_ic_tick_disabled}"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvScreenTitle"
+                        style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_small"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/pk_margin_medium"
+                        android:text="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_display_text_title)}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/apbProgress"
+                        tools:text="@string/screen_address_selection_display_text_title" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvScreenDescription"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/pk_margin_medium"
+                        android:text="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_display_text_sub_title)}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvScreenTitle"
+                        tools:text="@string/screen_address_selection_display_text_sub_title" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clEmptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@color/pkTransparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/flowHeader">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvMapConfirmLocation"
+                        style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/pk_margin_normal_large"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/pk_margin_medium"
+                        android:background="@drawable/pk_bg_purple_rounded_corners"
+                        android:drawableStart="@drawable/pk_ic_capture_location"
+                        android:drawablePadding="@dimen/pk_margin_small"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:onClick="@{viewModel::onClick}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_display_text_button_tap_to_confirm_location)}"
+                        android:textColor="@color/pkWhite"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="@string/screen_address_selection_display_text_button_tap_to_confirm_location" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clBottomSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/pkWhite"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/pk_margin_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clEmptyView">
+
+                    <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                        android:id="@+id/tlAddress"
+                        style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_large"
+                        android:hint="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_input_field_address_label)}"
+                        app:endIconDrawable="@drawable/pk_ic_clear_field"
+                        app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                        app:hintTextColorSelected="@color/pkBlueGrey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:hint="@string/screen_address_selection_input_field_address_label">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_input_field_address_label)}"
+                            android:inputType="text"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:onTextChanged="@{viewModel::onAddressFieldTextChanged}"
+                            android:text="@={viewModel.viewState.addressLine1}"
+                            tools:hint="@string/screen_address_selection_input_field_address_label" />
+                    </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+                    <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                        android:id="@+id/tlBuildingName"
+                        style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_large"
+                        android:hint="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_input_field_building_name_label)}"
+                        app:endIconDrawable="@drawable/pk_ic_clear_field"
+                        app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                        app:hintTextColorSelected="@color/pkBlueGrey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tlAddress"
+                        tools:hint="@string/screen_address_selection_input_field_building_name_label">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etBuildingAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_input_field_building_name_label)}"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:onTextChanged="@{viewModel::onAddressField2TextChanged}"
+                            android:text="@={viewModel.viewState.addressLine2}"
+                            tools:hint="@string/screen_address_selection_input_field_building_name_label" />
+                    </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+                    <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                        android:id="@+id/tlCity"
+                        style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_large"
+                        android:layout_marginBottom="@dimen/pk_margin_medium"
+                        android:hint="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_input_field_city)}"
+                        app:endIconDrawable="@drawable/pk_ic_arrow_right"
+                        app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                        app:hintTextColorSelected="@color/pkBlueGrey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tlBuildingName"
+                        tools:hint="@string/screen_address_selection_input_field_city">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCityName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:hint="@{LocalizationKt.getString(context,StringsKt.screen_address_selection_input_field_city)}"
+                            android:inputType="none"
+                            android:maxLines="1"
+                            android:onClick="@{viewModel::onClick}"
+                            android:onTextChanged="@{viewModel::onCityTextChanged}"
+                            android:text="@={viewModel.viewState.cityName}"
+                            tools:hint="@string/screen_address_selection_input_field_city" />
+                    </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pk_margin_xl"
+                        android:autoSizeTextType="none"
+                        android:enabled="@{viewModel.viewState.isValid}"
+                        android:gravity="center"
+                        android:onClick="@{viewModel::onClick}"
+                        android:text="@{LocalizationKt.getString(context,StringsKt.common_button_next)}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tlCity"
+                        tools:text="@string/common_button_next" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

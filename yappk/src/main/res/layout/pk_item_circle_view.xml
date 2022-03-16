@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.carddashboard.addexternalcard.ColorCircleItemViewModel" />
+    <import type="android.graphics.Color"/>
+    </data>
+
+<com.yap.yappk.pk.utils.CircleView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/circleView"
+    android:layout_width="@dimen/_23sdp"
+    android:layout_height="@dimen/_23sdp"
+    app:cv_border="true"
+    android:layout_marginEnd="@dimen/pk_margin_small"
+    android:layout_marginStart="@dimen/pk_margin_small"
+    app:cv_border_width="0dp"
+    app:cv_shadow="false" />
+</layout>

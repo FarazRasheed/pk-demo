@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_qr_code_nav_graph"
+    app:startDestination="@id/generateQrFragment">
+
+    <fragment
+        android:id="@+id/generateQrFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.qrcode.generateqr.GenerateQrFragment"
+        android:label="GenerateQrFragment"
+        tools:layout="@layout/pk_fragment_generate_qr" >
+        <action
+            android:id="@+id/action_generateQrFragment_to_scanQrFragment"
+            app:destination="@id/scanQrFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanQrFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.qrcode.scanqr.ScanQrFragment"
+        android:label="ScanQrFragment"
+        tools:layout="@layout/pk_fragment_scan_qr" >
+        <action
+            android:id="@+id/action_scanQrFragment_to_generateQrFragment"
+            app:destination="@id/generateQrFragment" />
+        <action
+            android:id="@+id/action_scanQrFragment_to_pk_y2y_transfer_nav"
+            app:destination="@id/pk_y2y_transfer_nav" />
+    </fragment>
+    <include app:graph="@navigation/pk_y2y_transfer_nav_graph" />
+</navigation>

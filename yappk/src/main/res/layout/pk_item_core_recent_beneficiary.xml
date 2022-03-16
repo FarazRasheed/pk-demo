@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.generic.recents.CoreRecentBeneficiaryItemViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginEnd="@dimen/pk_margin_small">
+
+        <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+            android:id="@+id/coreView"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            app:layout_constraintBottom_toTopOf="@+id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:niImageUrl="@{viewModel.coreRecentBeneficiary.imgUrl}"
+            app:niText="@{viewModel.coreRecentBeneficiary.fullName}" />
+
+        <Space
+            android:id="@+id/spaceBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_3sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/coreView"
+            app:layout_constraintStart_toEndOf="@+id/coreView" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPackage"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/coreView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/spaceBottom"
+            app:srcCompat="@drawable/pk_ic_standard_package" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="0dp"
+            android:lines="2"
+            android:text="@{viewModel.coreRecentBeneficiary.fullName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/coreView"
+            app:layout_constraintStart_toStartOf="@+id/coreView"
+            tools:text="Sufyan shabbir" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

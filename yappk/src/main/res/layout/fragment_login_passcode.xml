@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.auth.loginpasscode.LoginPasscodeVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/pk_margin_medium_large"
+        android:paddingRight="@dimen/pk_margin_medium_large">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/pkBlueWithAHintOfPurple"
+                android:onClick="@{viewModel::onClick}"
+                android:src="@drawable/pk_ic_cross"
+                app:contentPadding="@dimen/_8sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/pk_ic_cross" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/pk_logo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLabel"
+                style="@style/Yap.Pk.Widget.TextView.Heading.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_verify_passcode_display_text_title)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_verify_passcode_display_text_title" />
+
+            <com.yap.uikit.widget.dialerpad.SecureCodeView
+                android:id="@+id/codeView"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/pk_margin_medium_large"
+                android:visibility="@{viewModel.viewState.isAccountLocked? View.INVISIBLE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLabel"
+                app:scv_maxLength="@integer/pk_adp_code_default_length" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvError"
+                style="@style/Yap.Pk.Widget.TextView.PassCode.Error"
+                android:layout_marginTop="@dimen/pk_margin_normal"
+                android:lines="2"
+                android:text="@{viewModel.viewState.passcodeError}"
+                android:visibility="@{viewModel.viewState.passcodeError==null?View.INVISIBLE:View.VISIBLE}"
+                app:autoSizeMinTextSize="@dimen/_8ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/codeView"
+                tools:text="Invalid passcode"
+                tools:visibility="visible" />
+
+            <com.yap.uikit.widget.dialerpad.AdjustableDialerPad
+                android:id="@+id/keyBoard"
+                style="@style/Yap.App.Layout.Adjustable_DialerPad"
+                dialerPadEnabled="@{viewModel.viewState.isScreenLocked ? false : true}"
+                rightKeyVisibility="@{viewModel.viewState.biometricEnable}"
+                app:adpBtnMaxWidth="@dimen/_64sdp"
+                app:adpCodeMaxLength="@integer/pk_adp_code_default_length"
+                app:adpLeftIcon="@drawable/pk_ic_delete"
+                app:adpLeftIconPadding="@dimen/pk_margin_normal"
+                app:adpRightIconPadding="@dimen/pk_margin_extra_small"
+                app:adpRightIconScaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@id/btnSignIn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvError" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:enabled="@{viewModel.viewState.valid, default = false}"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_verify_passcode_button_sign_in)}"
+                app:layout_constraintBottom_toTopOf="@+id/tvForgotPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/screen_verify_passcode_button_sign_in" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvForgotPassword"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium_large"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_verify_passcode_text_forgot_password)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/screen_verify_passcode_text_forgot_password" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.yap.yappk.pk.ui.onboarding.signupcompleted.SignupCompletedState" />
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.signupcompleted.SignupCompletedVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvNote"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:gravity="center"
+            android:textSize="@dimen/pk_text_size_h7"
+            app:text="@{LocalizationKt.getString(context,StringsKt.screen_onboarding_success_verification_text_note)}"
+            tools:text="@string/screen_onboarding_success_verification_text_note" />
+    </FrameLayout>
+</layout>

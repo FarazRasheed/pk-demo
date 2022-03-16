@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    color primary-->
+    <color name="pkBlueWithAHintOfPurple">#5E35B1</color>
+    <!--    color primary 2-->
+    <color name="pkBlueWithAHintOfPurpleTwo">#5A2FB1</color>
+    <!--    color primary dark-->
+    <color name="pkDarkSlateBlue">#272262</color>
+    <!--    color primary light-->
+    <color name="pkBrightBlue">#007aff</color>
+    <!--    color Grey Dark-->
+    <color name="pkBlueGrey">#9391b1</color>
+
+    <color name="pkBlueGreyTwo">#8D8CAE</color>
+    <color name="pkGrey">#C9C8D8</color>
+    <color name="pkGreySelected">#F2F4F9</color>
+    <color name="pkPaleLilac">#F1EDFF</color>
+    <color name="pkBlueWithAHintOfPurpleFaded">#805E35B1</color>
+    <color name="pkPurpleFaded">#235e35b1</color>
+    <color name="pkTurquoise">#00b9ae</color>
+    <color name="pkPeriwinkle">#a682ff</color>
+    <color name="pkLightBlueGrey">#dae0f0</color>
+    <color name="pkLightBlueGreyFaded36">#5Cdae0f0</color>
+    <color name="pkLighterPurple">#7C4DFF</color>
+    <color name="pkBlack">#FF000000</color>
+    <color name="pkWhite">#FFFFFFFF</color>
+    <color name="pkTransparent">#00000000</color>
+    <color name="pkTextInputBackgroundColor">#E8E9F6</color>
+    <color name="pkSemiBlack">#30000000</color>
+    <color name="pk_camera_overlay_color">#201C26A8</color>
+    <color name="pkDisabled">#9391B1</color>
+    <color name="pkDivider">#33979797</color>
+    <color name="pkError">#ff3b30</color>
+    <color name="pkWarning">#F44774</color>
+    <color name="pkLightProgress">#2A7C4DFF</color>
+    <color name="pkFadedGrey">#5CDAE0F0</color>
+    <color name="pkWarningBackground">#FFF4F3</color>
+    <color name="pkLightPurple">#B3E1DBFA</color>
+
+    <color name="pk_otp_success">#44d389</color>
+
+
+</resources>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Yap.Pk.Widget.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:tint">@color/pkBlueWithAHintOfPurple</item>
+        <item name="elevation">0dp</item>
+        <item name="fabCustomSize">@dimen/_32sdp</item>
+        <item name="fabSize">mini</item>
+        <item name="maxImageSize">@dimen/_18sdp</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.Button.Filled" parent="Widget.MaterialComponents.Button">
+        <item name="android:paddingStart">@dimen/_50sdp</item>
+        <item name="android:paddingEnd">@dimen/_50sdp</item>
+        <item name="android:paddingTop">@dimen/_12sdp</item>
+        <item name="android:paddingBottom">@dimen/_12sdp</item>
+        <item name="backgroundTint">@color/pk_material_button_color_state</item>
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.Button</item>
+        <item name="android:textColor">@color/pkWhite</item>
+        <item name="shapeAppearance">@style/Yap.Pk.ShapeAppearance.SmallComponent</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.Button.Filled.Small" parent="Widget.MaterialComponents.Button">
+        <item name="android:paddingStart">@dimen/_25sdp</item>
+        <item name="android:paddingEnd">@dimen/_25sdp</item>
+        <item name="android:paddingTop">@dimen/_8sdp</item>
+        <item name="android:paddingBottom">@dimen/_8sdp</item>
+        <item name="backgroundTint">@color/pk_material_button_color_state</item>
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.Button.Medium</item>
+        <item name="android:textColor">@color/pkWhite</item>
+        <item name="shapeAppearance">@style/Yap.Pk.ShapeAppearance.SmallComponent</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Yap.Pk.TextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:textSize">@dimen/pk_text_size_h5</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Yap.Pk.TextAppearance.Button.Small" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:textSize">@dimen/pk_text_size_c4</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Yap.Pk.TextAppearance.Button.Medium" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:fontFamily">@font/pk_roboto_regular</item>
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Yap.Pk.ShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_25sdp</item>
+    </style>
+
+
+    <style name="Yap.Pk.ShapeAppearance.circularComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_50sdp</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.Button</item>
+        <item name="shapeAppearance">@style/Yap.Pk.ShapeAppearance.Outlined</item>
+        <item name="android:paddingStart">@dimen/_50sdp</item>
+        <item name="android:paddingEnd">@dimen/_50sdp</item>
+        <item name="android:paddingTop">@dimen/_12sdp</item>
+        <item name="android:paddingBottom">@dimen/_12sdp</item>
+        <item name="strokeColor">@color/pk_outline_button_border_color_states</item>
+        <item name="backgroundTint">@color/pk_outline_button_background_color_state</item>
+        <item name="android:textColor">@color/pk_outline_button_text_color_state</item>
+        <item name="android:insetTop">@dimen/_2sdp</item>
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+        <item name="android:insetBottom">@dimen/_2sdp</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Yap.Pk.ShapeAppearance.Outlined" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_3sdp</item>
+    </style>
+
+    <style name="Yap.Pk.Widget.Button.TextButton.Small" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:paddingStart">@dimen/_15sdp</item>
+        <item name="android:paddingEnd">@dimen/_15sdp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.Button.Small</item>
+        <item name="android:textColor">@color/pkWhite</item>
+        <item name="shapeAppearance">@style/Yap.Pk.ShapeAppearance.SmallComponent</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <!--
+        Style is created for smallest buttons like in More Screen
+    -->
+    <style name="Yap.Pk.Widget.Button.TextButton.Micro" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:textAppearance">@style/Yap.Pk.TextAppearance.Button.Small</item>
+        <item name="android:textColor">@color/pkWhite</item>
+        <item name="shapeAppearance">@style/Yap.Pk.ShapeAppearance.MicroTextComponent</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Yap.Pk.ShapeAppearance.MicroTextComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_13sdp</item>
+    </style>
+
+    <!--    Switch Theme-->
+    <style name="Yap.Pk.SwitchComponent" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="android:textColor">@color/pkDarkSlateBlue</item>
+        <item name="android:textSize">@dimen/pk_text_size_h6</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="materialThemeOverlay">@style/Yap.Pk.Switch.Theme</item>
+    </style>
+
+    <style name="Yap.Pk.Switch.Theme" parent="">
+        <item name="colorAccent">@color/pkBlueWithAHintOfPurple</item>
+        <item name="colorOnSurface">@color/pkBlueWithAHintOfPurple</item>
+        <item name="colorSecondary">@color/pkBlueWithAHintOfPurple</item>
+        <item name="colorControlActivated">?attr/colorPrimary</item>
+    </style>
+
+</resources>

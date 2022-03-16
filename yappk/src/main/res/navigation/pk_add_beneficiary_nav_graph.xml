@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_add_beneficiary_nav_graph"
+    app:startDestination="@id/banksListFragment">
+
+    <fragment
+        android:id="@+id/banksListFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.addbeneficiary.bankslist.BanksListFragment"
+        android:label="BanksListFragment"
+        tools:layout="@layout/pk_fragment_banks_list">
+        <action
+            android:id="@+id/action_banksListFragment_to_findBeneficiaryAccountFragment"
+            app:destination="@id/findBeneficiaryAccountFragment" />
+        <action
+            android:id="@+id/action_banksListFragment_to_bankSearchFragment"
+            app:destination="@id/bankSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findBeneficiaryAccountFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.addbeneficiary.fetchbeneficiary.FindBeneficiaryAccountFragment"
+        android:label="FindBeneficiaryAccountFragment"
+        tools:layout="@layout/pk_fragment_find_beneficiary_account">
+        <action
+            android:id="@+id/action_findBeneficiaryAccountFragment_to_beneficiaryAccountDetailsFragment"
+            app:destination="@id/beneficiaryAccountDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/beneficiaryAccountDetailsFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.addbeneficiary.accountdetails.BeneficiaryAccountDetailsFragment"
+        android:label="BeneficiaryAccountDetailsFragment"
+        tools:layout="@layout/pk_fragment_beneficiary_account_details">
+        <action
+            android:id="@+id/action_beneficiaryAccountDetailsFragment_to_verifyOtpFragment2"
+            app:destination="@id/verifyOtpFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyOtpFragment2"
+        android:name="com.yap.yappk.pk.ui.generic.verifyotp.VerifyOtpFragment"
+        android:label="VerifyOtpFragment"
+        tools:layout="@layout/fragment_verify_otp" />
+    <fragment
+        android:id="@+id/bankSearchFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.addbeneficiary.banksearch.BankSearchFragment"
+        android:label="BankSearchFragment"
+        tools:layout="@layout/pk_fragment_bank_search">
+        <action
+            android:id="@+id/action_bankSearchFragment_to_findBeneficiaryAccountFragment"
+            app:destination="@id/findBeneficiaryAccountFragment" />
+    </fragment>
+</navigation>

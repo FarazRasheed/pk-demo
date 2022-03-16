@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.carddashboard.addexternalcarditem.AddExternalCardItemVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.yappk.pk.utils.ItemCard
+            android:id="@+id/icAddCard"
+            android:layout_width="@dimen/_210sdp"
+            android:layout_height="@dimen/_130sdp"
+            app:itemCardIcon="@drawable/pk_ic_credit_card"
+            app:itemCardTitle="@{LocalizationKt.getString(context,StringsKt.screen_add_money_card_dashboard_display_text_add_card_item)}"
+            app:itemCardTitleStyle="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

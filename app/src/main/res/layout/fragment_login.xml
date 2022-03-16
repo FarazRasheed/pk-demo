@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.digitify.testyappakistan.signin.login.LoginVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-100dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pk_ic_bubble" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivYap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_115sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_yap" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSignIn"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/pk_margin_medium_large"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_sign_in_display_text_heading_text)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLabel"
+            tools:text="@string/screen_sign_in_display_text_heading_text" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiMobileNumber"
+            style="@style/Yap.Pk.Widget.TextInputLayout.OutLined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_xl"
+            android:drawablePadding="-15dp"
+            android:paddingLeft="@dimen/pk_margin_medium_large"
+            android:paddingRight="@dimen/pk_margin_medium_large"
+            android:singleLine="true"
+            app:endIconDrawable="@{viewModel.viewState.isValid ? @drawable/pk_ic_tick : null}"
+            app:errorEnabled="@{viewModel.viewState.isError}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSignIn"
+            app:prefixText="@{viewModel.viewState.countryCode}"
+            app:startIconDrawable="@drawable/draw_icon_pk"
+            tools:prefixText="+92">
+
+            <com.yap.uikit.widget.edittexts.PhoneTextInputEditText
+                android:id="@+id/etMobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789-"
+                android:imeOptions="actionDone"
+                android:drawablePadding="@dimen/pk_margin_small"
+                android:inputType="phone"
+                app:p_showHint="false"
+                android:onTextChanged="@{viewModel::onPhoneNumberTextChanged}"
+                android:text="@={viewModel.viewState.mobile}"
+                app:prefix="@{viewModel.viewState.countryCode}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swRemember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:checked="@={viewModel.viewState.isRemember}"
+            android:padding="@dimen/pk_margin_normal"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_sign_in_label_switch_text)}"
+            android:theme="@style/PkCustomSwitch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiMobileNumber" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pk_margin_small"
+            android:enabled="@{viewModel.viewState.isValid , default = false}"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_sign_in_button_sign_in)}"
+            app:layout_constraintBottom_toTopOf="@id/clSignUp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swRemember"
+            app:layout_constraintVertical_bias="1"
+            tools:text="@string/screen_sign_in_button_sign_in" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/clSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pk_margin_large"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSignUpPrefix"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_sign_in_display_text_sign_up_prefix)}"
+                tools:text="@string/screen_sign_in_display_text_sign_up_prefix" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSignUp"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:maxLines="1"
+                android:onClick="@{viewModel::onClick}"
+                android:singleLine="true"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_sign_in_display_text_sign_up)}"
+                tools:text="@string/screen_sign_in_display_text_sign_up" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

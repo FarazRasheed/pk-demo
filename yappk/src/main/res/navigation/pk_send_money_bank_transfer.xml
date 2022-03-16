@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_send_money_bank_transfer"
+    app:startDestination="@id/mainBankTransferFragment">
+
+    <fragment
+        android:id="@+id/mainBankTransferFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.MainBankTransferFragment"
+        android:label="MainBankTransferFragment"
+        tools:layout="@layout/pk_fragment_main_bank_transfer">
+        <action
+            android:id="@+id/action_mainBankTransferFragment_to_bankBeneficiarySearchFragment"
+            app:destination="@id/bankBeneficiarySearchFragment" />
+        <action
+            android:id="@+id/action_mainBankTransferFragment_to_bankBeneficiaryDetailFragment"
+            app:destination="@id/bankBeneficiaryDetailFragment" />
+        <action
+            android:id="@+id/action_mainBankTransferFragment_to_bankTransferFragment"
+            app:destination="@id/bankTransferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankBeneficiarySearchFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.bankbeneficiarysearch.BankBeneficiarySearchFragment"
+        android:label="BankBeneficiarySearchFragment"
+        tools:layout="@layout/pk_fragment_bank_beneficiary_search" />
+    <fragment
+        android:id="@+id/bankBeneficiaryDetailFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.bankbeneficiarydetail.BankBeneficiaryDetailFragment"
+        android:label="BankBeneficiaryDetailFragment"
+        tools:layout="@layout/pk_fragment_bank_beneficiary_detail" >
+        <action
+            android:id="@+id/action_bankBeneficiaryDetailFragment_to_updateBankBeneficiaryImageFragment"
+            app:destination="@id/updateBankBeneficiaryImageFragment" />
+        <action
+            android:id="@+id/action_bankBeneficiaryDetailFragment_to_bankTransferFragment"
+            app:destination="@id/bankTransferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateBankBeneficiaryImageFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.bankbeneficiarydetail.updateprofileimage.UpdateBankBeneficiaryImageFragment"
+        android:label="UpdateBankBeneficiaryImageFragment"
+        tools:layout="@layout/pk_fragment_update_bank_beneficiary_image"/>
+    <fragment
+        android:id="@+id/bankTransferFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.transfer.BankTransferFragment"
+        android:label="BankTransferFragment"
+        tools:layout="@layout/pk_fragment_bank_transfer" >
+        <action
+            android:id="@+id/action_bankTransferFragment_to_bankTransferAmountConfirmationFragment"
+            app:destination="@id/bankTransferAmountConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankTransferAmountConfirmationFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.confirmation.BankTransferAmountConfirmationFragment"
+        android:label="BankTransferAmountConfirmationFragment"
+        tools:layout="@layout/pk_fragment_bank_transfer_amount_confirmation" >
+        <action
+            android:id="@+id/action_bankTransferAmountConfirmationFragment_to_bankTransferSuccessFragment"
+            app:destination="@id/bankTransferSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankTransferSuccessFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.success.BankTransferSuccessFragment"
+        android:label="BankTransferSuccessFragment"
+        tools:layout="@layout/pk_fragment_bank_transfer_success"/>
+</navigation>

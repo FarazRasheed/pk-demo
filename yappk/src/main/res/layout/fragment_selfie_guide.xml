@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.selfie.selfieguide.SelfieGuideVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            android:gravity="center"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_selfie_guide_display_text_title)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/screen_selfie_guide_display_text_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSubTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:gravity="center"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_selfie_guide_display_text_sub_title))}"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="@string/screen_selfie_guide_display_text_sub_title" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivSelfieGuide"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_230sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
+            app:layout_constraintBottom_toTopOf="@id/flowTip"
+            app:srcCompat="@drawable/pk_ic_selfie_guide" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowTip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:constraint_referenced_ids="ivSelfieTip,tvTip"
+            app:flow_horizontalGap="@dimen/pk_margin_normal_large"
+            app:layout_constraintBottom_toTopOf="@id/btnTakeSelfie"
+            android:layout_marginBottom="@dimen/pk_margin_large"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
+            android:layout_marginEnd="@dimen/pk_margin_medium_large"
+            android:layout_marginStart="@dimen/pk_margin_medium_large"
+            app:layout_constraintStart_toStartOf="@id/tvTitle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivSelfieTip"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
+            app:srcCompat="@drawable/pk_ic_selfie_tip" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTip"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_selfie_guide_display_text_tip))}"
+            tools:text="@string/screen_selfie_guide_display_text_tip" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTakeSelfie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_small"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_small"
+            android:layout_marginBottom="@dimen/pk_margin_large"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_selfie_guide_button_take_selfie)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1"
+            tools:text="@string/screen_selfie_guide_button_take_selfie" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

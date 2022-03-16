@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_status_nav_graph"
+    app:startDestination="@id/cardStatusFragment">
+
+    <fragment
+        android:id="@+id/cardStatusFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardstatus.CardStatusFragment"
+        android:label="CardStatusFragment"
+        tools:layout="@layout/pk_fragment_card_status"/>
+</navigation>

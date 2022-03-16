@@ -1,0 +1,37 @@
+{
+  "errors": null,
+  "data": [
+    {
+      "cardType": "DEBIT",
+      "uuid": "b65900c2-e690-4283-b471-620d98b32666",
+      "physical": true,
+      "active": false,
+      "status": "INACTIVE",
+      "blocked": false,
+      "delivered": false,
+      "cardSerialNumber": "3Zqiil0W5UV4iuJC",
+      "issuanceDate": "2021-11-05T00:00:00",
+      "maskedCardNo": "022055*****0015",
+      "atmAllowed": true,
+      "onlineBankingAllowed": false,
+      "retailPaymentAllowed": true,
+      "paymentAbroadAllowed": false,
+      "accountType": "B2C_ACCOUNT",
+      "expiryDate": "11/26",
+      "cardBalance": "0.00",
+      "cardScheme": "PayPak",
+      "currentBalance": "0.00",
+      "availableBalance": "0.00",
+      "customerId": "10000277",
+      "accountNumber": "03214730522",
+      "productCode": "PP1",
+      "pinCreated": false,
+      "frontImage": "",
+      "backImage": "",
+      "deliveryStatus": "BOOKED",
+      "pinStatus": "INACTIVE",
+      "shipmentStatus": null,
+      "nameUpdated": false
+    }
+  ]
+}

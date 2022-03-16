@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.carddetail.cardlimit.CardLimitVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_cross"
+            app:tbStartIconVisibility="true"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_card_limit_display_text_toolbar_title)}" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowRowOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium_large"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="clAtm, clRetail"
+            app:flow_verticalGap="@dimen/margin_medium_large"
+            app:flow_wrapMode="none"
+            app:layout_constraintTop_toBottomOf="@id/tbView" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAtm"
+            android:layout_width="0dp"
+            android:layout_height="100sp">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swAtm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:theme="@style/PkCustomSwitch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAtmTitle"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_limit_display_text_atm)}"
+                app:layout_constraintEnd_toStartOf="@id/swAtm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_card_limit_display_text_atm" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAtmDescription"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_limit_display_text_atm_description)}"
+                app:layout_constraintEnd_toStartOf="@id/swAtm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAtmTitle"
+                tools:text="@string/screen_card_limit_display_text_atm_description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRetail"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swRetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:theme="@style/PkCustomSwitch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRetailTitle"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_limit_display_text_retail_payment)}"
+                app:layout_constraintEnd_toStartOf="@id/swRetail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_card_limit_display_text_retail_payment" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRetailDescription"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_limit_display_text_retail_payment_description)}"
+                app:layout_constraintEnd_toStartOf="@id/swRetail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRetailTitle"
+                tools:text="@string/screen_card_limit_display_text_retail_payment_description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.cardorder.cardpaymentaddcard.CardPaymentAddCardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_cross"
+            app:tbStartIconVisibility="true"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_add_external_card_display_text_tb_title)}" />
+
+        <com.yap.uikit.widget.multiStateView.MultiStateLayout
+            android:id="@+id/multiStateView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView"
+            app:uikit_msv_animateViewChanges="false"
+            app:uikit_msv_emptyView="@layout/pk_layout_empty_view_no_results"
+            app:uikit_msv_errorView="@layout/pk_layout_error_view"
+            app:uikit_msv_loadingView="@layout/pk_layout_loading_view"
+            app:uikit_msv_viewState="loading">
+
+            <com.yap.uikit.widget.webview.AdvancedWebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.yap.uikit.widget.multiStateView.MultiStateLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

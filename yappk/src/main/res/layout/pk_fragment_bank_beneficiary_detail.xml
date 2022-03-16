@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.banktransfer.bankbeneficiarydetail.BankBeneficiaryDetailVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.yap.uikit.widget.toolbarview.ToolBarView
+                android:id="@+id/tbView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tbEndText="@{LocalizationKt.getString(context,StringsKt.common_button_save)}"
+                app:tbEndTextEnabled="@{viewModel.viewState.valid}"
+                app:tbEndTextMarginEnd="@dimen/pk_margin_normal"
+                app:tbEndTextVisibility="true"
+                app:tbStartIconDrawable="@drawable/pk_ic_close"
+                app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_display_text_tb_title)}" />
+
+            <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+                android:id="@+id/ivImage"
+                android:layout_width="@dimen/_64sdp"
+                android:layout_height="@dimen/_64sdp"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tbView" />
+
+            <View
+                android:id="@+id/v"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="@id/ivImage"
+                app:layout_constraintEnd_toEndOf="@id/ivImage"
+                app:layout_constraintHorizontal_bias="0.65"
+                app:layout_constraintStart_toStartOf="@id/ivImage"
+                app:layout_constraintTop_toTopOf="@id/ivImage"
+                app:layout_constraintVertical_bias="0.65" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivAdd"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:onClick="@{viewModel::onClick}"
+                android:src="@drawable/pk_ic_add_profile"
+                app:layout_constraintStart_toStartOf="@id/v"
+                app:layout_constraintTop_toBottomOf="@id/v" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvName"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:layout_marginEnd="@dimen/pk_margin_small"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="0dp"
+                android:lines="1"
+                app:layout_constraintEnd_toEndOf="@id/ivImage"
+                app:layout_constraintStart_toStartOf="@id/ivImage"
+                app:layout_constraintTop_toBottomOf="@id/ivImage"
+                tools:text="Sufyan Shabbir" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAccount"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:layout_marginEnd="@dimen/pk_margin_small"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="0dp"
+                android:lines="1"
+                app:layout_constraintEnd_toEndOf="@id/ivImage"
+                app:layout_constraintStart_toStartOf="@id/ivImage"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                tools:text="Sufyan Shabbir" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBankTransferTitle"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium_large"
+                android:layout_marginTop="@dimen/pk_margin_large"
+                android:layout_marginEnd="@dimen/pk_margin_small"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="0dp"
+                android:lines="1"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_display_transfer_type)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAccount"
+                tools:text="@string/screen_bank_transfer_beneficiary_detail_display_transfer_type" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivTransfer"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginTop="@dimen/pk_margin_small"
+                android:src="@drawable/pk_ic_bank_transfer"
+                app:layout_constraintStart_toStartOf="@id/tvBankTransferTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvBankTransferTitle" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBankTransfer"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_normal"
+                android:layout_marginEnd="@dimen/pk_margin_small"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="0dp"
+                android:lines="1"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_display_bank_transfer)}"
+                app:layout_constraintBottom_toBottomOf="@id/ivTransfer"
+                app:layout_constraintStart_toEndOf="@id/ivTransfer"
+                app:layout_constraintTop_toTopOf="@id/ivTransfer"
+                tools:text="@string/screen_bank_transfer_beneficiary_detail_display_bank_transfer" />
+
+            <View
+                android:id="@+id/barrierTransfer"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_normal"
+                android:layout_marginEnd="@dimen/pk_margin_large"
+                android:alpha="0.2"
+                android:background="@color/pkBlueGrey"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@id/ivImage"
+                app:layout_constraintStart_toStartOf="@id/ivTransfer"
+                app:layout_constraintTop_toBottomOf="@+id/ivTransfer" />
+
+            <com.yap.uikit.widget.nameinitialscircleimageview.NameInitialsCircleImageView
+                android:id="@+id/ivBankIcon"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_marginTop="@dimen/pk_margin_medium_large"
+                app:layout_constraintStart_toStartOf="@id/tvBankTransferTitle"
+                app:layout_constraintTop_toBottomOf="@id/barrierTransfer" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBankName"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_normal"
+                android:layout_marginEnd="@dimen/pk_margin_small"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="0dp"
+                android:lines="1"
+                app:layout_constraintBottom_toBottomOf="@id/ivBankIcon"
+                app:layout_constraintStart_toEndOf="@id/ivBankIcon"
+                app:layout_constraintTop_toTopOf="@id/ivBankIcon"
+                tools:text="Sufyan Shabbir" />
+
+            <View
+                android:id="@+id/barrierBank"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_normal"
+                android:layout_marginEnd="@dimen/pk_margin_large"
+                android:alpha="0.2"
+                android:background="@color/pkBlueGrey"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/ivTransfer"
+                app:layout_constraintTop_toBottomOf="@+id/ivBankIcon" />
+
+            <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                android:id="@+id/tlName"
+                style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                android:layout_marginTop="@dimen/pk_margin_large"
+                android:layout_marginEnd="@dimen/pk_margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:hint="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_display_hint_nick_name)}"
+                app:hintEnabled="true"
+                app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                app:hintTextColorSelected="@color/pkBlueGrey"
+                app:layout_constraintTop_toBottomOf="@id/barrierBank"
+                tools:hint="@string/screen_bank_transfer_beneficiary_detail_display_hint_nick_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNickName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_display_hint_enter_nick_name)}"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapSentences"
+                    android:maxLength="26"
+                    android:maxLines="1"
+                    android:onTextChanged="@{viewModel::onCardNameTextChanged}"
+                    android:paddingTop="33dp"
+                    android:paddingBottom="2dp"
+                    tools:text="" />
+            </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_display_button_send_money)}"
+                app:layout_constraintBottom_toTopOf="@+id/btnDelete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlName"
+                app:layout_constraintVertical_bias="1"
+                tools:text="@string/screen_bank_transfer_beneficiary_detail_display_button_send_money" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDelete"
+                style="@style/Yap.Pk.Widget.Button.TextButton.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="@dimen/pk_margin_small"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_bank_transfer_beneficiary_detail_display_button_delete)}"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/pk_text_size_h5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/screen_bank_transfer_beneficiary_detail_display_button_delete" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

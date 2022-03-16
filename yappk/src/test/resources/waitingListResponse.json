@@ -1,0 +1,22 @@
+{
+  "data": {
+    "jump": "200",
+    "waitingNewRank": 1840,
+    "waitingBehind": 20,
+    "completedKyc": false,
+    "viewable": true,
+    "gainPoints": "200",
+    "inviteeDetails": [
+      {
+        "inviteeCustomerId": "10000029",
+        "inviteeCustomerName": "Post Man One"
+      },
+      {
+        "inviteeCustomerId": "10000030",
+        "inviteeCustomerName": "Post Man Two"
+      }
+    ],
+    "totalGainedPoints": 200,
+    "waiting": false
+  }
+}

@@ -1,0 +1,115 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.CardsVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbEndIconDrawable="@drawable/pk_ic_plus_primary"
+            app:tbEndIconVisibility="@{viewModel.viewState.isAccountCreated}"
+            app:tbStartIconDrawable="@{viewModel.viewState.isListView?@drawable/pk_ic_card_pager:@drawable/pk_ic_card_list}"
+            app:tbStartIconVisibility="@{viewModel.viewState.isAccountCreated}"
+            app:tbTitleText="Your cards" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCardPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.viewState.isListView ? View.GONE :View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbView">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCardName"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_marginTop="@dimen/pk_margin_medium_small"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Primary Card" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerCard"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvCardsCount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardName" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCardsCount"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/pk_margin_xl"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="1 of 6" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCardList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.viewState.isListView ? View.VISIBLE :View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbView">
+
+            <com.yap.uikit.widget.multiStateView.MultiStateLayout
+                android:id="@+id/multiStateView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:animateLayoutChanges="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:uikit_msv_animateViewChanges="false"
+                app:uikit_msv_emptyView="@layout/pk_layout_empty_view_no_results"
+                app:uikit_msv_errorView="@layout/pk_layout_error_view"
+                app:uikit_msv_viewState="empty">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCards"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_debit_card_item" />
+            </com.yap.uikit.widget.multiStateView.MultiStateLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

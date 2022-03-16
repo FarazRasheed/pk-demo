@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.sendmoney.addbeneficiary.banksearch.BankSearchVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:background="@drawable/pk_bg_search_widget"
+            android:focusable="true"
+            android:onClick="@{viewModel::onClick}"
+            android:textAlignment="center"
+            android:theme="@style/PkAppSearchView"
+            app:closeIcon="@drawable/pk_ic_clear_field"
+            app:defaultQueryHint="Search"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toStartOf="@+id/btnCancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryBackground="@null"
+            app:queryHint="Search banks"
+            app:searchHintIcon="@drawable/pk_ic_search"
+            app:searchIcon="@drawable/pk_ic_search" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            style="@style/Yap.Pk.Widget.Button.TextButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.common_button_cancel)}"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/pk_text_size_h7"
+            app:layout_constraintBottom_toBottomOf="@id/searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/searchView"
+            tools:text="@string/common_button_cancel" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBanks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:adapter="@{viewModel.banksListAdapter}"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/pk_margin_extra_small"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            tools:itemCount="3"
+            tools:listitem="@layout/pk_layout_banks_list_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onboarding_nav_grapgh"
+    app:startDestination="@id/otpVerificationFragment">
+
+    <fragment
+        android:id="@+id/otpVerificationFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.otpverification.OTPVerificationFragment"
+        android:label="OTPVerificationFragment"
+        tools:layout="@layout/fragment_otp_verification">
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_passcodeFragment"
+            app:destination="@id/passcodeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passcodeFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.passcode.PasscodeFragment"
+        android:label="PasscodeFragment"
+        tools:layout="@layout/fragment_passcode">
+        <action
+            android:id="@+id/action_passcodeFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_passcodeFragment_to_nameVerificationFragment"
+            app:destination="@id/nameVerificationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.webview.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/pk_fragment_webview" />
+
+    <fragment
+        android:id="@+id/nameVerificationFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.fullname.NameVerificationFragment"
+        android:label="NameVerificationFragment"
+        tools:layout="@layout/fragment_name_verification">
+        <action
+            android:id="@+id/action_nameVerificationFragment_to_emailVerificationFragment"
+            app:destination="@id/emailVerificationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/emailVerificationFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.email.EmailVerificationFragment"
+        android:label="EmailVerificationFragment"
+        tools:layout="@layout/fragment_email_verification">
+        <action
+            android:id="@+id/action_emailVerificationFragment_to_signupCompletedFragment"
+            app:destination="@id/signupCompletedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signupCompletedFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.signupcompleted.SignupCompletedFragment"
+        android:label="SignupCompletedFragment"
+        tools:layout="@layout/fragment_signup_completed" >
+        <action
+            android:id="@+id/action_signupCompletedFragment_to_waitingListFragment"
+            app:destination="@id/waitingListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/waitingListFragment"
+        android:name="com.yap.yappk.pk.ui.onboarding.waitinglist.WaitingListFragment"
+        android:label="WaitingListFragment"
+        tools:layout="@layout/pk_fragment_waiting_list" />
+</navigation>

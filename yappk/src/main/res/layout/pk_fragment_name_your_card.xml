@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.carddetail.primarycarddetaildashboard.cardname.NameYouCardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_name_your_card_display_text_header)}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivCard"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_230sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/pk_card_spare" />
+
+                <com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout
+                    android:id="@+id/tlCardName"
+                    style="@style/Yap.Pk.Widget.TextInputLayout.Filled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pk_margin_medium"
+                    android:layout_marginTop="@dimen/pk_margin_normal_large"
+                    android:layout_marginEnd="@dimen/pk_margin_medium"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:hint="@{LocalizationKt.getString(context,StringsKt.screen_name_your_card_display_text_input_active_hint)}"
+                    app:hintEnabled="true"
+                    app:hintTextColorNormal="@color/pkDarkSlateBlue"
+                    app:hintTextColorSelected="@color/pkBlueGrey"
+                    app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
+                    app:layout_constraintTop_toBottomOf="@id/ivCard"
+                    tools:hint="@string/screen_name_your_card_display_text_input_active_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCardName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@{LocalizationKt.getString(context,StringsKt.screen_name_your_card_display_text_input_hint)}"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapSentences"
+                        android:maxLength="26"
+                        android:maxLines="1"
+                        android:onTextChanged="@{viewModel::onCardNameTextChanged}"
+                        android:paddingTop="33dp"
+                        android:paddingBottom="2dp"
+                        tools:text="" />
+                </com.yap.uikit.widget.edittexts.CollapsedColoredHintTextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_medium_large"
+                    android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                    android:enabled="@{viewModel.viewState.valid, default = false}"
+                    android:onClick="@{viewModel::onClick}"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.common_button_confirm)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@string/common_button_confirm" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

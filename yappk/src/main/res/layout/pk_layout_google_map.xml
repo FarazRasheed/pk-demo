@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.address.delivery.AddressSelectionVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/mapFragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cameraTargetLat="30.3753"
+            app:cameraTargetLng="69.3451" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivClose"
+            style="@style/Yap.Pk.Widget.ImageView.Circle.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:background="@color/pkBlueWithAHintOfPurple"
+            android:onClick="@{viewModel::onClick}"
+            android:tint="@color/pkWhite"
+            app:contentPadding="@dimen/_6sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pk_ic_cross" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivSearch"
+            style="@style/Yap.Pk.Widget.ImageView.Circle.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            android:background="@color/pkBlueWithAHintOfPurple"
+            android:onClick="@{viewModel::onClick}"
+            android:tint="@color/pkWhite"
+            app:contentPadding="@dimen/_6sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pk_ic_search" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivGps"
+            style="@style/Yap.Pk.Widget.ImageView.Circle.Small"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            android:background="@color/pkBlueWithAHintOfPurple"
+            android:onClick="@{viewModel::onClick}"
+            android:tint="@color/pkWhite"
+            app:contentPadding="@dimen/_6sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivSearch"
+            app:srcCompat="@drawable/pk_ic_gps" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPin"
+            style="@style/Yap.Pk.Widget.ImageView.Circle.Small"
+            android:layout_marginBottom="@dimen/pk_margin_medium_large"
+            android:visibility="invisible"
+            app:contentPadding="@dimen/_6sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pk_ic_location_pin" />
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/motionLayoutMaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutDescription="@xml/fragment_address_location_card_scene"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clLocationCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:background="@drawable/pk_bg_single_selector"
+                android:clickable="false"
+                android:padding="@dimen/pk_margin_normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/llCardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.yap.uikit.widget.skeletonlayout.SkeletonLayout
+                        android:id="@+id/ivLocationShimmer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:maskCornerRadius="@dimen/_3sdp"
+                        app:shimmerColor="#DDDDDD"
+                        app:showShimmer="true">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivLocation"
+                            android:layout_width="@dimen/_84sdp"
+                            android:layout_height="@dimen/_84sdp"
+                            android:src="@drawable/pk_location_place_holder" />
+                    </com.yap.uikit.widget.skeletonlayout.SkeletonLayout>
+
+
+                    <com.yap.uikit.widget.skeletonlayout.SkeletonLayout
+                        android:id="@+id/tvLocationNameShimmer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/pk_margin_normal_large"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ivLocationShimmer"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:maskCornerRadius="@dimen/_3sdp"
+                        app:shimmerColor="#DDDDDD"
+                        app:showShimmer="true">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvLocationName"
+                            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:text="@{viewModel.viewState.cardAddressLine1}"
+                            app:autoSizeTextType="uniform"
+                            tools:text="Unit Plaza I.I chunrigar Road  " />
+
+                    </com.yap.uikit.widget.skeletonlayout.SkeletonLayout>
+
+                    <com.yap.uikit.widget.skeletonlayout.SkeletonLayout
+                        android:id="@+id/tvLocationDescriptionShimmer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvLocationNameShimmer"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLocationNameShimmer"
+                        app:maskCornerRadius="@dimen/_3sdp"
+                        app:shimmerColor="#DDDDDD"
+                        app:showShimmer="true">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvLocationDescription"
+                            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{viewModel.viewState.cardAddressLine2}"
+                            app:autoSizeTextType="uniform"
+                            tools:text="Unit Plaza I.I chunrigar Road" />
+                    </com.yap.uikit.widget.skeletonlayout.SkeletonLayout>
+
+                    <com.yap.uikit.widget.skeletonlayout.SkeletonLayout
+                        android:id="@+id/tvConfirmLocationShimmer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/pk_margin_normal_large"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ivLocationShimmer"
+                        app:maskCornerRadius="@dimen/_14sdp"
+                        app:shimmerColor="#DDDDDD"
+                        app:showShimmer="true">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvConfirmLocation"
+                            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pk_bg_purple_rounded_corners"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:onClick="@{viewModel::onClick}"
+                            android:paddingHorizontal="@dimen/_8sdp"
+                            android:paddingVertical="@dimen/_2sdp"
+                            android:text="Confirm Location"
+                            android:textColor="@color/pkWhite" />
+                    </com.yap.uikit.widget.skeletonlayout.SkeletonLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

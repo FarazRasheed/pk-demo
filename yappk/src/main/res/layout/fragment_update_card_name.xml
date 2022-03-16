@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.cardname.updatecardname.UpdateCardNameVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.yap.uikit.widget.toolbarview.ToolBarView
+                android:id="@+id/tbView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tbStartIconDrawable="@drawable/pk_ic_close" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTitle"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                android:layout_marginTop="@dimen/pk_margin_large"
+                android:layout_marginEnd="@dimen/pk_margin_medium"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_update_card_name_display_text_title)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tbView"
+                tools:text="@string/screen_update_card_name_display_text_title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDescription"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_small"
+                android:gravity="center"
+                android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_update_card_name_display_text_sub_title))}"
+                app:layout_constraintEnd_toEndOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="@string/screen_update_card_name_display_text_sub_title" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCard"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginTop="@dimen/pk_margin_medium_large"
+                android:src="@drawable/pk_back_card"
+                app:layout_constraintEnd_toEndOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCount"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium_large"
+                android:layout_marginEnd="@dimen/pk_margin_medium_large"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_update_card_name_display_text_count, viewModel.viewState.count)}"
+                app:layout_constraintBottom_toBottomOf="@id/ivCard"
+                app:layout_constraintEnd_toEndOf="@id/ivCard"
+                tools:text="@string/screen_update_card_name_display_text_count" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvName"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_normal"
+                android:layout_marginEnd="@dimen/pk_margin_extra_small"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:gravity="start"
+                android:text="@{viewModel.viewState.cardName}"
+                android:textColor="@color/pkBlack"
+                android:ellipsize="end"
+                app:layout_constraintEnd_toStartOf="@id/tvCount"
+                app:layout_constraintBottom_toBottomOf="@id/ivCard"
+                app:layout_constraintStart_toStartOf="@+id/ivCard"
+                tools:text="Said" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/pk_margin_extra_small"
+                android:layout_marginTop="@dimen/pk_margin_normal"
+                android:layout_marginEnd="@dimen/pk_margin_small"
+                android:adapter="@{viewModel.suggestedNameAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/btnNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivCard"
+                tools:itemCount="3"
+                tools:listitem="@layout/layout_name_item" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium_large"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:layout_marginEnd="@dimen/pk_margin_medium_large"
+                android:layout_marginBottom="@dimen/pk_margin_large"
+                android:enabled="@{viewModel.viewState.isValid}"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.common_button_next)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="1"
+                tools:text="@string/common_button_next" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

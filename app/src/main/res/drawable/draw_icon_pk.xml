@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <item
+        android:drawable="@drawable/flag_pk"
+        android:gravity="top|left"
+        android:left="@dimen/_14sdp">
+
+    </item>
+    <item
+        android:drawable="@drawable/ic_navigationicons"
+        android:gravity="center_vertical|right"
+        android:left="@dimen/_35sdp">
+
+    </item>
+</layer-list>

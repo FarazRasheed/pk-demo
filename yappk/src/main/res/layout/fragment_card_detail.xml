@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.cards.carddetail.primarycarddetaildashboard.PrimaryCardDetailDashboardVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbEndIconDrawable="@drawable/pk_ic_more"
+            app:tbEndIconVisibility="true"
+            app:tbStartIconDrawable="@drawable/pk_ic_close"
+            app:tbStartIconVisibility="true"
+            app:tbTitleText="@{viewModel.viewState.cardName}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbView">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivCard"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_110sdp"
+                android:onClick="@{viewModel::onClick}"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/pk_card_spare" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pk_margin_medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivCard"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardName"
+                    style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{viewModel.viewState.cardType}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Primary card" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardNo"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.XSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_two_dp"
+                    android:gravity="center"
+                    android:text="@{viewModel.viewState.cardMaskNo}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCardName"
+                    tools:text="2345 9494 ***** 7373" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivSecure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCardNo"
+                    app:srcCompat="@drawable/pk_ic_secure_by_yap" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCardDetails"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pk_margin_normal"
+                    android:background="@drawable/pk_bg_purple_rounded_corners"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:onClick="@{viewModel::onClick}"
+                    android:paddingHorizontal="@dimen/pk_margin_normal"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_detail_display_text_card_details)}"
+                    android:textColor="@color/pkWhite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivSecure"
+                    tools:text="@string/screen_card_detail_display_text_card_details" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/clSnackbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:padding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbView" />
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clCardView">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:titleCollapseMode="fade">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCardBalance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_collapseMode="pin"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvCardBalanceLabel"
+                            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/pk_margin_small"
+                            android:layout_marginTop="@dimen/pk_margin_large"
+                            android:layout_marginEnd="@dimen/pk_margin_small"
+                            android:gravity="center"
+                            android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_detail_display_text_card_balance)}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Card balance" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvCardBalance"
+                            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@{viewModel.viewState.cardBalance}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvCardBalanceLabel"
+                            tools:text="PKR 1,000.00" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clCardActions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/pk_margin_medium"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvCardBalance">
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:id="@+id/fabCardFreeze"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/pkWhite"
+                                android:backgroundTint="@color/pkBlueWithAHintOfPurple"
+                                android:onClick="@{viewModel::onClick}"
+                                android:src="@drawable/pk_ic_lock"
+                                app:borderWidth="0dp"
+                                app:elevation="0dp"
+                                app:fabCustomSize="@dimen/_32sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.35"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:maxImageSize="@dimen/_18sdp"
+                                app:tint="@color/pkWhite" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvCardFreeze"
+                                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/pk_margin_small"
+                                android:text="@{viewModel.viewState.cardFreezeText}"
+                                app:layout_constraintEnd_toEndOf="@id/fabCardFreeze"
+                                app:layout_constraintStart_toStartOf="@id/fabCardFreeze"
+                                app:layout_constraintTop_toBottomOf="@id/fabCardFreeze"
+                                tools:text="Freeze Card" />
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:id="@+id/fabLimit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/pk_margin_xxl"
+                                android:background="@color/pkWhite"
+                                android:backgroundTint="@color/pkBlueWithAHintOfPurple"
+                                android:onClick="@{viewModel::onClick}"
+                                android:src="@drawable/pk_ic_limit"
+                                app:borderWidth="0dp"
+                                app:elevation="0dp"
+                                app:fabCustomSize="@dimen/_32sdp"
+                                app:layout_constraintStart_toEndOf="@id/fabCardFreeze"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:maxImageSize="@dimen/_18sdp"
+                                app:tint="@color/pkWhite" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvLimit"
+                                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/pk_margin_small"
+                                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_detail_display_text_limit)}"
+                                app:layout_constraintEnd_toEndOf="@id/fabLimit"
+                                app:layout_constraintStart_toStartOf="@id/fabLimit"
+                                app:layout_constraintTop_toBottomOf="@id/fabLimit"
+                                tools:text="@string/screen_card_detail_display_text_limit" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clTransactionFilter"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_marginTop="@dimen/pk_margin_normal"
+                            app:layout_constraintTop_toBottomOf="@id/clCardActions">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvTransactions"
+                                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/pk_margin_medium"
+                                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_detail_display_text_transactions)}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="@string/screen_card_detail_display_text_transactions" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvFilter"
+                                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/pk_margin_medium"
+                                android:onClick="@{viewModel::onClick}"
+                                android:text="@{LocalizationKt.getString(context,StringsKt.screen_card_detail_display_text_filter)}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="@string/screen_card_detail_display_text_filter" />
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/ivFilter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/margin_extra_small"
+                                android:onClick="@{viewModel::onClick}"
+                                android:src="@drawable/pk_ic_filter"
+                                app:layout_constraintBottom_toBottomOf="@id/tvFilter"
+                                app:layout_constraintEnd_toStartOf="@id/tvFilter"
+                                app:layout_constraintTop_toTopOf="@id/tvFilter" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvFilterCount"
+                                style="@style/Yap.Pk.Widget.TextView.PrimaryColor.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/margin_extra_small"
+                                android:background="@drawable/purple_card"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:visibility="gone"
+                                android:paddingStart="@dimen/margin_small"
+                                android:paddingTop="@dimen/margin_extra_small"
+                                android:paddingEnd="@dimen/margin_small"
+                                android:paddingBottom="@dimen/margin_extra_small"
+                                app:layout_constraintBottom_toBottomOf="@id/tvFilter"
+                                app:layout_constraintEnd_toStartOf="@id/tvFilter"
+                                app:layout_constraintTop_toTopOf="@id/tvFilter"
+                                tools:text="2" />
+
+                            <View
+                                android:id="@+id/vLine"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/margin_one_dp"
+                                android:alpha="0.3"
+                                android:background="@color/light_grey"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <com.yap.uikit.widget.multiStateView.MultiStateLayout
+                android:id="@+id/multiStateView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:animateLayoutChanges="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:uikit_msv_animateViewChanges="false"
+                app:uikit_msv_emptyView="@layout/pk_layout_empty_view_no_transaction"
+                app:uikit_msv_errorView="@layout/pk_layout_error_view"
+                app:uikit_msv_viewState="content">
+
+                <com.yap.yappk.pk.utils.pagination.PaginatedRecyclerView
+                    android:id="@+id/rvCardsTransactions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_200sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/layout_card_transaction_item" />
+            </com.yap.uikit.widget.multiStateView.MultiStateLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

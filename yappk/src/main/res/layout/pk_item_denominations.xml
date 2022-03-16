@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/clItemMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/pk_margin_medium">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvItemDenomination"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryColor.XSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pk_bg_tab_selected"
+            android:paddingHorizontal="@dimen/pk_margin_normal"
+            android:paddingTop="@dimen/pk_margin_two_dp"
+            android:paddingBottom="@dimen/pk_margin_two_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="+500" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

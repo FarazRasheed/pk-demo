@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.waitinglist.bottomsheetadapter.WaitingListItemVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvHeadingTitle"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_medium_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@{viewModel.inviteeDetail.title}"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Add a receipt"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSubTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_extra_small"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.inviteeDetail.subTitle}"
+            app:layout_constraintStart_toStartOf="@+id/tvHeadingTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeadingTitle"
+            tools:text="Add a receipt"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/pk_margin_normal_large"
+            android:layout_marginBottom="@dimen/pk_margin_normal_large"
+            android:background="@color/pkDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

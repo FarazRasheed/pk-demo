@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_change_card_pin_nav_graph"
+    app:startDestination="@id/currentCardPinFragment">
+
+    <fragment
+        android:id="@+id/currentCardPinFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.changecardpin.currentcardpin.CurrentCardPinFragment"
+        android:label="CurrentCardPinFragment"
+        tools:layout="@layout/pk_fragment_current_card_pin">
+        <action
+            android:id="@+id/action_currentCardPinFragment_to_changeCardPinFragment"
+            app:destination="@id/changeCardPinFragment" />
+
+        <action
+            android:id="@+id/action_currentCardPinFragment_to_pk_forgot_card_pin_nav_graph"
+            app:destination="@id/pk_forgot_card_pin_nav_graph" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/changeCardPinFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.changecardpin.newcardpin.ChangeCardPinFragment"
+        android:label="CardPinEnterFragment"
+        tools:layout="@layout/pk_fragment_change_card_pin">
+        <action
+            android:id="@+id/action_changeCardPinFragment_self"
+            app:destination="@id/changeCardPinFragment" />
+        <action
+            android:id="@+id/action_changeCardPinFragment_to_changeCardPinSuccessFragment"
+            app:destination="@id/changeCardPinSuccessFragment" />
+    </fragment>
+    <include app:graph="@navigation/pk_forgot_card_pin_nav_graph" />
+    <fragment
+        android:id="@+id/changeCardPinSuccessFragment"
+        android:name="com.yap.yappk.pk.ui.dashboard.cards.cardpin.changecardpin.success.ChangeCardPinSuccessFragment"
+        android:label="ChangeCardPinSuccessFragment"
+        tools:layout="@layout/pk_fragment_change_card_pin_success" />
+
+</navigation>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Headings -->
+    <dimen name="pk_text_size_h8">@dimen/_10ssp</dimen>
+    <dimen name="pk_text_size_h7">@dimen/_12ssp</dimen>
+    <dimen name="pk_text_size_h6">@dimen/_14ssp</dimen>
+    <dimen name="pk_text_size_h5">@dimen/_16ssp</dimen>
+    <dimen name="pk_text_size_h4">@dimen/_18ssp</dimen>
+    <dimen name="pk_text_size_h3">@dimen/_19ssp</dimen>
+    <dimen name="pk_text_size_h2">@dimen/_22ssp</dimen>
+    <dimen name="pk_text_size_h1">@dimen/_26ssp</dimen>
+
+
+    <!-- Content -->
+    <dimen name="pk_text_size_c_1">@dimen/_4ssp</dimen>
+    <dimen name="pk_text_size_c0">@dimen/_5ssp</dimen>
+    <dimen name="pk_text_size_c_0">@dimen/_6ssp</dimen>
+    <dimen name="pk_text_size_c1">@dimen/_9ssp</dimen>
+    <dimen name="pk_text_size_c2">@dimen/_10ssp</dimen>
+    <dimen name="pk_text_size_c3">@dimen/_11ssp</dimen>
+    <dimen name="pk_text_size_c4">@dimen/_12ssp</dimen>
+    <dimen name="pk_text_size_c5">@dimen/_13ssp</dimen>
+    <dimen name="pk_text_size_c6">@dimen/_14ssp</dimen>
+
+
+    <dimen name="pk_base_padding">16dp</dimen>
+    <dimen name="pk_btn_radius">2dp</dimen>
+    <dimen name="pk_round_radius">0dp</dimen>
+    <dimen name="pk_label_text_size">12dp</dimen>
+
+    <!-- MARGIN -->
+    <dimen name="pk_margin_zero_dp">0dp</dimen>
+    <dimen name="pk_margin_one_dp">1dp</dimen>
+    <dimen name="pk_margin_two_dp">2dp</dimen>
+    <dimen name="pk_margin_three_dp">@dimen/_3sdp</dimen>
+    <dimen name="pk_margin_extra_small">@dimen/_4sdp</dimen>
+    <dimen name="pk_margin_small">@dimen/_8sdp</dimen>
+    <dimen name="pk_margin_normal">@dimen/_12sdp</dimen>
+    <dimen name="pk_margin_normal_large">@dimen/_14sdp</dimen>
+    <dimen name="pk_margin_medium">@dimen/_16sdp</dimen>
+    <dimen name="pk_margin_medium_small">@dimen/_18sdp</dimen>
+    <dimen name="pk_margin_medium_large">@dimen/_20sdp</dimen>
+    <dimen name="pk_margin_large">@dimen/_24sdp</dimen>
+    <dimen name="pk_margin_extra_large">@dimen/_32sdp</dimen>
+    <dimen name="pk_margin_extra_large2">@dimen/_38sdp</dimen>
+    <dimen name="pk_margin_xl">@dimen/_44sdp</dimen>
+    <dimen name="pk_margin_xxl">@dimen/_56sdp</dimen>
+    <dimen name="pk_margin_btn_side_paddings">@dimen/_50sdp</dimen>
+    <dimen name="pk_margin_btn_side_paddings_xl">@dimen/_60sdp</dimen>
+    <dimen name="pk_margin_btn_side_xxl">@dimen/_70sdp</dimen>
+    <dimen name="pk_margin_xxxl">@dimen/_80sdp</dimen>
+    <dimen name="pk_margin_heading_to_field">@dimen/_50sdp</dimen>
+    <dimen name="pk_margin_field_to_field">@dimen/_40sdp</dimen>
+    <dimen name="pk_text_content_margin">@dimen/_30sdp</dimen>
+    <dimen name="pk_btn_content_margin">@dimen/_15sdp</dimen>
+    <dimen name="pk_btn_top_margin">@dimen/_70sdp</dimen>
+    <dimen name="pk_btn_bottom_margin">@dimen/_100sdp</dimen>
+    <dimen name="pk_nav_drawer_width">@dimen/_300sdp</dimen>
+    <dimen name="pk_btn_distance">@dimen/_480sdp</dimen>
+
+    <!-- PADDING -->
+    <dimen name="pk_padding_onboarding_image">-110dp</dimen>
+
+    <!-- BIOMETRIC -->
+    <dimen name="pk_biometric_bg_size">20dp</dimen>
+    <dimen name="pk_biometric_logo_size">48dp</dimen>
+    <dimen name="pk_biometric_bottom_sheet_padding">7dp</dimen>
+    <dimen name="pk_biometric_fingerprint_image_size">60dp</dimen>
+
+    <!-- Meeting Confirmation-->
+    <dimen name="pk_eid_layout_size">@dimen/_50sdp</dimen>
+
+    <!-- Searching widget height-->
+    <dimen name="pk_search_widget_height">@dimen/_30sdp</dimen>
+
+    <!--tooltipdimen-->
+
+    <dimen name="pk_tooltip_default_arrow_height">8dp</dimen>
+    <dimen name="pk_tooltip_default_arrow_width">16dp</dimen>
+    <dimen name="pk_tooltip_default_corner_radius">3dp</dimen>
+    <dimen name="pk_tooltip_default_offset">0dp</dimen>
+    <integer name="pk_tooltip_default_arrow_location">1</integer>
+    <integer name="pk_tooltip_default_arrow_alignment">3</integer>
+
+    <!-- CardView Settings-->
+    <dimen name="pk_cardview_compat_inset_shadow">@dimen/_10sdp</dimen>
+    <dimen name="pk_cardview_elevation">@dimen/_10sdp</dimen>
+    <dimen name="pk_cardview_radius">@dimen/_10sdp</dimen>
+    <dimen name="pk_toolbar_height">56dp</dimen>
+    <dimen name="pk_tooltip_elevation">@dimen/_10sdp</dimen>
+    <dimen name="pk_tooltip_radius">4dp</dimen>
+
+
+    <!--    others-->
+    <integer name="pk_note_max_length">150</integer>
+    <!--Arc Menu-->
+    <dimen name="pk_action_menu_radius">90dp</dimen>
+
+    <!--    Young Screen Dimen -->
+    <dimen name="pk_card_height">@dimen/_210sdp</dimen>
+
+    <!--    Snack Bar Textview padding -->
+    <dimen name="pk_design_snackbar_padding_vertical" tools:override="true">8dp</dimen>
+    <dimen name="pk_design_snackbar_padding_vertical_2lines" tools:override="true">8dp</dimen>
+
+
+</resources>

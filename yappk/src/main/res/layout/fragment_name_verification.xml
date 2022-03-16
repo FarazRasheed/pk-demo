@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.onboarding.fullname.NameVerificationVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_normal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvHeadingName"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+                android:layout_marginBottom="@dimen/pk_margin_heading_to_field"
+                android:gravity="center"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_name_verification_title_text)}"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_name_verification_title_text" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etName"
+                style="@style/Yap.Pk.Widget.TextInputLayout.OutLined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+                android:layout_marginTop="@dimen/pk_margin_xxxl"
+                android:hint="@{LocalizationKt.getString(context, StringsKt.screen_name_verification_first_name)}"
+                app:endIconDrawable="@{viewModel.nameValidator.firstNameValidate(viewModel.viewState.firstName) ? @drawable/pk_ic_tick : null}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeadingName"
+                tools:text="@string/screen_name_verification_first_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@{LocalizationKt.getString(context, StringsKt.screen_name_verification_first_name)}"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:maxLength="@integer/pkNameLimit"
+                    android:onTextChanged="@{viewModel::onFistNameTextChanged}"
+                    android:singleLine="true"
+                    android:text="@={viewModel.viewState.firstName}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etSirName"
+                style="@style/Yap.Pk.Widget.TextInputLayout.OutLined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pk_margin_medium_large"
+                android:layout_marginTop="@dimen/pk_margin_normal_large"
+                android:hint="@{LocalizationKt.getString(context, StringsKt.screen_name_verification_last_name)}"
+                app:endIconDrawable="@{viewModel.nameValidator.lastNameValidate(viewModel.viewState.lastName) ? @drawable/pk_ic_tick : null}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@{LocalizationKt.getString(context, StringsKt.screen_name_verification_last_name)}"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:maxLength="@integer/pkNameLimit"
+                    android:onTextChanged="@{viewModel::onLastNameTextChanged}"
+                    android:singleLine="true"
+                    android:text="@={viewModel.viewState.lastName}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:layout_marginBottom="@dimen/pk_margin_medium_large"
+                android:enabled="@{viewModel.viewState.isValid , default = false}"
+                android:onClick="@{viewModel::onClick}"
+                android:text="@{LocalizationKt.getString(context,StringsKt.common_button_next)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etSirName"
+                app:layout_constraintVertical_bias="0.98"
+                tools:text="@string/common_button_next" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pk_address_selection_navigation"
+    app:startDestination="@id/genericAddressSelectionFragment">
+
+    <fragment
+        android:id="@+id/genericAddressSelectionFragment"
+        android:name="com.yap.yappk.pk.ui.generic.address.GenericAddressSelectionFragment"
+        android:label="GenericAddressSelectionFragment"
+        tools:layout="@layout/pk_fragment_generic_address_selection">
+
+        <action
+            android:id="@+id/action_genericAddressSelectionFragment_to_cityNameFragment2"
+            app:destination="@id/cityNameFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityNameFragment2"
+        android:name="com.yap.yappk.pk.ui.kyc.address.city.CityNameFragment"
+        android:label="CityNameFragment"
+        tools:layout="@layout/fragment_city_name" />
+</navigation>

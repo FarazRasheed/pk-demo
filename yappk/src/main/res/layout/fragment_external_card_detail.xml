@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.dashboard.yapit.addmoney.dashboard.carddashboard.externalcarddetail.ExternalCardDetailVM" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yap.uikit.widget.toolbarview.ToolBarView
+            android:id="@+id/tbView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbStartIconDrawable="@drawable/pk_ic_cross"
+            app:tbStartIconVisibility="true"
+            app:tbTitleText="@{LocalizationKt.getString(context,StringsKt.screen_external_card_detail_display_text_tb_title)}" />
+
+        <com.yap.yappk.pk.utils.widgets.PaymentCard
+            android:id="@+id/pcCard"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbView"
+            app:paymentCardDateStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.XSmall"
+            app:paymentCardNameStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.XSmall"
+            app:paymentCardNumberStyle="@style/Yap.Pk.Widget.TextView.WhiteColor.Medium" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivSecure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pcCard"
+            app:srcCompat="@drawable/pk_ic_secure_by_yap" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCardName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSecure">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLableCardName"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_external_card_detail_display_text_nick_name_hint)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_external_card_detail_display_text_nick_name_hint" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCardName"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLableCardName"
+                tools:text="Jonathan Newport" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:alpha="0.5"
+                android:background="@color/pkLightBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCardNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_normal_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clCardName">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLableCardNumber"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_external_card_detail_display_text_card_hint)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_external_card_detail_display_text_card_hint" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCardNumber"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLableCardNumber"
+                tools:text="XXXX XXXX XXXX 0000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:alpha="0.5"
+                android:background="@color/pkLightBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardNumber" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_medium"
+            android:layout_marginTop="@dimen/pk_margin_normal_large"
+            android:layout_marginEnd="@dimen/pk_margin_medium"
+            android:orientation="horizontal"
+            app:constraint_referenced_ids="clCardType, clCardExpiry"
+            app:flow_horizontalGap="@dimen/pk_margin_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clCardNumber" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCardType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLableCardType"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_external_card_detail_display_text_type_hint)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_external_card_detail_display_text_type_hint" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCardType"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLableCardType"
+                tools:text="Visa" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:alpha="0.5"
+                android:background="@color/pkLightBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardType" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCardExpiry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLableCardExpiry"
+                style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{LocalizationKt.getString(context,StringsKt.screen_external_card_detail_display_text_expire_date_hint)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/screen_external_card_detail_display_text_expire_date_hint" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCardExpiry"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLableCardExpiry"
+                tools:text="12/2023" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/pk_margin_extra_small"
+                android:alpha="0.5"
+                android:background="@color/pkLightBlueGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardExpiry" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRemove"
+            style="@style/Yap.Pk.Widget.Button.TextButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/pk_margin_small"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_external_card_detail_button_text_remove_card)}"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/pk_text_size_h7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_external_card_detail_button_text_remove_card" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

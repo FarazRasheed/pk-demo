@@ -1,0 +1,166 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yap.yappk.pk.ui.kyc.uploaddocument.scan.KycScanDocumentVM" />
+
+        <import type="com.yap.yappk.localization.StringsKt" />
+
+        <import type="com.yap.yappk.localization.LocalizationKt" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/pk_margin_medium"
+        android:paddingEnd="@dimen/pk_margin_medium">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.XLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_document_scan_display_text_title)}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/screen_document_scan_display_text_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSubTitle"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_small"
+            android:gravity="center"
+            android:text="@{String.format(LocalizationKt.getString(context,StringsKt.screen_document_scan_display_text_sub_title),viewModel.sessionManager.userAccount.currentCustomer.firstName)}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="@string/screen_document_scan_display_text_sub_title" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            app:cardBackgroundColor="#502C9E"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitle">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/pk_margin_large"
+                android:paddingTop="@dimen/pk_margin_normal"
+                android:paddingEnd="@dimen/pk_margin_medium"
+                android:paddingBottom="@dimen/pk_margin_normal">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/pk_ic_profile" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvEid"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pk_margin_medium_large"
+                    android:text="@{LocalizationKt.getString(context,StringsKt.screen_document_scan_document_id_title)}"
+                    android:textColor="@color/pkWhite"
+                    app:layout_constraintLeft_toRightOf="@+id/ivProfile"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/screen_document_scan_document_id_title" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView5"
+                    style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pk_margin_medium_large"
+                    android:text="@{viewModel.viewState.cnicNumber}"
+                    android:textColor="@color/pkWhite"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEid"
+                    tools:text="12345-12345678-1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvLabelIssueDate"
+            style="@style/Yap.Pk.Widget.TextView.SecondaryColor.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pk_margin_extra_small"
+            android:layout_marginTop="@dimen/pk_margin_large"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_document_scan_label_issue_date)}"
+            app:layout_constraintStart_toStartOf="@+id/cvCard"
+            app:layout_constraintTop_toBottomOf="@+id/cvCard"
+            tools:text="@string/screen_document_scan_label_issue_date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvIssueDate"
+            style="@style/Yap.Pk.Widget.TextView.PrimaryDarkColor.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pk_margin_extra_small"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{viewModel.viewState.documentIssueDate}"
+            app:layout_constraintStart_toStartOf="@+id/tvLabelIssueDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelIssueDate"
+            tools:text="01/01/2020" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIssueDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvIssueDate"
+            app:srcCompat="@drawable/pk_ic_tick" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.common_button_confirm)}"
+            app:layout_constraintBottom_toTopOf="@+id/btnRescan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/common_button_confirm" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRescan"
+            style="@style/Yap.Pk.Widget.Button.TextButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/pk_margin_small"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@{LocalizationKt.getString(context,StringsKt.screen_document_scan_button_title_rescan_eid)}"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/pk_text_size_h5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/screen_document_scan_button_title_rescan_eid" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

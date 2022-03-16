@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.digitify.testyappakistan.onboarding.mobile.MobileNoVM" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Yap.Pk.Widget.ToolBar"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pk_margin_medium_large"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivBack"
+                        style="@style/Yap.Pk.Widget.ImageView.Circle.Small"
+                        android:layout_gravity="center_vertical"
+                        android:backgroundTint="@color/pkBlueWithAHintOfPurple"
+                        android:onClick="@{viewModel::onClick}"
+                        android:src="@drawable/pk_ic_back"
+                        app:contentPadding="@dimen/_8sdp"
+                        app:srcCompat="@drawable/pk_ic_back" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressBar"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/pk_margin_small"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/pk_margin_medium"
+                        android:layout_marginEnd="@dimen/pk_margin_medium"
+                        android:layout_weight="1"
+                        android:max="@{100}"
+                        android:secondaryProgress="@{20}"
+                        app:trackCornerRadius="@dimen/_4sdp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/tbBtnCheck"
+                        style="@style/Yap.Pk.Widget.ImageView.Circle.Small"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/pk_margin_medium_large"
+                        app:enabled="@{false}"
+                        app:srcCompat="@drawable/progress_status_background_tick" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeadingMobile"
+                style="@style/Yap.Pk.Widget.TextView.PrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_medium"
+                android:layout_marginBottom="@dimen/pk_margin_heading_to_field"
+                android:gravity="center"
+                android:text="What’s your mobile number?"
+                android:textSize="@dimen/pk_text_size_h3"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                tools:text="What’s your mobile number?" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvsubHeading"
+                style="@style/Yap.Pk.Widget.TextView.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_small"
+                android:layout_marginBottom="@dimen/pk_margin_heading_to_field"
+                android:gravity="center"
+                android:text="We’ll send an OTP to this number"
+                android:textSize="@dimen/pk_text_size_h6"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/tvHeadingMobile"
+                tools:text="We’ll send an OTP to this number" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etMobileNumber"
+                style="@style/Yap.Pk.Widget.TextInputLayout.OutLined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pk_margin_xxxl"
+                android:drawablePadding="-15dp"
+                android:paddingLeft="@dimen/pk_margin_medium_large"
+                android:paddingRight="@dimen/pk_margin_medium_large"
+                android:singleLine="true"
+                app:endIconDrawable="@{viewModel.viewState.isValid ? @drawable/pk_ic_tick : null}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvsubHeading"
+                app:prefixText="@{viewModel.viewState.countryCode}"
+                app:startIconDrawable="@drawable/draw_icon_pk"
+                tools:prefixText="+92">
+
+                <com.yap.uikit.widget.edittexts.PhoneTextInputEditText
+                    android:id="@+id/etMobileNumber2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789-"
+                    android:drawablePadding="@dimen/pk_margin_small"
+                    android:inputType="phone"
+                    app:p_showHint="false"
+                    android:onTextChanged="@{viewModel::onPhoneNumberTextChanged}"
+                    android:text="@={viewModel.viewState.mobile}"
+                    app:prefix="@{viewModel.viewState.countryCode}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/pk_margin_large"
+                android:enabled="@{viewModel.viewState.isValid , default = false}"
+                android:onClick="@{viewModel::onClick}"
+                android:text="Next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
