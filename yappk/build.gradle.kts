@@ -4,11 +4,14 @@ plugins {
     kotlin(BuildPluginsConfig.kotlinKapt)
     id(BuildPluginsConfig.kotlinParcelize)
     id(BuildPluginsConfig.androidHilt)
-}
+    id("com.github.dcendents.android-maven")
 
-apply {
-    from("../uploadLibrary.gradle")
 }
+group = "com.github.FarazRasheed"
+
+//apply {
+//    from("../uploadLibrary.gradle")
+//}
 android {
     compileSdk = (BuildAndroidConfig.COMPILE_SDK_VERSION)
 

@@ -16,8 +16,8 @@ dependencies {
 uploadArchives {
 
     repositories.mavenDeployer {
-        configuration = configurations.deployLibrary
-        repository(url: 'git:releases://git@digitify.bitbucket.org:' + COMPANY + '/' + REPOSITORY_NAME + '.git')
+//        configuration = configurations.deployLibrary
+//        repository(url: 'git:releases://git@digitify.bitbucket.org:' + COMPANY + '/' + REPOSITORY_NAME + '.git')
 
         pom.project {
             groupId = ARTIFACT_PACKAGE
